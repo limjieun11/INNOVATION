@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  color: #fff;
+  background-color: #000;
+}
+
+// 빈 줄 추가 ↓
+#container {
+  box-sizing: border-box; // 패딩 포함 높이 유지
+  width: 100vw;
+  height: calc(100vh - 120px); // 전체 높이 조절
+  padding: 60px 0; // 위아래 여백 30px
+}
