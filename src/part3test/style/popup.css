@@ -1,0 +1,39 @@
+@charset "UTF-8";
+#popup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  width: 400px;
+  max-height: 80%;
+  padding: 20px;
+  overflow-y: auto;
+  text-align: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.4);
+  transform: translate(-50%, -50%);
+}
+
+.popup-header {
+  margin-bottom: 10px;
+}
+
+.popup-body p {
+  margin-top: 10px;
+  font-size: 16px;
+}
+
+.popup-body img {
+  display: none; /* 기본은 숨김 */
+  max-width: 100%;
+  height: auto;
+  margin-top: 15px;
+}
+
+#popup button {
+  padding: 8px 16px;
+  margin-top: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}

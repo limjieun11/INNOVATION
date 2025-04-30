@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Hex Globe</title>
+
+    <link rel="stylesheet" href="../../style/style.css" />
+    <link rel="stylesheet" href="../../style/popup.css" />
+
+    <script src="https://unpkg.com/globe.gl"></script>
+    <script type="module" src="../../script/countryHexGlobe.js"></script>
+  </head>
+
+  <body>
+    <div id="globe-container"></div>
+    <div id="case-menu">
+      <button data-type="rule">안전 규정 위반</button>
+      <button data-type="build">부실공사 및 관리</button>
+      <button data-type="perception">위험 인지 실패 (과소평가)</button>
+      <button data-type="responsibility">관리 책임 부재</button>
+      <button data-type="profit">과도한 이익 추구</button>
+    </div>
+
+    <!-- 팝업 -->
+    <div id="popup" style="display: none">
+      <div class="popup-header">
+        <h2 id="popup-title">제목</h2>
+        <h3 id="popup-subtitle">부제목</h3>
+      </div>
+      <div class="popup-body">
+        <p id="popup-content">본문 내용</p>
+        <img id="popup-image" src="" alt="설명 이미지" />
+      </div>
+      <button onclick="document.getElementById('popup').style.display='none'">
+        닫기
+      </button>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country Globe</title>
+    <link rel="stylesheet" href="../../style/style.css" />
+    <link rel="stylesheet" href="../../style/popup.css" />
+    <!-- <script src="https://unpkg.com/three"></script> -->
+    <script src="https://unpkg.com/globe.gl"></script>
+    <script type="module" src="../../script/countryGlobe.js"></script>
+  </head>
+  <body>
+    <div id="globe-container"></div>
+
+    <!-- 팝업창 -->
+    <div id="popup">
+      <h2 id="popup-title">제목</h2>
+      <p id="popup-content">내용</p>
+      <button onclick="document.getElementById('popup').style.display='none'">
+        닫기
+      </button>
+    </div>
+  </body>
+</html>

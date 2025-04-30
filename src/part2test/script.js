@@ -26,7 +26,7 @@ const container = document.querySelector('#container');
 // Panolens 뷰어 생성
 const viewer = new PANOLENS.Viewer({
   container: container,
-  autoRotate: true,
+  autoRotate: false,
   autoRotateSpeed: 0.3,
   controlBar: true,
 });
@@ -34,8 +34,8 @@ const viewer = new PANOLENS.Viewer({
 // === 360도 이미지와 캡션 배열 ===
 const scenes = [
   {
-    image: './assets/images/panoramaTest.jpg',
-    caption: '4월 16일 어느 평화로운 아침',
+    image: './assets/images/StationTest2.webp',
+    caption: '지하철 n호선 어딘가',
   },
   {
     image: './assets/images/panoramaTest2.jpg',
