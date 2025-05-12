@@ -34,8 +34,8 @@ const viewer = new PANOLENS.Viewer({
 // === 360도 이미지와 캡션 배열 ===
 const scenes = [
   {
-    image: './assets/images/StationTest2.webp',
-    caption: '지하철 n호선 어딘가',
+    image: './assets/images/texturetest02.webp',
+    caption: '',
   },
   {
     image: './assets/images/panoramaTest2.jpg',

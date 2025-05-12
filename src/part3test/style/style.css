@@ -1,21 +1,22 @@
 @charset "UTF-8";
 
-/* 기본 배경 및 텍스트 설정 */
+/* ====================
+  🌐 기본 구조 설정
+==================== */
 body {
-  padding: 0;
   margin: 0;
   overflow: hidden;
-  font-family: 'Noto Sans KR', sans-serif;
   background: #fff;
 }
 
-/* 제목 스타일 (사용 중이면 유지) */
+/* ====================
+  💬 텍스트 요소 스타일
+==================== */
 h1 {
   padding: 20px;
   color: white;
 }
 
-/* 리스트 기본 */
 ul {
   padding: 20px;
 }
@@ -25,42 +26,46 @@ li {
   list-style: none;
 }
 
-/* 지구본 영역 */
-#globe-container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  height: 90vh;
-}
-
-/* 유형 버튼 영역 */
+/* =========================
+  🧭 유형 선택 메뉴 스타일
+========================= */
 #case-menu {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  z-index: 100;
   display: flex;
-  gap: 10px;
-  justify-content: center;
-  padding: 16px;
-  background-color: #f5f5f5;
-  border-top: 1px solid #ddd;
+  gap: 16px;
+  padding: 10px;
+  background-color: rgba(255 255 255 / 80%);
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0 0 0 / 15%);
+  transform: translateX(-50%);
 }
 
-/* 버튼 공통 스타일 */
+/* 🔘 버튼 공통 스타일 */
 #case-menu button {
-  padding: 10px 16px;
-  font-size: 14px;
+  min-width: 150px;
+  padding: 12px 20px;
+  font-size: 15px;
+  line-height: 1.4;
   color: #333;
+  text-align: center;
   cursor: pointer;
   background-color: #fff;
   border: 1px solid #999;
   border-radius: 6px;
+  transition: background-color 0.2s ease;
 }
 
-/* 호버 효과 */
+/* 🔘 호버 효과 */
 #case-menu button:hover {
   background-color: #eee;
 }
 
-/* 선택된 버튼 강조 */
+/* 🔘 선택된 버튼 강조 */
 #case-menu button.active {
-  color: white;
-  background-color: black;
+  color: #fff;
+  background-color: #333;
+  border-color: #333;
 }
