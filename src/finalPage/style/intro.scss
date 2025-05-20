@@ -1,0 +1,44 @@
+body,
+html {
+  height: 100vh; // ✅ 전체 뷰포트에 맞춤
+  padding: 0;
+  margin: 0;
+  overflow: hidden; // ✅ 스크롤 제거
+}
+
+.video-container {
+  position: fixed; // ✅ 고정 위치
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+
+  video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // ✅ 화면에 꽉 차게
+  }
+}
+
+#skip-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
+
+  img {
+    width: 40px; // 버튼 크기 조정
+    height: auto;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Intro</title>
+    <link rel="stylesheet" href="style/intro.css" />
+  </head>
+  <body>
+    <div class="video-container">
+      <video id="intro-video" autoplay muted playsinline>
+        <source src="assets/video/intro.mp4" type="video/mp4" />
+        브라우저가 영상을 지원하지 않습니다.
+      </video>
+      <!-- 이미지 버튼으로 skip 처리 -->
+      <button id="skip-button">
+        <img src="assets/svg/skip_icon.svg" alt="Skip Button" />
+      </button>
+    </div>
+
+    <script>
+      const video = document.getElementById('intro-video');
+      const skip = document.getElementById('skip-button');
+
+      video.addEventListener('ended', () => {
+        window.location.href = 'main.html';
+      });
+
+      skip.addEventListener('click', () => {
+        window.location.href = 'main.html';
+      });
+
+      // 30초 후 강제 이동 (예비 처리)
+      setTimeout(() => {
+        window.location.href = 'main.html';
+      }, 30000);
+    </script>
+  </body>
+</html>
