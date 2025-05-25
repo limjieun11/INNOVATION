@@ -4,36 +4,36 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Intro</title>
-    <link rel="stylesheet" href="style/intro.css" />
+    <link rel="stylesheet" href="./style/intro.css" />
   </head>
   <body>
     <div class="video-container">
       <video id="intro-video" autoplay muted playsinline>
-        <source src="assets/video/intro.mp4" type="video/mp4" />
+        <source src="./assets/video/intro.mp4" type="video/mp4" />
         브라우저가 영상을 지원하지 않습니다.
       </video>
-      <!-- 이미지 버튼으로 skip 처리 -->
       <button id="skip-button">
-        <img src="assets/svg/skip_icon.svg" alt="Skip Button" />
+        <img src="./assets/svg/skip_icon.svg" alt="Skip" />
       </button>
     </div>
 
+    <!-- 페이드 아웃 오버레이 -->
+    <div id="fade-overlay"></div>
+
     <script>
       const video = document.getElementById('intro-video');
-      const skip = document.getElementById('skip-button');
+      const skipBtn = document.getElementById('skip-button');
+      const fade = document.getElementById('fade-overlay');
 
-      video.addEventListener('ended', () => {
-        window.location.href = 'main.html';
-      });
+      function fadeOutAndRedirect() {
+        fade.classList.add('fade-out');
+        setTimeout(() => {
+          window.location.href = './main.html';
+        }, 1000); // 페이드 아웃 시간과 일치
+      }
 
-      skip.addEventListener('click', () => {
-        window.location.href = 'main.html';
-      });
-
-      // 30초 후 강제 이동 (예비 처리)
-      setTimeout(() => {
-        window.location.href = 'main.html';
-      }, 30000);
+      video.addEventListener('ended', fadeOutAndRedirect);
+      skipBtn.addEventListener('click', fadeOutAndRedirect);
     </script>
   </body>
 </html>

@@ -3,7 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MAIN</title>
+    <title>메인 페이지</title>
+
+    <!-- 🎨 메인 스타일 연결 -->
+    <link rel="stylesheet" href="./style/main.css" />
+
+    <!-- 💥 p5.js 라이브러리 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+
+    <!-- 🧩 캔버스 유틸 함수 (선택) -->
+    <script src="./script/mainJs/p5Util.js"></script>
+
+    <!-- 🌌 파티클 클래스 정의 -->
+    <script src="./script/mainJs/particle.js"></script>
+
+    <!-- 🧠 메인 파티클 드로잉 로직 -->
+    <script src="./script/mainJs/sketch.js"></script>
   </head>
-  <body></body>
+
+  <body>
+    <!-- 🌆 배경 이미지 -->
+    <img
+      class="background-image"
+      src="./assets/png/mainPage_test02.png"
+      alt="배경 이미지"
+    />
+
+    <!-- 🖼️ 연작처당 PNG는 p5.js 캔버스로 대체되므로 DOM에 불필요
+    <img id="particle-image" src="./assets/png/title1.png" alt="연작처당" />
+    -->
+
+    <!-- 🪐 캔버스 삽입용 div -->
+    <img id="title2" src="./assets/png/title2.png" alt="전거지감" />
+    <img id="title3" src="./assets/png/title3.png" alt="망양지탄" />
+    <img id="title4" src="./assets/png/title4.png" alt="유비무환" />
+    <div id="canvas-container"></div>
+  </body>
 </html>

@@ -1,13 +1,14 @@
 body,
 html {
-  height: 100vh; // ✅ 전체 뷰포트에 맞춤
+  height: 100vh;
   padding: 0;
   margin: 0;
-  overflow: hidden; // ✅ 스크롤 제거
+  overflow: hidden;
+  background: #000;
 }
 
 .video-container {
-  position: fixed; // ✅ 고정 위치
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
@@ -18,27 +19,44 @@ html {
     display: block;
     width: 100%;
     height: 100%;
-    object-fit: cover; // ✅ 화면에 꽉 차게
+    object-fit: cover;
   }
 }
 
 #skip-button {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  z-index: 10;
-  padding: 0;
+  top: 24px;
+  right: 24px;
+  z-index: 2;
   cursor: pointer;
   background: none;
   border: none;
 
   img {
-    width: 40px; // 버튼 크기 조정
+    width: 40px;
     height: auto;
     transition: transform 0.2s ease;
 
     &:hover {
       transform: scale(1.1);
     }
+  }
+}
+
+// 🔥 페이드 아웃 오버레이
+#fade-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  background: black;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+
+  &.fade-out {
+    opacity: 1;
   }
 }
