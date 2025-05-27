@@ -1,0 +1,109 @@
+@charset "UTF-8";
+/* 🌌 기본 구조 */
+body {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: black;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* 🌍 지구 컨테이너 */
+#globe-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+}
+#globe-container canvas {
+  z-index: 1;
+  pointer-events: auto;
+}
+
+/* 🧭 유형 메뉴 버튼 */
+#case-menu {
+  position: fixed;
+  top: 60px;
+  left: 30px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 20px;
+  color: white;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid #0ff;
+  border-radius: 4px;
+}
+
+#case-menu button {
+  width: 180px;
+  padding: 10px 12px;
+  font-size: 14px;
+  color: #ccc;
+  text-align: left;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  border-left: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+#case-menu button:hover {
+  color: #0ff;
+}
+
+#case-menu button.active {
+  font-weight: 600;
+  color: #fff;
+  border-left: 2px solid #0ff;
+}
+
+/* 📝 설명 텍스트 박스 */
+#type-description-box {
+  position: fixed;
+  bottom: 40px;
+  left: 30px;
+  z-index: 50;
+  max-width: 300px;
+  padding: 12px 16px;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #ddd;
+  background: rgba(0, 0, 0, 0.5);
+  border-left: 3px solid #0ff;
+}
+
+#back-button {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  z-index: 100;
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #fff;
+  border-radius: 6px;
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
+  transition: background 0.3s ease;
+}
+#back-button:hover {
+  background: rgba(0, 255, 255, 0.2);
+}

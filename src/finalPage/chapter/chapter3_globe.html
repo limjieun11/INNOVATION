@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHAPTER 3 - Globe</title>
+    <link rel="stylesheet" href="../style/chapter3Style/chapter3Main.css" />
+    <link rel="stylesheet" href="../style/chapter3Style/popup.css" />
+    <script src="https://unpkg.com/globe.gl"></script>
+  </head>
+  <body>
+    <!-- 🔽 배경 이미지 -->
+    <img
+      class="background-image"
+      src="../assets/png/chapter/chapter3MainBg.png"
+      alt="배경 이미지"
+    />
+
+    <!-- 🌍 지구 컨테이너 -->
+    <div id="globe-container"></div>
+
+    <!-- 🧭 유형 버튼 목록 -->
+    <div id="case-menu">
+      <button data-type="rule" class="active">안전 규정 위반</button>
+      <button data-type="build">부실공사 및 관리</button>
+      <button data-type="perception">위험 인지 실패</button>
+      <button data-type="responsibility">관리 책임 부재</button>
+      <button data-type="profit">과도한 이익 추구</button>
+    </div>
+
+    <!-- 📄 설명 박스 -->
+    <div id="type-description-box">
+      <p id="type-description">
+        안전 규정을 무시하고 반복적인 경고에도 불구하고 조치를 취하지 않아
+        발생한 사례들을 모았습니다.
+      </p>
+    </div>
+
+    <!-- ❗ 팝업 창 -->
+    <div id="popup" style="display: none">
+      <div class="popup-header">
+        <h2 id="popup-title">제목</h2>
+        <h3 id="popup-subtitle">부제목</h3>
+      </div>
+      <div class="popup-body">
+        <p id="popup-content">본문 내용</p>
+        <img id="popup-image" src="" alt="설명 이미지" />
+      </div>
+      <button onclick="document.getElementById('popup').style.display='none'">
+        닫기
+      </button>
+    </div>
+
+    <button id="back-button" onclick="history.back()">⏎ BACK</button>
+
+    <!-- 🌐 지구 JS 모듈 -->
+    <script
+      type="module"
+      src="../script/chapter3Js/countryHexGlobe.js"
+    ></script>
+  </body>
+</html>

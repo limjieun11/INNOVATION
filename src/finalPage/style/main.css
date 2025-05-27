@@ -1,3 +1,4 @@
+@charset "UTF-8";
 body,
 html {
   padding: 0;
@@ -12,7 +13,8 @@ html {
   z-index: 0;
   width: 100vw;
   height: 100vh;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 #particle-image {
@@ -49,32 +51,26 @@ html {
   transition: animation 0.1s ease;
   animation: fade-blink 3s ease-in-out infinite;
 }
-
 #title2:hover {
-  animation: fade-blink-fast 0.3s ease-in-out infinite;
+  animation: fade-blink-fast 0.7s ease-in-out infinite;
 }
 
 @keyframes fade-blink {
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0;
   }
 }
 @keyframes fade-blink-fast {
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0;
   }
 }
-
 #title3 {
   position: absolute;
   top: 55%;
@@ -86,7 +82,6 @@ html {
   transform: translateX(-50%);
   transition: filter 0.3s ease;
 }
-
 #title3:hover {
   filter: blur(0);
 }
@@ -102,8 +97,64 @@ html {
   transform: translateX(-50%);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
 #title4:hover {
   opacity: 1;
-  transform: translateX(-50%) scale(1.5);
+  transform: translateX(-50%) scale(1.7);
+}
+
+.chapter-btn {
+  position: absolute;
+  z-index: 6;
+  width: 97px;
+  transition: transform 0.3s ease;
+}
+.chapter-btn img {
+  display: block;
+  width: 100%;
+  transition: opacity 0.3s ease;
+}
+
+#btn-ignorance img {
+  content: url("../assets/png/Btn/무시_textBtn.png");
+}
+#btn-ignorance img:hover {
+  content: url("../assets/png/Btn/무시_textBtnHover.png");
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+#btn-warning img {
+  content: url("../assets/png/Btn/경고_textBtn.png");
+}
+#btn-warning img:hover {
+  content: url("../assets/png/Btn/경고_textBtnHover.png");
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+#btn-reflection img {
+  content: url("../assets/png/Btn/성찰_textBtn.png");
+}
+#btn-reflection img:hover {
+  content: url("../assets/png/Btn/성찰_textBtnHover.png");
+}
+
+.chapter-btn#btn-regret img {
+  content: url("../assets/png/Btn/후회_textBtn.png");
+}
+.chapter-btn#btn-regret img:hover {
+  content: url("../assets/png/Btn/후회_textBtnHover.png");
+}
+
+#btn-ignorance {
+  bottom: 68.2%;
+  left: 3%;
+}
+
+#btn-warning {
+  bottom: 47%;
+  left: 65%;
+}
+
+#btn-regret {
+  bottom: 25%;
+  left: 30%;
 }
