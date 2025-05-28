@@ -1,4 +1,5 @@
 import { openPopup } from './popup.js';
+import { popupData } from './popupData.js';
 
 const globeContainer = document.getElementById('globe-container');
 
@@ -19,10 +20,17 @@ const world = Globe()(globeContainer)
   .polygonAltitude((feat) => countryAltitudes[feat.properties.name] || 0)
   .polygonsTransitionDuration(300)
   .hexPolygonColor(() => 'white')
-  .hexPolygonAltitude((d) => (d.properties.altitude || 0.1) + 0.3)
-  .onHexPolygonClick((hex) =>
-    openPopup(hex.properties.name, '전조 사례 등록 예정')
-  );
+  .hexPolygonAltitude((d) => (d.properties.altitude || 0.1) + 0.3);
+world.onHexPolygonClick((hex) => {
+  const caseName = hex?.properties?.name;
+  const data = popupData[caseName];
+
+  if (data) {
+    openPopup(caseName, data.headline, data.address, data.image);
+  } else {
+    openPopup(caseName, '전조 사례 등록 예정', '', '');
+  }
+});
 
 // Globe 회전 및 상호작용 설정
 world.controls().enabled = true;
@@ -58,8 +66,7 @@ const fullDataset = {
   rule: {
     countries: [
       'South Korea',
-      'United States of America',
-      'Japan',
+      'United States',
       'Bahamas',
       'Vietnam',
       'Spain',
@@ -75,93 +82,57 @@ const fullDataset = {
       'Pakistan',
       'Brazil',
       'Iraq',
+      'Japan',
       'United Kingdom',
       'India',
-      'North Atlantic Ocean',
     ],
     hexPoints: [
-      // 🇰🇷 South Korea - 11건
+      // 대한민국
       { lat: 36.815, lng: 127.119, name: '천안 열차', altitude: 0.85 },
-      { lat: 35.211, lng: 128.56, name: '모산 수학여행', altitude: 0.82 },
-      { lat: 37.342, lng: 127.95, name: '원주터널 열차', altitude: 0.86 },
-      { lat: 37.524, lng: 126.97, name: '이리역 폭발', altitude: 0.84 },
-      { lat: 35.838, lng: 128.737, name: '경산 열차', altitude: 0.88 },
-      { lat: 35.423, lng: 127.595, name: '천호대교 버스', altitude: 0.83 },
-      { lat: 35.314, lng: 127.729, name: '지리산 폭우', altitude: 0.81 },
+      { lat: 35.211, lng: 128.56, name: '모산 수학여행', altitude: 0.85 },
+      { lat: 37.342, lng: 127.95, name: '원주터널 열차', altitude: 0.9 },
+      { lat: 37.524, lng: 126.97, name: '이리역 폭발', altitude: 0.9 },
+      { lat: 35.838, lng: 128.737, name: '경산 열차', altitude: 0.8 },
+      { lat: 35.423, lng: 127.595, name: '천호대교 버스', altitude: 0.85 },
+      { lat: 35.314, lng: 127.729, name: '지리산 폭우', altitude: 0.8 },
       { lat: 35.879, lng: 128.628, name: '대구 지하철', altitude: 0.95 },
-      { lat: 36.991, lng: 127.112, name: '평택 크레인', altitude: 0.87 },
-      { lat: 35.693, lng: 129.051, name: '언양 화재', altitude: 0.86 },
-      { lat: 37.652, lng: 126.794, name: '유세버스 화재', altitude: 0.84 },
+      { lat: 36.991, lng: 127.112, name: '평택 크레인', altitude: 0.85 },
+      { lat: 35.693, lng: 129.051, name: '언양 분기점 화재', altitude: 0.85 },
+      { lat: 37.652, lng: 126.794, name: '안철수 유세버스', altitude: 0.85 },
 
-      // 🇺🇸 United States of America - 8건
+      // 미국
       { lat: 44.9778, lng: -93.265, name: '펨버톤 대화재', altitude: 1.0 },
       { lat: 40.7128, lng: -74.006, name: '트라이앵글 화재', altitude: 1.0 },
-      { lat: 32.7157, lng: -117.1611, name: '샌디에이고 항공', altitude: 0.95 },
+      { lat: 32.7767, lng: -96.797, name: '샌디에이고 항공', altitude: 1.0 },
       { lat: 38.9072, lng: -77.0369, name: '닉슨보거 극장', altitude: 1.0 },
-      { lat: 28.5383, lng: -81.3792, name: '플로리다 사고', altitude: 0.95 },
+      { lat: 28.5383, lng: -81.3792, name: '플로리다', altitude: 0.95 },
       { lat: 39.7392, lng: -104.9903, name: '덴버 디스코', altitude: 0.95 },
       { lat: 30.3322, lng: -81.6557, name: '잭슨빌 호텔', altitude: 0.95 },
       { lat: 39.0997, lng: -94.5786, name: '캔자스시티', altitude: 1.0 },
 
-      // 🇯🇵 Japan
-      { lat: 35.6895, lng: 139.6917, name: '도쿄 사고', altitude: 0.95 },
-
-      // 🇧🇸 Bahamas
+      // 기타 국가
       { lat: 25.0343, lng: -77.3963, name: '바하마 화재', altitude: 1.0 },
-
-      // 🇻🇳 Vietnam
       { lat: 21.0285, lng: 105.8542, name: '베트남 사고', altitude: 0.9 },
+      { lat: 40.4168, lng: -3.7038, name: '스페인 로스레테오', altitude: 0.9 },
+      { lat: 50.4501, lng: 30.5234, name: '우크라이나 브리유', altitude: 0.9 },
+      { lat: 55.7558, lng: 37.6173, name: '러시아 페름', altitude: 1.0 },
+      { lat: 50.8503, lng: 4.3517, name: '벨기에 참사', altitude: 0.9 },
+      { lat: 51.1657, lng: 10.4515, name: '독일 참사', altitude: 1.0 },
+      { lat: 13.7563, lng: 100.5018, name: '방콕 쑤완나품', altitude: 1.0 },
+      { lat: 59.3293, lng: 18.0686, name: '스웨덴 에테보리', altitude: 1.0 },
+      { lat: -23.4425, lng: -58.4438, name: '파라과이 야순', altitude: 0.9 },
+      { lat: -0.7893, lng: 113.9213, name: '인도네시아', altitude: 1.0 },
+      { lat: 41.9028, lng: 12.4964, name: '이탈리아 제노바', altitude: 1.0 },
+      { lat: 33.6844, lng: 73.0479, name: '파키스탄 카라치', altitude: 0.95 },
+      { lat: -14.235, lng: -51.9253, name: '브라질', altitude: 0.95 },
+      { lat: 33.3128, lng: 44.3615, name: '이라크 바그다드', altitude: 0.95 },
 
-      // 🇪🇸 Spain (중복 있음)
-      { lat: 40.4168, lng: -3.7038, name: '로스레테오 사고', altitude: 0.9 },
-
-      // 🇺🇦 Ukraine
-      { lat: 50.4501, lng: 30.5234, name: '브리유 사고', altitude: 0.9 },
-
-      // 🇷🇺 Russia
-      { lat: 55.7558, lng: 37.6173, name: '페름 참사', altitude: 1.0 },
-
-      // 🇧🇪 Belgium
-      { lat: 50.8503, lng: 4.3517, name: '벨기에 사고', altitude: 0.9 },
-
-      // 🇩🇪 Germany
-      { lat: 51.1657, lng: 10.4515, name: '독일 사고', altitude: 1.0 },
-
-      // 🇹🇭 Thailand
-      { lat: 13.7563, lng: 100.5018, name: '방콕 참사', altitude: 1.0 },
-
-      // 🇸🇪 Sweden
-      { lat: 59.3293, lng: 18.0686, name: '에테보리 사고', altitude: 1.0 },
-
-      // 🇵🇾 Paraguay
-      { lat: -23.4425, lng: -58.4438, name: '야순 화재', altitude: 0.9 },
-
-      // 🇮🇩 Indonesia
-      { lat: -6.2088, lng: 106.8456, name: '인도네시아 사고', altitude: 1.0 },
-
-      // 🇮🇹 Italy
-      { lat: 41.9028, lng: 12.4964, name: '제노바 사고', altitude: 1.0 },
-
-      // 🇵🇰 Pakistan
-      { lat: 24.8607, lng: 67.0011, name: '카라치 참사', altitude: 0.95 },
-
-      // 🇧🇷 Brazil
-      { lat: -14.235, lng: -51.9253, name: '브라질 사고', altitude: 0.95 },
-
-      // 🇮🇶 Iraq
-      { lat: 33.3128, lng: 44.3615, name: '바그다드 사고', altitude: 0.95 },
-
-      // 🇬🇧 United Kingdom
+      // 여분 처리 (예: 명확한 좌표 없을 시 수도 또는 중심도시 기준)
+      { lat: 35.6895, lng: 139.6917, name: '도쿄 사고', altitude: 0.95 },
       { lat: 51.5072, lng: -0.1276, name: '런던 사고', altitude: 1.0 },
-
-      // 🇮🇳 India
-      { lat: 28.6139, lng: 77.209, name: '뉴델리 화재', altitude: 0.95 },
-
-      // 🌊 North Atlantic Ocean
-      { lat: 36.0, lng: -43.0, name: '북대서양 항공 사고', altitude: 1.0 },
+      { lat: 28.6139, lng: 77.209, name: '인도 뉴델리', altitude: 0.95 },
     ],
   },
-
   build: {
     countries: [
       'South Korea',
@@ -530,3 +501,13 @@ document.querySelectorAll('#case-menu button').forEach((btn) => {
 
 // ✅ 첫 유형 자동 실행
 document.querySelector('#case-menu button')?.click();
+
+// countryHexGlobe.js 하단에 추가
+document
+  .querySelector('#popup #popup-content')
+  .addEventListener('click', () => {
+    openDetailPopup(
+      '이건 상세 설명입니다. 더 자세한 정보가 나와요.',
+      'image_path.png'
+    );
+  });

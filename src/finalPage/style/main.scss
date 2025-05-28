@@ -3,6 +3,7 @@ html {
   padding: 0;
   margin: 0;
   overflow: hidden;
+  cursor: none;
 }
 
 .background-image {
@@ -109,11 +110,55 @@ html {
   }
 }
 
+#safety-wrapper {
+  position: absolute;
+  top: 1%; // 원하는 위치 조정
+  left: 49%;
+  z-index: 8;
+  width: 160px; // 이미지 너비에 맞게 조정
+  height: auto;
+  transform: translateX(-50%);
+
+  #safety-scribble {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
+    opacity: 1;
+    transition: opacity 0.2s ease;
+  }
+
+  &:hover #safety-scribble {
+    opacity: 0;
+  }
+}
+
+.safety-title-container {
+  position: relative;
+  display: inline-block;
+
+  .strike-through {
+    position: absolute;
+    top: 48%; // 필요에 따라 조정
+    left: 50%;
+    z-index: 2;
+    width: 200px; // 낙서 png 너비
+    pointer-events: none;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.4s ease;
+  }
+
+  &:hover .strike-through {
+    opacity: 0;
+  }
+}
+
 // ✅ 버튼 공통 스타일
 .chapter-btn {
   position: absolute;
   z-index: 6;
   width: 97px;
+  cursor: none;
   transition: transform 0.3s ease;
 
   img {
@@ -121,6 +166,20 @@ html {
     width: 100%;
     transition: opacity 0.3s ease;
   }
+}
+
+#cursor-circle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  width: 60px; // 원 크기
+  height: 60px;
+  pointer-events: none;
+  background-color: rgb(255 255 255 / 82.6%); // 배경이 어두울 경우 효과적
+  border-radius: 50%;
+  mix-blend-mode: difference;
+  transform: translate(-50%, -50%);
 }
 
 // ✅ 각 버튼별 스타일 (순서대로 배치해야 Lint 오류 없음)
@@ -145,6 +204,8 @@ html {
 }
 
 // 성찰 버튼
+
+/* 버튼 순서로 인해 의도적으로 규칙 무시함 */
 /* stylelint-disable-next-line no-descending-specificity */
 #btn-reflection img {
   content: url('../assets/png/Btn/성찰_textBtn.png');
@@ -178,4 +239,9 @@ html {
 #btn-regret {
   bottom: 25%;
   left: 30%;
+}
+
+#btn-reflection {
+  bottom: 1.5%;
+  left: 87%;
 }

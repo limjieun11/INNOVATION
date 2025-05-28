@@ -39,3 +39,10 @@ function draw() {
     p.show();
   });
 }
+
+// 마우스 따라다니는 커스텀 커서
+document.addEventListener('mousemove', function (e) {
+  const cursor = document.getElementById('cursor-circle');
+  cursor.style.top = e.clientY + 'px';
+  cursor.style.left = e.clientX + 'px';
+});
