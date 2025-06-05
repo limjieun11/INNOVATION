@@ -1,0 +1,29 @@
+body {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: black;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  object-fit: cover;
+}
+
+#container {
+  position: absolute;
+  top: 230px; /* 이미지 기준으로 위치 조정 */
+  left: 50%;
+  z-index: 5;
+  width: 84%; /* 너비를 비율로 */
+  height: 700px; /* 고정 높이 또는 비율 */
+  box-shadow: 0 0 40px rgba(0 0 0 / 80%);
+  transform: translateX(-50%);
+}

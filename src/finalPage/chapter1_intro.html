@@ -4,6 +4,73 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ignore chapter</title>
+    <link rel="stylesheet" href="./style/chapter1Style/chapter1.css" />
   </head>
-  <body></body>
+  <body>
+    <!-- 🔙 좌상단 Back 버튼 -->
+    <img
+      class="back-button"
+      src="./assets/png/left_backBtn.png"
+      alt="뒤로가기 버튼"
+      onclick="history.back()"
+    />
+
+    <!-- 🏷️ 상단 중앙 타이틀 -->
+    <img
+      src="./assets/png/연작처당_챕터1인트로타이틀.png"
+      alt="연작처당"
+      class="title-image"
+      id="chapter-title"
+    />
+
+    <div id="title-tooltip">
+      "집안의 위험을 모르는 참새처럼 위기의식을 갖지 못한 사람들" 사건이
+      벌어졌음에도 사람들의 시선이 무뎌지고, 참사를 ‘댓글’과 ‘논쟁’으로만
+      소비하는 현대 사회의 안전불감증을 고발합니다. 이 챕터는 실제 사고 뉴스에
+      달린 댓글들을 아카이빙함으로써, 누군가의 비극 조차 익숙한 인터넷 반응으로
+      흘려보내는 사회적 태도를 조명합니다. “경고는 있었지만, 공감은 없었다”는
+      메시지를 통해 우리가 잃어버린 감각이 무엇인지 돌아 보게 만듭니다.
+    </div>
+
+    <!-- 🌪️ 떠다니는 오브젝트 -->
+    <div id="object-container">
+      <img
+        src="./assets/chapter1/chapter1_case01.png"
+        class="floating-obj"
+        data-target="./chapter/chapter1/case01.html"
+      />
+      <img
+        src="./assets/chapter1/chapter1_case02.png"
+        class="floating-obj"
+        data-target="case2.html"
+      />
+      <img
+        src="./assets/chapter1/chapter1_case03.png"
+        class="floating-obj"
+        data-target="case3.html"
+      />
+      <img
+        src="./assets/chapter1/chapter1_case04.png"
+        class="floating-obj"
+        data-target="case4.html"
+      />
+      <img
+        src="./assets/chapter1/chapter1_case05.png"
+        class="floating-obj"
+        data-target="case5.html"
+      />
+      <img
+        src="./assets/chapter1/chapter1_case06.png"
+        class="floating-obj"
+        data-target="case6.html"
+      />
+    </div>
+    <!-- 🚨 하단 경고 텍스트 -->
+    <div class="warning-bar">
+      실제 기사 댓글을 기반으로 재구성한 창작 콘텐츠이며, 특정 인물이나 단체가
+      식별되지 않도록 일부 표현은 수정·보완되었습니다.
+    </div>
+
+    <script type="module" src="./script/chapter1Js/chapter1_intro.js"></script>
+  </body>
 </html>

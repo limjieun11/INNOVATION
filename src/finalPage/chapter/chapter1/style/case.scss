@@ -1,0 +1,61 @@
+body {
+  margin: 0;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #000;
+  background: #fff;
+}
+
+.article-container {
+  max-width: 800px;
+  padding: 40px 20px;
+  margin: 0 auto;
+}
+
+.article-title {
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.article-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+#balloon-container {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1000px; // 첫 말풍선 위치 여백
+}
+
+.balloon {
+  width: fit-content;
+  max-width: 80%; // ⬅ 여유가 되면 90~95%까지도 가능
+  padding: 12px 16px;
+  background: #fff;
+  border: 2px solid #000;
+  border-radius: 20px;
+  box-shadow: 0 4px 6px rgb(0 0 0 / 15%);
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  &.left {
+    align-self: flex-start;
+    margin-left: 0;
+    border-top-left-radius: 0;
+  }
+
+  &.right {
+    align-self: flex-end;
+    margin-right: 0;
+    border-top-right-radius: 0;
+  }
+}

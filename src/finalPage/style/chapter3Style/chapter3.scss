@@ -14,6 +14,7 @@ html {
   height: 100vh;
   object-fit: cover;
 }
+
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -32,10 +33,31 @@ html {
   left: 23%;
   z-index: 2;
   width: 900px;
+  cursor: pointer;
   opacity: 0;
   transform: translateX(-50%, -50%);
   animation: fade-in 1s ease-out forwards;
-  animation-delay: 1.2s; // ← 여기서 나타나는 시점 조절
+  animation-delay: 1.2s;
+}
+
+#chapter-tooltip {
+  position: absolute;
+  z-index: 10;
+  display: none;
+  max-width: 520px; /* ✅ 최대 가로 너비 제한 */
+  padding: 10px 14px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 15px;
+  font-weight: 900;
+  line-height: 1.5;
+  color: #000;
+  white-space: normal; /* 줄바꿈 허용 */
+  pointer-events: none;
+  background: rgba(255 255 255);
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+  transform: translate(12px, 12px);
+  transition: opacity 0.2s ease;
 }
 
 .chapter-contents {
@@ -49,22 +71,22 @@ html {
 
 .png-button {
   position: relative;
-  z-index: 4; // 배경보다 위에 위치하도록 설정
+  z-index: 4;
   display: block;
   width: fit-content;
   margin: 600px auto 0;
   cursor: pointer;
+}
 
-  img {
-    display: block;
-    width: 200px;
-    height: auto;
-    opacity: 1;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
+.png-button img {
+  display: block;
+  width: 200px;
+  height: auto;
+  opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
 
-  &:hover img {
-    opacity: 0.9;
-    transform: scale(1.05);
-  }
+.png-button:hover img {
+  opacity: 0.9;
+  transform: scale(1.05);
 }

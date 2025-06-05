@@ -15,16 +15,43 @@
 
     <img
       class="chapter-title"
+      id="chapter-title"
       src="./assets/png/title3_white.png"
       alt="망양지탄"
     />
+
+    <div id="chapter-tooltip">
+      "우리는 참사의 결과만을 기록해왔다. 그러나 결과는 경고였고, 경고는
+      무시되었다. 지금, 되돌릴 수 없는 역사의 뒤편에 숨어 있던 전조 증상을 다시
+      바라본다."
+    </div>
+
     <img
       class="chapter-contents"
       src="./assets/png/chapter/망양지탄_뜻.png"
       alt="망양지탄뜻"
     />
+
     <a href="./chapter/chapter3_globe.html" class="png-button">
       <img src="./assets/png/Btn/chapter3StartBtn.png" alt="둘러보기 버튼" />
     </a>
+
+    <script>
+      const titleImg = document.getElementById('chapter-title');
+      const tooltip = document.getElementById('chapter-tooltip');
+
+      titleImg.addEventListener('mouseenter', () => {
+        tooltip.style.display = 'block';
+      });
+
+      titleImg.addEventListener('mouseleave', () => {
+        tooltip.style.display = 'none';
+      });
+
+      titleImg.addEventListener('mousemove', (e) => {
+        tooltip.style.left = `${e.pageX + 12}px`;
+        tooltip.style.top = `${e.pageY + 12}px`;
+      });
+    </script>
   </body>
 </html>
