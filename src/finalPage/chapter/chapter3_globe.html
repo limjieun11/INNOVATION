@@ -36,8 +36,11 @@
       </p>
     </div>
 
+    <!-- 🌑 팝업 오버레이 (어두운 배경) -->
+    <div id="popup-overlay" style="display: none"></div>
+
     <!-- ❗ 팝업 창 -->
-    <div id="popup" style="display: none">
+    <div id="popup" class="" style="display: none">
       <div class="popup-header">
         <h2 id="popup-title">제목</h2>
         <h3 id="popup-subtitle">부제목</h3>
@@ -46,11 +49,13 @@
         <p id="popup-content">본문 내용</p>
         <img id="popup-image" src="" alt="설명 이미지" />
       </div>
-      <button onclick="document.getElementById('popup').style.display='none'">
-        닫기
-      </button>
+      <!-- ✅ 닫기 버튼을 popup-footer로 감싸서 위치와 디자인 제어 -->
+      <div class="popup-footer">
+        <button id="popup-close-btn">닫기</button>
+      </div>
     </div>
 
+    <!-- ⏎ 뒤로가기 버튼 -->
     <button id="back-button" onclick="history.back()">⏎ BACK</button>
 
     <!-- 🌐 지구 JS 모듈 -->
@@ -58,5 +63,27 @@
       type="module"
       src="../script/chapter3Js/countryHexGlobe.js"
     ></script>
+
+    <!-- 팝업 열고 닫는 스크립트 -->
+    <script>
+      const popup = document.getElementById('popup');
+      const overlay = document.getElementById('popup-overlay');
+      const closeBtn = document.getElementById('popup-close-btn');
+
+      function openPopup() {
+        popup.style.display = 'flex';
+        overlay.style.display = 'block';
+        popup.classList.add('popup-open');
+      }
+
+      function closePopup() {
+        popup.style.display = 'none';
+        overlay.style.display = 'none';
+        popup.classList.remove('popup-open');
+      }
+
+      closeBtn.addEventListener('click', closePopup);
+      overlay.addEventListener('click', closePopup); // 오버레이 클릭 시 닫기
+    </script>
   </body>
 </html>

@@ -1,4 +1,20 @@
 @charset "UTF-8";
+#popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: auto;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  transition: opacity 0.3s ease;
+}
+
 #popup {
   position: fixed;
   top: 50%;
@@ -17,8 +33,7 @@
   box-shadow: 0 5px 40px rgba(0, 0, 0, 0.5);
   transform: translate(-50%, -50%);
 }
-
-.popup-header {
+#popup .popup-header {
   position: relative;
   width: 100%;
   padding: 8px 16px;
@@ -28,8 +43,7 @@
   text-align: left;
   background: #008894;
 }
-
-.popup-header::before {
+#popup .popup-header::before {
   position: absolute;
   top: 0;
   left: 0;
@@ -40,29 +54,54 @@
   background: #00e1e7;
   border-radius: 0 0 8px;
 }
-
-.popup-body {
+#popup .popup-header h2,
+#popup .popup-header h3 {
+  margin-left: 28px;
+}
+#popup:not(.detail-open) .popup-header {
+  display: none;
+}
+#popup .popup-body {
   box-sizing: border-box;
   width: 100%;
+  max-height: 460px;
   padding: 24px 24px 16px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
   text-align: center;
 }
-
-.popup-body .country {
+#popup .popup-body .headline-only {
+  display: inline-block;
+  max-width: 90%;
+  margin: 32px auto 20px;
+  font-family: Pretendard, "Noto Sans KR", sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.6;
+  color: #fff;
+  text-align: center;
+  word-break: keep-all;
+  white-space: normal;
+  transition: all 0.25s ease;
+}
+#popup .popup-body .headline-only:hover {
+  text-shadow: 0 0 6px #00e1e7, 0 0 12px #00e1e7;
+  transform: scale(1.02);
+}
+#popup .popup-body .country {
   margin-bottom: 8px;
   font-size: 14px;
   color: #e3faff;
 }
-
-.popup-body .headline {
+#popup .popup-body .headline {
   margin-bottom: 20px;
-  font-size: 18px;
-  font-weight: bold;
-  line-height: 1.5;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: left;
   white-space: pre-line;
 }
-
-.popup-body .address {
+#popup .popup-body .address {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,30 +110,11 @@
   color: #c5f5f7;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
-
-.popup-body .address::before {
+#popup .popup-body .address::before {
   margin-right: 6px;
   content: "📍";
 }
-
-#popup button {
-  padding: 8px 18px;
-  margin-top: 16px;
-  font-size: 14px;
-  font-weight: bold;
-  color: #008894;
-  cursor: pointer;
-  background: #fff;
-  border: none;
-  border-radius: 6px;
-  transition: background 0.2s ease;
-}
-
-#popup button:hover {
-  background: #e3faff;
-}
-
-.popup-image-area {
+#popup .popup-body .popup-image-area {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -105,13 +125,59 @@
   border: 1px dashed rgba(255, 255, 255, 0.3);
   border-radius: 8px;
 }
-.popup-image-area img {
+#popup .popup-body .popup-image-area img {
   max-width: 100%;
   max-height: 100%;
   border-radius: 6px;
 }
-.popup-image-area span {
+#popup .popup-body .popup-image-area span {
   font-size: 14px;
   font-style: italic;
   color: #ccc;
+}
+#popup .popup-footer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 16px 0 24px;
+  background: transparent;
+}
+#popup .popup-footer button {
+  padding: 10px 24px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #008894;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+#popup .popup-footer button:hover {
+  background: #e3faff;
+  transform: translateY(-1px);
+}
+#popup.detail-open {
+  width: 720px;
+  max-height: 85vh;
+  font-size: 16px;
+  line-height: 1.7;
+}
+#popup.detail-open .popup-body {
+  max-height: 540px;
+  padding: 32px 40px;
+  overflow-y: auto;
+  font-size: 16px;
+  font-weight: 400;
+  text-align: left;
+}
+#popup.detail-open .popup-body .headline {
+  white-space: pre-line;
+}
+#popup.detail-open .section-title {
+  display: block;
+  margin: 18px 0 6px;
+  font-size: 18px;
+  font-weight: 700;
+  color: #0ff;
 }

@@ -34,7 +34,7 @@ const viewer = new PANOLENS.Viewer({
 // === 360도 이미지와 캡션 배열 ===
 const scenes = [
   {
-    image: '../assets/panoramaTest/room.webp',
+    image: '../assets/panoramaTest/room_final2.webp',
     caption: '',
   },
   {
