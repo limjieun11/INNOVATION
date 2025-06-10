@@ -3,23 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>case01</title>
+    <title>case04</title>
     <link rel="stylesheet" href="./style/case.css" />
   </head>
   <body>
-    <!-- 기사 제목 + 이미지 고정 -->
+    <!-- 기사 이미지 + 사자성어 PNG -->
     <div class="article-container">
-      <h1 class="article-title">
-        10대들 사이에서 유행하는 놀이 이미 수십년전부터..
-      </h1>
+      <!-- 호버 시 교체되는 이미지 -->
+      <div class="image-hover-wrapper">
+        <img
+          src="/src/finalPage/assets/chapter1/keydesign/위험놀이01.jpg"
+          alt="기본 기사 이미지"
+          class="article-image base"
+        />
+        <img
+          src="/src/finalPage/assets/chapter1/keydesign/위험놀이02.jpg"
+          alt="글리치 이미지"
+          class="article-image hover"
+        />
+      </div>
+
+      <!-- 챕터 사자성어 배지 -->
       <img
-        src="../assets/sample_news.jpg"
-        alt="기사 이미지"
-        class="article-image"
+        src="/src/finalPage/assets/png/title1_white.png"
+        alt="연작처당"
+        class="chapter-badge"
       />
     </div>
 
-    <!-- 풍선이 쌓일 영역 -->
+    <!-- 풍선 댓글이 쌓일 영역 -->
     <div id="balloon-container"></div>
 
     <script src="./script/balloon_04.js"></script>
