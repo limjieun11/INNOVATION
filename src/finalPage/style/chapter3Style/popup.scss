@@ -2,13 +2,12 @@
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 999; // 팝업보다 한 단계 아래
+  z-index: 999;
   display: none;
   width: 100vw;
   height: 100vh;
   pointer-events: auto;
   background: rgb(0 0 0 / 40%);
-  opacity: 1;
   backdrop-filter: blur(2px);
   transition: opacity 0.3s ease;
 }
@@ -22,6 +21,7 @@
   flex-direction: column;
   align-items: center;
   width: 460px;
+  max-width: 95vw;
   padding: 0;
   overflow: hidden;
   font-family: 'Noto Sans KR', sans-serif;
@@ -30,6 +30,7 @@
   border-radius: 12px;
   box-shadow: 0 5px 40px rgb(0 0 0 / 50%);
   transform: translate(-50%, -50%);
+  transition: width 0.3s ease;
 
   .popup-header {
     position: relative;
@@ -65,12 +66,74 @@
 
   .popup-body {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     width: 100%;
-    max-height: 460px;
-    padding: 24px 24px 16px;
-    overflow-y: auto;
-    scroll-behavior: smooth;
-    text-align: center;
+
+    .popup-content-wrap {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      max-height: 540px;
+
+      &.horizontal {
+        flex-direction: row;
+
+        .scroll-box {
+          width: 55%;
+          max-height: 540px;
+          padding: 32px 24px 32px 40px;
+          overflow-y: auto;
+        }
+
+        .popup-image-area {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 45%;
+          padding: 32px 24px 32px 16px;
+
+          img {
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 6px;
+          }
+
+          img.wide-image {
+            max-height: 300px;
+          }
+        }
+      }
+
+      &:not(.horizontal) {
+        .scroll-box {
+          flex: 1;
+          padding: 32px 40px 16px;
+          overflow-y: auto;
+        }
+
+        .popup-image-area {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          padding: 16px 40px 32px;
+          background: rgb(255 255 255 / 8%);
+          border-top: 1px dashed rgb(255 255 255 / 30%);
+          border-radius: 8px;
+
+          img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            border-radius: 6px;
+          }
+
+          img.wide-image {
+            max-height: 300px;
+          }
+        }
+      }
+    }
 
     .headline-only {
       display: inline-block;
@@ -92,111 +155,55 @@
       }
     }
 
-    .country {
+    .scroll-box .section-title {
+      display: block;
+      margin: 18px 0 6px;
+      font-size: 18px;
+      font-weight: 700;
+      color: #0ff;
+    }
+
+    .scroll-box .headline {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.7;
+      color: #fff;
+      white-space: pre-line;
+    }
+
+    .scroll-box .country {
       margin-bottom: 8px;
       font-size: 14px;
       color: #e3faff;
     }
-
-    .headline {
-      margin-bottom: 20px;
-      font-size: 15px;
-      font-weight: 400;
-      line-height: 1.7;
-      text-align: left;
-      white-space: pre-line;
-    }
-
-    .address {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding-top: 10px;
-      font-size: 13px;
-      color: #c5f5f7;
-      border-top: 1px solid rgb(255 255 255 / 20%);
-
-      &::before {
-        margin-right: 6px;
-        content: '📍';
-      }
-    }
-
-    .popup-image-area {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 100%;
-      min-height: 180px;
-      margin-top: 16px;
-      background: rgb(255 255 255 / 8%);
-      border: 1px dashed rgb(255 255 255 / 30%);
-      border-radius: 8px;
-
-      img {
-        max-width: 100%;
-        max-height: 100%;
-        border-radius: 6px;
-      }
-
-      span {
-        font-size: 14px;
-        font-style: italic;
-        color: #ccc;
-      }
-    }
-  }
-
-  .popup-footer {
-    display: flex;
-    justify-content: center; // 중앙 정렬
-    width: 100%;
-    padding: 16px 0 24px;
-    background: transparent;
-
-    button {
-      padding: 10px 24px;
-      font-size: 14px;
-      font-weight: 600;
-      color: #008894;
-      background: #fff;
-      border: none;
-      border-radius: 8px;
-      box-shadow: 0 2px 6px rgb(0 0 0 / 10%);
-      transition: all 0.2s ease;
-
-      &:hover {
-        background: #e3faff;
-        transform: translateY(-1px);
-      }
-    }
   }
 
   &.detail-open {
-    width: 720px;
+    width: 860px;
+    max-width: 95vw;
     max-height: 85vh;
     font-size: 16px;
     line-height: 1.7;
 
     .popup-body {
       max-height: 540px;
-      padding: 32px 40px;
-      overflow-y: auto;
-      font-size: 16px;
-      font-weight: 400;
-      text-align: left;
-
-      .headline {
-        white-space: pre-line;
-      }
     }
+  }
 
-    .section-title {
-      display: block;
-      margin: 18px 0 6px;
-      font-size: 18px;
-      font-weight: 700;
-      color: #0ff;
+  button {
+    padding: 8px 18px;
+    margin-top: 16px;
+    font-size: 14px;
+    font-weight: bold;
+    color: #008894;
+    cursor: pointer;
+    background: #fff;
+    border: none;
+    border-radius: 6px;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #e3faff;
     }
   }
 }

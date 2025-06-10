@@ -38,11 +38,11 @@ function createBalloonElement(text, index) {
   balloon.textContent = text;
 
   // ✅ 세로 간격: 40~120px 랜덤
-  const verticalSpacing = Math.floor(Math.random() * 81) + 40;
+  const verticalSpacing = Math.floor(Math.random() * 100) + 40;
   balloon.style.marginBottom = `${verticalSpacing}px`;
 
   // ✅ 수평 간격: 32~128px 랜덤
-  const horizontalSpacing = Math.floor(Math.random() * 97) + 32;
+  const horizontalSpacing = Math.floor(Math.random() * 128) + 32;
   if (isLeft) {
     balloon.style.marginLeft = `${horizontalSpacing}px`;
   } else {

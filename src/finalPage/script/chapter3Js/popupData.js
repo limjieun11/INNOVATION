@@ -14,7 +14,8 @@ export const popupData = {
 ③ 사고 이후
 사고 이후 철도청은 열차 간 통신 체계, 운전 자동 제어 시스템, 경고 장치 개선을 발표했고, 기관사 교육과 통제 시스템 강화 방안이 도입됐다. 하지만 이 사고는 기존 운행 방식의 한계와 수동 운행 체계의 위험성을 드러낸 사례로 기록되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_천안열차추돌.jpg',
   },
 
   '모산 수학여행 참사': {
@@ -28,7 +29,8 @@ export const popupData = {
 ③ 사고 이후
 정부는 즉시 전국의 수학여행을 전면 중단하고, 모든 교육기관에 야외활동 시 안전 지침을 철저히 따르도록 지시했다. 해당 학교의 교장과 교사는 징계를 받았고, 버스 회사는 면허 정지 처분을 받았다. 이후 철도 건널목 안전 기준 강화와 단체 이동 시 인솔자 의무 동승, 정원 준수 등 제도적 개선이 이루어졌다. 이 사건은 안전 불감증이 교육 현장에서도 치명적인 결과를 낳을 수 있다는 교훈을 남겼다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_모산수학여행.jpg',
   },
 
   '원주 삼광터널 열차 충돌 사고': {
@@ -43,7 +45,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고를 계기로 철도청은 유지보수 작업 시 전 구간 통제나 대체 경로 확보 등의 안전지침을 도입했으며, 열차 운행과 공사 작업 간의 정보 연동 시스템을 정비하게 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_원주삼광터널.jpg',
   },
 
   '이리역 폭발 사고': {
@@ -57,7 +60,8 @@ export const popupData = {
 ③ 사고 이후
 정부는 사고 직후 철도 화물 운송 기준을 전면 개정하고, 위험물 관리 지침 및 표시 의무를 강화했다. 해당 사고는 대형 재난 예방에 있어 ‘위험 인지’와 ‘정보 전달’의 중요성을 재조명하는 계기가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_이리역.jpg',
   },
 
   '경산 열차 추돌 사고': {
@@ -72,7 +76,8 @@ export const popupData = {
 ③ 사고 이후
 철도청은 두 건의 연속 사고를 계기로 ‘추돌 방지 시스템’과 자동 속도 제어 장치 도입을 추진하고, 사고 다발 노선의 안전 진단을 실시했다. 국민적 여론도 강하게 비판하면서 철도 안전 기술의 현대화 요구가 이어졌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_경산열차.jpg',
   },
 
   '천호대교 버스 추락': {
@@ -87,7 +92,8 @@ export const popupData = {
 ③ 사고 이후
 서울시는 사고 직후 교량 안전 진단을 전면 재검토하고, 모든 다리의 난간을 재설계 및 보강하기로 했다. 이후 교량 설계 기준이 강화되었으며, 버스 안전 운행 지침도 개정되었다. 이 사고는 도심 내 노후 인프라의 위험성과 방치된 시설의 파급력을 다시금 각인시켰다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_천호대교.jpg',
   },
 
   '지리산 폭우 참사': {
@@ -101,7 +107,8 @@ export const popupData = {
 ③ 사고 이후
 총 67명이 사망·실종되는 대형 참사로 기록되었으며, 이후 하천변 야영 금지 구역 지정과 산간지역 긴급 대피 매뉴얼 강화 등 제도적 보완이 이루어졌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_지리산폭우.jpg',
   },
 
   '대구 지하철 참사': {
@@ -116,7 +123,8 @@ export const popupData = {
 ③ 사고 이후
 총 192명이 사망하고 수백 명이 부상한 이 사고는, 지하철 안전 기준 강화와 함께 전동차 내 소방 설비, 대피 안내 방송 시스템 개선 등의 법제화 계기가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_대구지하철.jpg',
   },
 
   '평택 안중 타워 크레인 붕괴 사고': {
@@ -130,7 +138,8 @@ export const popupData = {
 ③ 사고 발생 이후
 건설현장 크레인 설치 기준이 강화되고, 현장 관리감독 강화 및 사업주 형사 책임 범위가 확대되는 계기가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_평택안중크레인.jpg',
   },
 
   '경부 고속도로 언양 분기점 관광 버스 화재': {
@@ -145,7 +154,8 @@ export const popupData = {
 ③ 사고 이후
 정부는 사고 후 대형 버스에 대한 안전 검사와 비상탈출 장비 점검을 강화했고, 노후 차량의 정기 검사 기준을 조정했다. 이후 관광버스 안전 장비 강화 방안이 추진되었으며, 국민안전처 중심의 교통안전 특별 대책이 발표되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_언양분기점관광버스.jpg',
   },
 
   '안철수 유세버스 사망사고': {
@@ -159,7 +169,8 @@ export const popupData = {
 ③ 사고 이후
 이 사건을 계기로 선거 유세 차량에 대한 안전 규정 마련 필요성이 제기되었으며, 이후 중앙선관위는 유세 차량 관리 및 환기 규칙을 강화하겠다고 밝혔다. 그러나 자원봉사자에 대한 안전 교육 및 현장 안전 매뉴얼의 부재는 여전히 과제로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_안철수유세버스.jpg',
   },
 
   // 안전규정위반 해외 사례
@@ -178,7 +189,8 @@ export const popupData = {
 ③ 사고 이후
 페시티고 대화재는 단 하루 만에 도시를 폐허로 만들었고, 정확한 사망자 수조차 집계할 수 없을 만큼 피해가 극심했다. 같은 날 발생한 시카고 대화재에 비해 상대적으로 관심을 덜 받았지만, 재난 대응 체계의 미비, 도시 구조적 취약성, 기후 조건의 복합적 영향을 통합적으로 검토해야 하는 사례로 남았다. 이후 미국 내 일부 주에서는 산림 방화 규제와 화재 감시체계 도입이 시작되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_페시티고화재.jpg',
   },
 
   '트라이앵글 의류공장 화재 사고': {
@@ -193,7 +205,8 @@ export const popupData = {
 ③ 사고 이후
 트라이앵글 화재는 미국 노동운동과 산업안전 규제 강화의 전환점이 되었다. 공장주 두 명은 과실치사 혐의로 기소되었으나 무죄 판결을 받았고, 이후 뉴욕주는 노동법을 개정하고, 건물 내 피난설비와 소방안전 기준을 법제화하게 되었다. 이 사건은 오늘날까지도 산업재해와 노동자 보호의 교훈적 사례로 회자된다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_트라이앵글.jpg',
   },
 
   '타이타닉호 침몰': {
@@ -208,7 +221,8 @@ export const popupData = {
 타이타닉 침몰은 해상 안전 체계에 거대한 변화를 가져왔다. 국제사회는 1914년 해상인명안전협약(SOLAS)를 제정하며 모든 선박에 충분한 구명보트, 24시간 감시체계, 정기 훈련을 의무화했다.
 이 사건은 기술에 대한 과신, 위험 신호의 무시, 인재에 가까운 해양 참사로 오늘날까지 회자된다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_타이타닉침몰.jpg',
   },
 
   '사쿠라기초 사고': {
@@ -222,7 +236,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고로 106명이 사망하고 92명이 중경상을 입었으며, 일본 사회는 열차의 안전 설계와 관련 법규에 대한 전면 재검토를 하게 된다. 이후 절연기준, 비상문 표기 및 개방 방식, 승객 대상 안전교육 의무화 등이 논의되었지만, 본격적인 제도화에는 시간이 소요되었다. 사쿠라기초 사고는 당시 일본 철도 산업이 빠른 공급에만 치중하면서 기본적인 안전요건을 간과했던 상징적 참사로 남는다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_사쿠라기초.jpg',
   },
 
   '미카와시마 사고': {
@@ -236,7 +251,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고를 계기로 일본 철도 당국은 철도 관제 통신 체계의 구조적 개편을 시도하게 된다. 자동 정지 장치(ATS)의 본격적인 확대 도입이 추진되었고, 열차 운행 중 위기 대응 매뉴얼 정비, 대피 방송 체계, 승무원 훈련 등이 강화되었다. 그러나 사고 이전까지 이미 몇 차례 유사 사고가 있었음에도 근본적인 조치를 미루어왔다는 점에서 일본 사회의 구조적 안전 불감증이 고스란히 드러났다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_미카와시마.jpg',
   },
 
   '야머스 캐슬호 화재 사고': {
@@ -251,7 +267,8 @@ export const popupData = {
 ③ 사고 이후
 사고로 90명이 사망하였으며, 이후 미국 및 국제 해사기구(IMO)는 해상 안전 기준 강화에 나서게 된다. 특히 소방 설비, 구명보트 수량, 화재 감지 장비 등 선박 설계 기준이 새롭게 정비되었지만, 사고 당시에는 선사의 책임도 명확히 처벌되지 않아 비판을 받았다. 해당 사고는 해양 안전 관리의 맹점을 드러낸 대표적 사례로 꼽힌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_야머스캐슬호.jpg',
   },
 
   'USS 포레스탈 화재 사건': {
@@ -266,7 +283,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고로 총 134명이 사망하고 161명이 부상을 입었으며, 포레스탈 함은 작전 능력을 완전히 상실했다. 이후 미 해군은 항공모함 내 화재 진압 매뉴얼을 전면 개편하고, 무기 안전장치 사용 지침을 강화했으며, 전 승무원 대상 화재 진압 훈련을 의무화하게 되었다. 군사 작전과 별개로, 안전 관리 체계 부실이 군 조직 내에서도 대형 참사를 일으킬 수 있음을 보여준 상징적인 사건이다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_USS포레스탈.jpg',
   },
 
   '테네리페 참사': {
@@ -280,7 +298,8 @@ export const popupData = {
 ③ 사고 이후
 전 세계 항공계는 이후 관제 및 조종 간 통신 규정을 전면 개정했다. 국제민간항공기구(ICAO)는 교신 명확성, 지시어 표준화, 기장 판단력 교육 등을 의무화했고, 관제탑 인프라 및 이착륙 순서 관리 시스템을 대폭 강화했다. 테네리페 참사는 인간적 오판과 소통 실패, 외부 환경 악조건이 중첩되며 예고된 대형 인재로 기록된다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_테네리페.jpg',
   },
 
   '샌디에고 상공 공중 추돌 사고': {
@@ -295,7 +314,8 @@ export const popupData = {
 ③ 사고 이후
 해당 사고는 미국 항공관제 시스템에 큰 충격을 주었고, 이후 비주류 항공기(세스나 등)의 공항 근접 비행 규제가 강화됐다. 또한 관제탑 내 충돌 회피 시스템 개선과 레이더 기반 자동 경고 시스템 도입이 확대되었다. 샌디에고 공중 추돌 사고는 ‘항공 통제 시스템 오류’의 대가가 얼마나 참혹할 수 있는지를 극명히 보여주는 사례다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_샌디에고.jpg',
   },
 
   '호텔 뉴 재팬 화재 사고': {
@@ -309,7 +329,8 @@ export const popupData = {
 ③ 사고 이후
 사건은 일본 내 호텔 안전기준 강화와 긴급 점검 열풍을 일으켰다. 소방청은 숙박시설에 대한 전수조사를 실시했고, 도쿄 도청은 화재 대비 훈련 의무화를 고시했다. 뉴 재팬 호텔은 화재 책임으로 폐쇄되었으며, 해당 사건은 '경제 성장기의 안전불감증'을 대표하는 사례로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_호텔뉴재팬.jpg',
   },
 
   '체르노빌 원자력 발전소 폭발': {
@@ -324,7 +345,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고는 구소련 원자력 정책의 비밀주의와 구조적 결함을 드러냈고, 전 세계적으로 원전 안전기준을 재정비하는 계기가 되었다. 우크라이나와 유럽 전역에는 수십 년간 피폭 피해가 이어졌고, 약 22만 명 이상이 암이나 관련 질병에 노출된 것으로 추정된다. 체르노빌은 ‘사고보다 무서운 것은 은폐와 무지’라는 교훈을 남겼다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_체르노빌.jpg',
   },
 
   '아에로플로트 6502편 추락사고': {
@@ -338,7 +360,8 @@ export const popupData = {
 ③ 사고 이후
 해당 조종사는 생존했지만, 직무 정지와 형사 처벌을 받았다. 이후 소련 항공사 내부에서는 조종사 판단에 대한 내부 감시체계를 재정비했으며, 국제 항공계도 ‘과잉 자신감과 위험 판단 오류’를 주요 위험 요소로 인식하게 되었다. 이 사건은 ‘기술보다 인간의 자만이 더 위험하다’는 경고로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_아에로플로트.jpg',
   },
 
   '메릴랜드 열차 충돌 사고': {
@@ -352,7 +375,8 @@ export const popupData = {
 ③ 사고 이후
 미국 철도 당국은 이후 약물 검사 의무화를 포함한 규제를 대폭 강화하고, 자동 제어 장치 설치 확대를 추진했다. 이 사고는 ‘사람을 믿는 시스템의 한계’를 사회적으로 각인시켰으며, 근무자 관리의 사각지대에 대한 문제제기를 촉발했다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_메릴랜드열차.jpg',
   },
 
   '해럴드 오브 프리 엔터프리즈호 참사': {
@@ -367,7 +391,8 @@ export const popupData = {
 ③ 사고 이후
 사고는 국제 해사기구(IMO)의 대규모 조사와 규정 강화로 이어졌고, 롤온/롤오프(RoRo) 페리 안전 규정이 세계적으로 개정되는 계기가 되었다. 영국에서는 경영진의 과실 책임이 사회적으로 조명받으며 '기업 과실치사죄' 도입 논의에 불을 지폈다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_해럴드오브프리.jpg',
   },
 
   '람슈타인 에어쇼 참사': {
@@ -382,7 +407,8 @@ export const popupData = {
 ③ 사고 이후
 사고 이후 독일 정부는 군용 에어쇼 규제를 강화하고, 관람객-기동 구역 사이 거리 기준을 국제적으로 재조정했다. 에어쇼 산업 전반에 안전 리스크 재검토 바람이 불었으며, 미군과 NATO는 이후 유럽 내 에어쇼 개최를 일시 중단하기도 했다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_람슈타인에어쇼.jpg',
   },
 
   '운젠 분화': {
@@ -396,7 +422,8 @@ export const popupData = {
 ③ 사고 이후
 운젠산 참사는 일본 내 화산 감시 체계와 대응 매뉴얼 개정을 촉진했고, 특히 미디어와 연구인력의 재난 접근 규제를 강화하는 계기가 되었다. 화산재해에 대한 대중의 인식 또한 한층 진지해졌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_운젠분화.jpg',
   },
 
   '케이더 인형 공장 화재': {
@@ -410,7 +437,8 @@ export const popupData = {
 3) 사고 이후
 이 사고는 태국뿐 아니라 세계적으로 노동자 안전에 대한 관심을 불러일으켰고, 개발도상국 내 제조업체의 안전 규제 강화 요구가 높아졌다. 케이더사는 엄청난 손해배상 소송에 직면했고, 국제 브랜드와 하청 생산 구조에 대한 책임 논의가 확산되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_케이더인형.jpg',
   },
 
   '아에로플로트 593편 추락 사고': {
@@ -424,7 +452,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고는 세계적으로 조종석 접근 제한 규정 강화를 촉발시켰고, 아에로플로트 내부 안전 문화와 교육 시스템에 대한 전면 개편이 이루어졌다. 이후 항공 산업에서는 조종석 내 기록 장치 및 자동 경보 시스템이 강화되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_아에로플로트593.jpg',
   },
 
   '예테보리 디스코텍 화재': {
@@ -438,7 +467,8 @@ export const popupData = {
 ③ 사고 이후
 사고는 스웨덴 전역에 큰 충격을 주었고, 이후 청소년 대상의 모임 및 행사에 대한 안전 기준이 강화되었다. 불법 건물 사용 및 행사 운영에 대한 단속도 확대되었다. 정부는 희생자들의 명예를 기리는 추모 공원을 조성하고, 관련 법령 개정을 추진했다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_예테보리디스코텍.jpg',
   },
 
   '도카이촌 방사능 누출 사고': {
@@ -452,7 +482,8 @@ export const popupData = {
 ③ 사고 이후
 일본 정부는 사고 이후 원자력 산업의 안전 규제를 대폭 강화했고, JCO는 사실상 해체되었다. 원자력에 대한 대중의 불신이 급증했고, 이후 일본의 원전 정책에도 중대한 영향을 미쳤다. 관련자들에 대한 형사 처벌도 이루어졌으며, 안전 문화의 필요성이 강조되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_도카이촌방사능.jpg',
   },
 
   '우크라이나 르비우 국제공항 공군 에어쇼 참사': {
@@ -466,7 +497,8 @@ export const popupData = {
 ③ 사고 이후
 사고 이후 조종사 및 항공 부대 관계자들이 형사 기소되었으며, 우크라이나 공군은 에어쇼 규정을 대폭 재정비했다. 이후 국제적으로도 에어쇼의 관람객 안전 기준이 강화되었고, 항공 재난에 대한 일반인의 경각심도 크게 높아졌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_우크라이나르비우.jpg',
   },
 
   '스테이션 나이트클럽 화재 사고': {
@@ -480,7 +512,8 @@ export const popupData = {
 ③ 사고 이후
 사건 이후 나이트클럽 운영자와 밴드 매니저가 형사 기소되었으며, 전국적으로 소규모 공연장과 클럽에 대한 소방 기준이 강화되었다. 미국 내 화재안전법 개정에도 영향을 주며, 시민 안전 인식 향상의 전환점으로 작용했다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_스테이션나이트클럽.jpg',
   },
 
   '이쿠아 볼라노스 슈퍼마켓 화재': {
@@ -494,7 +527,8 @@ export const popupData = {
 ③ 사고 이후
 파라과이 정부는 슈퍼마켓 소유주를 기소하고, 관련자 다수를 업무상 과실치사 혐의로 수사했다. 이후 대형 유통 시설의 안전 점검 규정이 대폭 강화되었고, 공공 안전 교육의 중요성이 재조명되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_이쿠아볼라노스.jpg',
   },
 
   '후쿠치야마선 탈선 사고': {
@@ -508,7 +542,8 @@ export const popupData = {
 ③ 사고 이후
 사고는 일본 전역에 충격을 주며 ‘속도 중시’ 철도 운영 문화에 대한 재검토를 불러왔다. JR서일본은 경영진이 사임하고, 조직 전반에 걸친 안전 체계 점검이 이루어졌으며, 열차 운행 시스템에 자동 제동 장치가 확대 적용되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_JR후쿠치야마선.jpg',
   },
 
   '아담항공 574편 추락 사고': {
@@ -523,7 +558,8 @@ export const popupData = {
 ③ 사고 이후
 아담항공은 국제적 압력과 국내 여론에 밀려 결국 운항 정지 처분을 받았고, 인도네시아 정부는 항공사 안전 등급을 공개하는 제도를 도입했다. 저비용 항공사에 대한 관리 감독 강화 논의도 본격화되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_아담항공574.jpg',
   },
 
   '찰스턴 소파 슈퍼 스토어 화재': {
@@ -537,7 +573,8 @@ export const popupData = {
 ③ 사고 이후
 사건은 미국 내에서 화재 대응 체계와 상업시설 내 소방 기준에 대한 논쟁을 일으켰으며, 찰스턴 시는 모든 신축 상업건물에 스프링클러 설치를 의무화했다. 또한 소방관 구조 체계 개선과 화재 진압 훈련 강화가 도입되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_찰스턴소파.jpg',
   },
 
   '아에로플로트 821편 추락 사고': {
@@ -552,7 +589,8 @@ export const popupData = {
 ③ 사고 이후
 사고는 러시아 항공 안전기준의 부실함을 국제적으로 드러냈으며, 정부는 이후 파일럿 자격요건 강화, 음주 측정 제도 확대, 항공사 안전 등급 평가 등을 포함한 개혁에 착수하게 된다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_아에로플로트821.jpg',
   },
 
   '프로마야 로사지 나이트 클럽 화재': {
@@ -566,7 +604,8 @@ export const popupData = {
 ③ 사고 이후
 화재는 불꽃놀이 도중 천장 장식에 불이 붙으며 시작되었고, 순식간에 공간 전체로 확산되었다. 대피에 실패한 많은 이들이 질식이나 압사로 사망했으며, 총 156명이 숨지고 100여 명 이상이 부상을 입었다. 이 사고는 이후 러시아 전역의 실내공간 안전기준 강화로 이어졌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_프로마야로사지.jpg',
   },
 
   '폴란드 공군 Tu-154 추락 사고': {
@@ -581,7 +620,8 @@ export const popupData = {
 ③ 사고 이후
 항공기는 활주로 근처의 수목과 충돌한 후 추락했고, 탑승자 96명 전원이 사망했다. 이 사고는 단순한 조종사 실수뿐만 아니라, 안전 판단을 가로막은 체계적 문제를 상징하는 사례로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_폴란드Tu-154.jpg',
   },
 
   '코스타 콩코르디아 호 좌초 사고': {
@@ -595,7 +635,8 @@ export const popupData = {
 ③ 사고 이후
 암초에 부딪힌 크루즈는 선체가 파손되어 침수되었고, 비상 대피는 혼란 속에 이뤄졌다. 이 사고로 32명이 사망했다. 사고 이후 선박 안전 기준이 국제적으로 재정비되었고, 선장의 책임 회피는 큰 사회적 공분을 일으켰다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_코스타콩코르디아.jpg',
   },
 
   '알리 엔터프라이즈 의류공장 화재': {
@@ -610,7 +651,8 @@ export const popupData = {
 ③ 사고 이후
 화재는 전기 합선으로 시작된 것으로 추정되며, 순식간에 실내를 덮쳤다. 출입문이 잠겨 있어 직원들이 갇혀 질식 및 화상으로 289명이 사망하고, 600명 이상이 부상당했다. 이후 글로벌 공급망의 윤리 문제가 본격적으로 조명되었으며, 공장 안전에 대한 감시 체계가 강화되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_알리엔터프라이즈.jpg',
   },
 
   '스페인 갈리시아 고속열차 탈선 사고': {
@@ -625,7 +667,8 @@ export const popupData = {
 ③ 사고 이후
 탈선한 열차는 전복되며 79명이 사망하고, 140명 이상이 중경상을 입었다. 이후 스페인 철도청은 해당 구간의 자동 제어 시스템을 재정비하고, 철도 운행 안전성 기준을 강화하는 조치를 취했다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_스페인갈리시아.jpg',
   },
 
   '키스 나이트 클럽 화재': {
@@ -639,7 +682,8 @@ export const popupData = {
 ③ 사고 이후
 불은 순식간에 천장을 따라 확산됐고, 유독가스가 내부를 채우면서 수많은 이들이 질식했다. 이 사고로 242명이 사망하고 600명 이상이 부상했다. 이후 브라질 전역에서 공연장 안전 기준 강화와 비상구 확보 의무화 등의 조치가 시행되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_키스나이트클럽.jpg',
   },
 
   '고스트 쉽 창고 화재': {
@@ -654,7 +698,8 @@ export const popupData = {
 ③ 사고 이후
 화재는 전기적 결함에서 시작된 것으로 추정되며, 불길은 빠르게 내부를 덮쳤다. 출구가 없어 사람들이 갇히는 바람에 36명이 숨졌다. 이 사고 이후 미국 내 불법 개조 주거지에 대한 점검과 법적 책임에 대한 논의가 본격화되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_고스트쉽.jpg',
   },
 
   '미주리 오리보트 전복 사고': {
@@ -668,7 +713,8 @@ export const popupData = {
 ③ 사고 이후
 풍랑을 만나 배는 빠르게 침수되었고, 탑승객 다수가 선실 내부에서 탈출하지 못했다. 구조 장비도 제대로 갖추어지지 않아 피해는 더욱 컸다. 이후 미국 전역에서 오리보트에 대한 안전성 문제가 제기되었으며, 해당 운항사는 형사 기소와 함께 수십 건의 소송에 휘말렸다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_미주리오리보트.jpg',
   },
 
   '이탈리아 모타론산 케이블카 추락 사고': {
@@ -683,7 +729,8 @@ export const popupData = {
 ③ 사고 이후
 이탈리아 검찰은 안전 규정을 무시한 채 운행을 강행한 운영진과 기술자를 기소했다. 해당 시설에 대한 전면 점검이 이뤄졌고, 유사 구조의 케이블카 설비에 대한 국가 차원의 검토가 뒤따랐다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_모타론산케이블카.jpg',
   },
 
   '오사카 빌딩 화재': {
@@ -697,7 +744,8 @@ export const popupData = {
 ③ 사고 이후
 경찰 조사 결과, 방화로 추정되는 불이였지만 피해가 컸던 이유는 건물의 화재 대비 시스템 부재였다. 이후 일본 내 유사 빌딩들에 대한 소방 점검과 대피로 확보 의무 기준이 강화되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_오사카빌딩.jpg',
   },
 
   '타이타닉호 관광 잠수정 사고': {
@@ -711,7 +759,8 @@ export const popupData = {
 ③ 사고 이후
 사고 이후 전 세계적으로 민간 심해 관광의 안전성 논란이 커졌고, 규제 부재에 대한 비판이 이어졌다. 운영사 ‘오션게이트’는 사실상 활동을 중단했다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_타이타닉관광.jpg',
   },
 
   '카라코쉬 결혼식장 화재': {
@@ -725,7 +774,8 @@ export const popupData = {
 ③ 사고 이후
 대통령이 직접 유가족을 위로하고 관계자를 엄중 처벌하겠다고 밝혔으며, 전국적으로 실내 행사장의 소방 점검이 촉구되었다. 그러나 이라크 내 건축물 안전 기준의 허술함이 다시 주목받는 계기가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/safetyIMG/안전규정_카라코쉬결혼.jpg',
   },
 
   //부실공사 국내
@@ -742,7 +792,8 @@ export const popupData = {
 ③ 사고 이후
 사고는 국내 최초의 아파트 붕괴 사고로 기록되며 대규모 주택건설에 대한 안전 의식에 경종을 울렸다. 이후 서울시는 해당 부지를 전면 철거하고 아파트 건설 기준을 전면 강화했다. ‘와우아파트 붕괴’는 한국 건축사에 치명적인 오점을 남긴 사건으로 꼽힌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_와우시민.jpg',
   },
 
   '서울 시민회관 화재 사고': {
@@ -757,7 +808,8 @@ export const popupData = {
 ③ 사고 이후
 사고는 국내 최초의 아파트 붕괴 사고로 기록되며 대규모 주택건설에 대한 안전 의식에 경종을 울렸다. 이후 서울시는 해당 부지를 전면 철거하고 아파트 건설 기준을 전면 강화했다. ‘와우아파트 붕괴’는 한국 건축사에 치명적인 오점을 남긴 사건으로 꼽힌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_서울시민회관.jpg',
   },
 
   '번데기 집단 식중독 사건': {
@@ -772,7 +824,8 @@ export const popupData = {
 ③ 사고 이후
 정부는 식품위생법을 강화하고 노점상에 대한 식품 취급 규제를 도입했으며, 번데기 등 길거리 간식에 대한 위생 관리 정책이 전국적으로 확대되었다. 해당 사고는 계절성 식중독 관리의 중요성을 각인시킨 사례로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_번데기중독.jpg',
   },
 
   '부산 대아호텔 화재 사건': {
@@ -787,7 +840,8 @@ export const popupData = {
 ③ 사고 이후
 이 사건은 숙박시설의 소방시설 의무화 계기가 되었으며, 전국 호텔의 화재 안전점검이 시행되었다. 특히 방화문 유지관리와 비상조명 확보의 중요성이 강조되었다. 이후 건축물의 연기 확산 방지 대책이 강화되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_부산대아호텔.jpg',
   },
 
   '성수대교 붕괴 사고': {
@@ -802,7 +856,7 @@ export const popupData = {
 ③ 사고 이후
 정부는 전국의 교량에 대한 긴급 정밀안전진단을 실시했고, 교량 유지관리 시스템을 대대적으로 개편했다. 이 사고는 한국 사회에 ‘안전불감증’이라는 용어를 본격적으로 등장시킨 계기가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image: '/src/finalPage/chapter/chapter3Assets/SameIMG/성수대교.jpg',
   },
 
   '삼풍백화점 붕괴 사고': {
@@ -816,7 +870,7 @@ export const popupData = {
 ③ 사고 이후
 전국적으로 건축물 구조검토 및 감리제도가 강화되었으며, 책임자에 대한 실형 선고와 법적 책임이 수반되었다. ‘안전보다 이익’을 우선시한 태도는 사회 전반에 큰 충격을 주었으며, 이후 국내 안전 관련 제도 개선의 출발점이 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image: '/src/finalPage/chapter/chapter3Assets/SameIMG/삼풍백화점jpg',
   },
 
   '씨랜드 청소년 수련원 화재': {
@@ -831,7 +885,8 @@ export const popupData = {
 ③ 사고 이후
 이 사건은 국내 ‘가건물 화재 안전관리’의 경각심을 높이는 계기가 되었고, 불법 건축물 및 청소년 수련시설에 대한 전국 단위 특별점검이 실시되었다. 당시 담당 공무원과 업체 관계자들이 처벌받았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_씨랜드청소년.jpg',
   },
 
   '인천 인현동 호프집 화재': {
@@ -845,7 +900,8 @@ export const popupData = {
 ③ 사고 이후
 지하 업소에 대한 화재 안전 기준이 대폭 강화되었고, 긴급 탈출구 설치와 내부 피난 동선 확보가 의무화되었다. 비상 조명, 경보 장치, 내장재 기준 등 실질적 기준 강화의 계기가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_인현동호프집.jpg',
   },
 
   '판교 테크노밸리 축제 환풍구 붕괴 사고': {
@@ -859,7 +915,8 @@ export const popupData = {
 ③ 사고 이후
 공공장소 구조물에 대한 안전성 점검이 강화되었으며, 공연·행사 주최자의 안전 책임 기준이 명문화되었다. 불특정 다수가 몰리는 야외 행사에 대한 안전관리 매뉴얼도 새롭게 수립되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_판교테크노밸리.jpg',
   },
 
   '제천 스포츠센터 화재 사고': {
@@ -874,7 +931,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고는 ‘소방 사각지대’에 대한 사회적 경각심을 일으키며 전국 소방시설 점검의 계기가 되었다. 불법 증축과 피난로 폐쇄에 대한 처벌 기준이 강화되고, 소방청 독립 기구화 논의에도 불을 지폈다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_제천스포츠센터.jpg',
   },
 
   '광주 광역시 동구 학동 철거 건물 붕괴 사고': {
@@ -889,7 +947,8 @@ export const popupData = {
 ③ 사고 이후
 정부는 해체공사 안전 강화 방안을 발표하고, 철거 현장에 대한 감독 기준을 전면 개편했다. 특히 감리와 시공자에 대한 처벌 수위가 높아졌고, 위험 건축물 관리 시스템 도입이 추진되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_학동철거건물.jpg',
   },
 
   '이천 쿠팡 물류센터 화재 사고': {
@@ -904,7 +963,8 @@ export const popupData = {
 ③ 사고 이후
 사고 직후 쿠팡에 대한 산업안전 책임 문제가 대두되었고, 대형 물류창고에 대한 소방 기준 및 법적 책임 구조가 재정비되었다. 작업자의 안전 권리 보장에 대한 관심도 높아졌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_이천쿠팡물류.jpg',
   },
 
   '광주 화정 아이파크 붕괴 사고': {
@@ -918,7 +978,8 @@ export const popupData = {
 ③ 사고 이후
 현대산업개발은 중대한 건설 안전사고로 인해 영업정지 및 입찰 제한 처분을 받았으며, 시공사 책임 범위에 대한 사회적 논쟁이 확대되었다. 대형 건설사에 대한 신뢰성 문제가 수면 위로 떠올랐다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_광주화정아이파크.jpg',
   },
 
   //부실공사 해외
@@ -934,7 +995,8 @@ export const popupData = {
 ③ 사고 이후
 이 사건은 미국 산업사에서 최초의 대규모 공장 붕괴 사고로 기록되었으며, 이후 작업장 안전기준에 대한 사회적 논의가 시작됐다. 노동환경과 건물 구조의 안전성에 대한 관심이 높아졌고, 일부 주에서는 관련 안전 규정을 강화하는 계기가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_펨버트공장.jpg',
   },
 
   '니커보커 극장 붕괴 사고': {
@@ -949,7 +1011,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고는 설계자의 감리 부실과 도시 건축 기준 미비를 동시에 지적받는 계기가 되었으며, 미국 전역에서 건축물 설계 기준과 적설 하중 관련 규정이 개정되었다. 이후 극장 건물들에 대한 전면 점검도 이루어졌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_니커보커.jpg',
   },
 
   '바이온트댐 붕괴 사고': {
@@ -963,7 +1026,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고는 인간이 자연환경에 개입할 때 발생할 수 있는 재난의 전형으로 남았으며, 유럽 전역에서 대형 인프라 사업 시 환경영향 평가와 지질학적 안정성 검토가 의무화되는 계기를 마련했다. 해당 기업과 정부는 국민적 비난을 받았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_바이온트댐.jpg',
   },
 
   '로넌 포인트 붕괴 사고': {
@@ -977,7 +1041,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고는 조립식 건축물에 대한 전면적인 구조 안정성 재검토를 촉발했고, 영국 내 건축법이 개정되며 고층 건물의 내진 설계 및 폭발 대응 기준이 강화되었다. 시민들의 불안감은 커졌고, 수많은 유사 구조물이 철거되거나 보강되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_로넌포인트.jpg',
   },
 
   '센니치 백화점 화재 사건': {
@@ -991,7 +1056,8 @@ export const popupData = {
 ③ 사고 이후
 사건 이후 일본은 다중 이용시설에 대한 소방법을 강화하고, 지하 공간의 소방설비 의무 기준을 대폭 상향시켰다. 센니치 백화점 화재는 현대 상업시설 화재 대응 체계를 바꾼 기점이 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_센니치백화점.jpg',
   },
 
   '스카이라인 타워 붕괴 사고': {
@@ -1005,7 +1071,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고는 미국 건설업계에 큰 경각심을 주었고, 작업 순서와 구조 검토에 대한 현장 안전 규정이 강화되었다. 일부 주에서는 고층 건설 시 필수적인 제3자 감리 제도를 도입하게 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_스카이라인타워.jpg',
   },
 
   '조엘마 빌딩 화재': {
@@ -1019,7 +1086,7 @@ export const popupData = {
 ③ 사고 이후
 조엘마 빌딩 화재는 브라질 전역에 소방안전기준 개정을 촉발하였으며, 특히 고층건물의 피난 계단, 스프링클러 설치 의무화, 방염 자재 사용 등으로 이어졌다. 해당 건물은 이후 철거되었고, 유족과 생존자들의 증언은 고층 화재의 위험성을 대중에게 각인시켰다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image: '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_조엘마.jpg',
   },
 
   '하버 케이 콘도미니엄 붕괴 사고': {
@@ -1034,7 +1101,8 @@ export const popupData = {
 ③ 사고 이후
 사고 이후 미국 플로리다주는 모든 고층 콘도미니엄에 대한 정기 구조점검을 의무화하고, 주택 시공과 관련된 법규를 대폭 강화했다. 이 사고는 건축물의 구조적 안정성을 무시한 개발이 얼마나 큰 위험을 야기하는지를 보여준 대표 사례로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_하버케이콘도.jpg',
   },
 
   '하얏트 리젠시 호텔 고가 통로 붕괴': {
@@ -1048,7 +1116,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고로 114명이 사망하고 200여 명이 부상을 입었다. 이후 미국 구조공학계는 건축물에 대한 설계 변경과 검증 시스템을 철저히 개편했고, 건축 관련 책임 소재에 대한 법적 기준도 강화되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_하얏트리젠시.jpg',
   },
 
   '스타바 댐 붕괴 사고': {
@@ -1063,7 +1132,8 @@ export const popupData = {
 ③ 사고 이후
 사고는 유럽 전역에 산업 시설 관리의 중요성을 일깨웠으며, 이탈리아 정부는 산업 폐기물 처리 기준을 강화하고, 위험 시설의 지속적인 구조 안정성 검사를 의무화했다. 스타바 참사는 경제성 우선주의가 얼마나 치명적인 결과를 초래할 수 있는지를 보여주는 대표적 사례가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_스타바댐.jpg',
   },
 
   '런던 킹스 크로스 역 화재 사건': {
@@ -1077,7 +1147,8 @@ export const popupData = {
 ③ 사고 이후
 사고 이후 런던교통공사는 전 지하철역의 내화 구조 개조와 안전 매뉴얼 정비, 대피 유도 시스템 강화 등을 시행했다. 또한 이 사건은 '은폐된 위험이 어떻게 재앙으로 이어질 수 있는가'를 보여주며, 공공 인프라의 예방적 관리 필요성을 부각시켰다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_런던킹스크로스.jpg',
   },
 
   '우파 철도 참사': {
@@ -1091,7 +1162,8 @@ export const popupData = {
 ③ 사고 이후
 사건 이후 소련 전역의 노후 가스관 및 철도 인프라에 대한 전면 점검이 시작되었으나, 당시 체계적 대응에는 한계가 있었다. 이 참사는 감지된 위험 요소의 방치가 얼마나 치명적인 결과를 불러오는지를 단적으로 보여주는 사례가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      './src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_우파철도.jpg',
   },
 
   '아르망드- 세사리 스타디움 참사': {
@@ -1105,7 +1177,8 @@ export const popupData = {
 ③ 사고 이후
 사고는 프랑스 내 스포츠 시설 안전에 대한 전면 개혁을 촉발시켰으며, 대규모 군중 수용 시설에 대한 허가 절차가 대폭 강화되었다. 공공 안전보다 흥행을 우선한 결과가 가져온 참사로 기록된다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_아르망드세사리.jpg',
   },
 
   '로얄 플라자 호텔 붕괴 사고': {
@@ -1119,7 +1192,8 @@ export const popupData = {
 ③ 사고 이후
 사고 직후 정부는 건축허가와 구조 안전 기준에 대한 전면 개혁을 단행했으며, 무단 증축 및 설계 변경을 방치한 관계자들이 기소되었다. 이 사건은 개발 붐 속 안전 규정을 무시한 결과의 상징으로 남아 있다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_로얄플라자.jpg',
   },
 
   '빅 바유 캐넛 탈선 사고': {
@@ -1133,7 +1207,8 @@ export const popupData = {
 ③ 사고 이후
 사고 이후 미 연방교통안전위원회(NTSB)는 철도 교량의 충격 탐지 시스템 도입과 철교 주위 수상 교통 통제 기준 강화를 권고했다. 전조를 인식할 수 있는 기술적 감시 체계의 중요성이 조명되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_빅바유캐넛.jpg',
   },
 
   '에세데 사고': {
@@ -1147,7 +1222,7 @@ export const popupData = {
 ③ 사고 이후
 독일 연방 철도는 사고 직후 ICE 전 열차의 바퀴 설계를 변경하고, 유지관리 프로토콜을 대폭 강화했다. 신기술에 대한 과신과 위험 요소의 조기 인지 실패가 얼마나 치명적인지를 보여주는 대표적 사례다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image: '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_에세데.jpg',
   },
 
   '오스트리아 카프룬 터널 화재': {
@@ -1162,7 +1237,8 @@ export const popupData = {
 ③ 사고 이후
 사고 이후 오스트리아 정부는 모든 푸니쿨라 시스템에 대해 긴급 점검을 실시했고, 유사 설비에 대한 전면적인 개보수가 이뤄졌다. 해당 열차 운영사와 제조사는 비난을 피하지 못했으며, 사후 재발 방지 대책으로 화재 대응 체계가 대폭 강화되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_오스트리아카프룬터널.jpg',
   },
 
   '포르투갈 도루강 교량 붕괴 사고': {
@@ -1177,7 +1253,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고는 포르투갈 정부의 노후 인프라 관리 부실을 비판받는 계기가 되었으며, 이후 전국 교량 점검 체계가 도입되었다. 문제를 외면한 채 방치된 전조는 단 한순간의 붕괴로 수십 명의 생명을 앗아갔다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_포르투갈도루강.jpg',
   },
 
   '예루살렘 결혼식장 붕괴 사고': {
@@ -1192,7 +1269,8 @@ export const popupData = {
 ③ 사고 이후
 이스라엘 정부는 대대적인 건축물 안전 점검에 착수했으며, 불법 시공을 주도한 관계자들은 형사 처벌을 받았다. 이 사고는 안전 규정 위반과 감독 부재가 부른 전형적인 인재로 기록되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_예루살렘.jpg',
   },
 
   '시카고 발코니 붕괴사고': {
@@ -1207,7 +1285,8 @@ export const popupData = {
 ③ 사고 이후
 시카고시는 도시 전역의 불법 증축 건물과 발코니 구조물에 대한 전수 조사를 진행했고, 허가 없는 건축물에 대한 규제를 강화했다. 구조적 취약성을 방치한 결과가 수많은 희생으로 이어진 대표 사례가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_시카고발코니.jpg',
   },
 
   '바트 라이헨할 아이스링크 붕괴 사고': {
@@ -1222,7 +1301,8 @@ export const popupData = {
 ③ 사고 이후
 독일 정부는 전국의 공공시설에 대한 긴급 안전 점검을 지시했고, 건축물의 적설 하중 기준 강화 및 정기 점검 체계 재정비가 진행되었다. 기후 변화에 따른 리스크 대응의 필요성이 제기되며, 노후 공공시설의 안전문제가 전면적으로 재조명되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_바트라이헨할.jpg',
   },
 
   '카토비체 국제 전시장 지붕 붕괴 사고': {
@@ -1236,7 +1316,8 @@ export const popupData = {
 ③ 사고 이후
 폴란드 당국은 사고 이후 공공건물에 대한 대규모 안전 진단을 시행했고, 폭설 시 행사 개최 기준을 강화했다. 이 사고는 기후 환경에 대비하지 못한 구조물과 무시된 경고의 위험성을 상징하는 사례로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_카토비체.jpg',
   },
 
   '미시시피 강 교량 붕괴 사고': {
@@ -1251,7 +1332,8 @@ export const popupData = {
 ③ 사고 이후
 전미 도로교통안전청은 미국 내 모든 교량에 대한 긴급 안전 점검을 실시했고, 노후 인프라 개선을 위한 예산 확대가 추진되었다. 이 사고는 노후 시설에 대한 경고를 무시한 결과가 얼마나 큰 인명 피해를 불러올 수 있는지를 경각시킨 대표적인 참사다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_미시시피.jpg',
   },
 
   '방글라데시 라나 플라자 붕괴 사고': {
@@ -1266,7 +1348,8 @@ export const popupData = {
 ③ 사고 이후
 국제사회는 저임금 의류 노동자 착취 문제와 더불어 글로벌 브랜드들의 공급망에 대한 책임을 강하게 비판했다. 이후 방글라데시 정부는 건축 안전 기준을 강화하고, 대형 제조시설의 안전 점검을 의무화했으며, 글로벌 브랜드들도 생산업체 안전 기준 준수를 요구하는 조치를 취했다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_라나플라자.jpg',
   },
 
   '둥팡즈싱 호 침몰 사고': {
@@ -1280,7 +1363,8 @@ export const popupData = {
 ③ 사고 이후
 중국 정부는 유람선 안전 점검 강화 및 기상 재해 시 운항 제한 지침을 강화했고, 선박 구조기준과 운항 프로토콜 전면 재검토를 지시했다. 이 사고는 재난 상황에서의 선체 설계와 운항 판단의 중요성을 다시금 일깨운 사건으로 평가되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_둥팡즈싱호.jpg',
   },
 
   '텐진 항구 폭발 사고': {
@@ -1295,7 +1379,8 @@ export const popupData = {
 ③ 사고 이후
 사고 이후 중국 정부는 국가적 차원의 산업단지 안전 점검을 실시했고, 관련 고위 공무원 및 회사 임원들이 대거 처벌받았다. 이 사고는 ‘이윤 우선주의’와 ‘관리 실패’가 결합한 재난 사례로 기록되며 도시형 참사의 대표 사례로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_텐진항구.jpg',
   },
 
   '메가 크레인 붕괴 사고': {
@@ -1310,7 +1395,8 @@ export const popupData = {
 ③ 사고 이후
 사우디 당국은 시공사인 빈라딘 그룹에 대한 프로젝트 참여를 금지하고 사고 책임을 물었다. 크레인 운영 및 건설 현장 관리에 대한 기준이 강화되었으며, 종교 행사를 앞둔 시설에 대한 안전 점검도 확대되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_메가크레인.jpg',
   },
 
   '런던 그렌펠 타워 화재 사고': {
@@ -1324,7 +1410,8 @@ export const popupData = {
 ③ 사고 이후
 사고는 전 세계적으로 공공 임대주택의 안전 실태에 대한 경각심을 불러일으켰으며, 영국 정부는 건축 자재 안전 기준을 전면 재검토하고, 해당 자재 사용 금지 및 재건축 조치를 취했다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_런던그렌펠.jpg',
   },
 
   '제노바 모란디 교량 붕괴 사고': {
@@ -1338,7 +1425,8 @@ export const popupData = {
 ③ 사고 이후
 이탈리아 정부는 교량 유지관리 주체에 대한 형사 책임을 추궁했으며, 국영 인프라 기업들의 점검 체계를 강화했다. 노후 인프라에 대한 전면 재검토가 이뤄졌고, 국민의 안전 불감증에 대한 사회적 성찰이 이어졌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_제노바모란디.jpg',
   },
 
   '베이루트 항구 폭발 사고': {
@@ -1353,7 +1441,8 @@ export const popupData = {
 ③ 사고 이후
 레바논 정부는 관계 공무원과 항만 당국에 대한 수사를 시작했고, 전 세계는 항만 보안과 위험물 관리에 대한 강한 경각심을 가지게 되었다. 그러나 정치적 책임 소재는 여전히 논란 중이며, 레바논 시민들은 정부의 부패와 무능에 대해 강하게 항의했다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_베이루트항구.jpg',
   },
 
   '멕시코시티 도시 철도 12호선 교량 붕괴 사고': {
@@ -1368,7 +1457,8 @@ export const popupData = {
 ③ 사고 이후
 정부는 사고 원인 조사를 위한 독립 전문가 위원회를 설치했으며, 관련 업체와 공무원에 대한 법적 책임을 검토했다. 교통 인프라의 안전성 확보와 공공 사업의 투명한 관리에 대한 필요성이 사회적으로 확산되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_멕시코시티12호선.jpg',
   },
 
   '플로리다 챔플레인 타워 붕괴 사고': {
@@ -1382,7 +1472,8 @@ export const popupData = {
 ③ 사고 이후
 사고는 미국 전역에 걸쳐 노후 건축물 안전 점검과 리모델링 기준 강화를 촉발시켰고, 플로리다주는 40년 이상 된 건축물에 대한 정기 검사 규정을 강화했다. 미국 내 콘도 관리 시스템과 안전 규제 체계도 전면 재검토되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_플로리다챔플레인.jpg',
   },
 
   '인도 구자라트 다리 붕괴 사고': {
@@ -1396,7 +1487,8 @@ export const popupData = {
 ③ 사고 이후
 인도 정부는 관리 책임자들과 업체 관계자들을 체포하고, 전국적으로 유사한 노후 인프라에 대한 점검을 지시했다. 안전 검증 절차와 대중시설 운영 기준에 대한 사회적 문제의식이 높아졌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/buildIMG/부실공사_구자라트다리.jpg',
   },
 
   //위험인지 실패 국내
@@ -1413,7 +1505,7 @@ export const popupData = {
 ③ 사고 이후
 정부는 전국의 교량에 대한 긴급 정밀안전진단을 실시했고, 교량 유지관리 시스템을 대대적으로 개편했다. 이 사고는 한국 사회에 ‘안전불감증’이라는 용어를 본격적으로 등장시킨 계기가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image: '/src/finalPage/chapter/chapter3Assets/SameIMG/성수대교.jpg',
   },
 
   '삼풍 백화점 붕괴 사고': {
@@ -1427,7 +1519,7 @@ export const popupData = {
 ③ 사고 이후
 전국적으로 건축물 구조검토 및 감리제도가 강화되었으며, 책임자에 대한 실형 선고와 법적 책임이 수반되었다. ‘안전보다 이익’을 우선시한 태도는 사회 전반에 큰 충격을 주었으며, 이후 국내 안전 관련 제도 개선의 출발점이 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image: '/src/finalPage/chapter/chapter3Assets/SameIMG/삼풍백화점.jpg',
   },
 
   '청해진 해운 세월호 침몰 사고': {
@@ -1441,7 +1533,7 @@ export const popupData = {
 ③ 사고 이후
 대한민국 사회는 충격과 분노에 휩싸였고, 정부와 구조 당국에 대한 책임론이 확산됐다. 사건 이후 국민안전처 신설, 선박 안전관리 규정 강화, 여객선 정원 규제, 선체 개조 관리감독, 선박자동식별장치(AIS) 의무화 등이 이뤄졌지만, 구조 실패에 대한 진상 규명과 책임자 처벌을 둘러싼 갈등은 지속되었다. 세월호 참사는 단순한 사고를 넘어 ‘기억과 사회적 성찰’의 상징 사건으로 자리잡았다.`,
     address: '전남 진도군 조도면 해상',
-    image: './assets/img/sewol.jpg',
+    image: '/src/finalPage/chapter/chapter3Assets/SameIMG/세월호.jpg',
   },
 
   //위험인지 실패 해외
@@ -1458,7 +1550,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고는 보잉 DC-10 기종의 구조적 결함에 대한 우려를 일으켰고, 결국 2년 뒤 터키항공 981편의 대참사로 이어지며 경고 무시의 대가를 증명했다. 이후 해당 기종의 화물칸 도어 잠금 시스템에 대한 전면 개선이 이루어졌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/DangerIMG/위험인지_아메리칸항공96.jpg',
   },
 
   '터키 항공 981편 추락 사고': {
@@ -1473,7 +1566,8 @@ export const popupData = {
 ③ 사고 이후
 이 사고는 당시 항공 역사상 최악의 인명 피해를 낳으며, 제조사의 책임과 항공 안전 규제 체계에 대한 전면적 재검토를 촉발했다. 이후 보잉 DC-10 기종의 구조 설계가 강제적으로 개편되었으며, 국제 항공 안전 기준도 강화되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/DangerIMG/위험인지_터키항공981.jpg',
   },
 
   '챌린저 우주 왕복선 폭발 사고': {
@@ -1487,7 +1581,8 @@ export const popupData = {
 ③ 사고 이후
 NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공식 인정했고, 이후 우주 프로그램은 수년간 중단되었다. ‘챌린저 리포트’는 기술적 결함보다 조직적 결함에 주목했으며, NASA의 구조 개편이 단행되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/DangerIMG/위험인지_챌린저우주왕복선.jpg',
   },
 
   '칼럼비아 우주 왕복선 공중 분해 사고': {
@@ -1502,7 +1597,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 조사위원회는 ‘사고는 기술적 실패가 아니라 조직적 실패’라는 결론을 내렸고, NASA는 안전 프로토콜, 위험 소통 시스템, 외부 경고 수용 체계 등을 전면 개편하게 되었다. 미국 내 과학기술 조직 문화에 대한 반성이 이어졌다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/DangerIMG/위험인지_칼럼비아우주.jpg',
   },
 
   '보잉 737 MAX / 결함': {
@@ -1517,7 +1613,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 세계 항공 당국은 737 MAX의 운항을 전면 금지시켰고, 미국 의회는 FAA와 보잉의 유착 및 안전 규제 실패를 강하게 비판했다. 이후 보잉은 MCAS 소프트웨어를 전면 수정하고, 조종사 훈련 체계를 강화한 뒤 2021년부터 운항을 재개했다. 이 사건은 기업의 이익 추구와 규제 기관의 감시 실패가 결합할 경우 치명적 결과로 이어질 수 있음을 보여준 대표적 사례가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/DangerIMG/위험인지_보잉737.jpg',
   },
 
   //관리책임 부재 해외 사례
@@ -1534,7 +1631,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 이 사고 이후 FAA(미국 연방항공청)는 DC-10 기종의 운항을 일시적으로 전면 중단시켰고, 정비 매뉴얼과 항공사 정비 절차 전반에 대한 대대적인 점검과 수정이 이루어졌다. 또한 사고 이후 항공기의 정비 이력과 수리 방식에 대한 규제가 크게 강화되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_아메리칸191편.jpg',
   },
 
   '일본항공 350편 추락 사고': {
@@ -1549,7 +1647,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 일본항공은 해당 사건 이후 조종사에 대한 정신건강 검사 기준을 대폭 강화하였고, 승무원 채용 및 자격 유지 절차도 재정비되었다. 이 사고는 항공 안전에서 조종사 정신건강 관리의 중요성을 처음으로 각인시킨 사례로 평가받는다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_일본항공350편.jpg',
   },
 
   '일본 항공 123편 추락 사고': {
@@ -1564,7 +1663,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 일본 정부는 항공기 수리 이력과 검사 체계를 전면 재검토했고, 일본항공은 수천 건의 정비 매뉴얼과 인력 시스템을 개편했다. 보잉사 역시 수리 매뉴얼 개선과 사고 책임을 인정하는 사과를 발표했다. 이 사고는 정비 부주의가 가져올 수 있는 재앙의 전형적 사례로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_일본항공123편.jpg',
   },
 
   '보팔 가스 누출 사고': {
@@ -1579,7 +1679,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 유니언 카바이드사는 사고 이후 책임을 부인하며 인도 정부와 오랜 법적 공방을 벌였고, 일부 피해 보상금만 지급되었다. 보팔 사고는 다국적 기업의 안전 규제 회피, 산업화와 생명 안전의 균형 문제, 정부의 규제 부재 등 많은 교훈을 남겼다. 이후 다수 국가에서 화학 산업 안전 기준을 재정비하는 계기가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_보팔가스누출.jpg',
   },
 
   '힐스버러 참사': {
@@ -1594,7 +1695,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 사고 이후 영국 정부는 “테일러 보고서”를 통해 전 좌석 경기장 도입과 인원 통제 강화 등의 강도 높은 개혁안을 내놓았다. 축구장 내 군중 통제와 안전 설계의 중요성, 그리고 경찰 및 운영진의 책임 회피 문화가 국제적 반성과 개선을 이끄는 계기가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_힐스버러.jpg',
   },
 
   '쿠르스크 함 침몰 사건': {
@@ -1609,7 +1711,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 사고 이후 러시아 정부와 군은 국제 구조 지원 체계 강화, 핵잠수함 운용의 안전성 재정비, 장비 현대화 사업을 추진했다. 그러나 당시 구조 대응 지연과 정보 은폐는 국제적 비판을 불러일으켰고, 러시아군 내 무기 노후화와 불투명한 체계 운영 문제가 재조명되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_쿠르스크함.jpg',
   },
 
   '위버링겐 상공 공중 추돌 사고': {
@@ -1624,7 +1727,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 이 사고는 유럽 항공관제 시스템의 허점을 드러내며, TCAS 시스템 우선 적용 권고와 관제 인력 운영 및 유지보수 기준 강화를 불러왔다. 한편, 유가족 한 명이 관제사에게 복수하여 살해한 사건도 발생하며, 책임 소재에 대한 사회적 갈등을 상징하는 사건으로도 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_위버링겐.jpg',
   },
 
   '초크 오션 항공 101편 추락 사고': {
@@ -1639,7 +1743,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 사고 이후 항공사에 대한 운항 허가가 취소되었으며, 미국 전역의 소규모 항공사들에 대한 정비 관리 규정이 전면 재검토되었다. 이 사고는 노후 기체와 정비 불량, 경고 무시의 위험성을 단적으로 보여주는 사례로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_초크오션항공.jpg',
   },
 
   '러브 퍼레이드 압사 참사': {
@@ -1653,7 +1758,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 이 사건은 대규모 공공행사의 안전 관리 시스템을 전 세계적으로 재점검하게 만들었으며, 인파 흐름 시뮬레이션과 현장 대응 매뉴얼 수립이 강화되었다. 독일 사회 전반에 안전의 우선순위에 대한 경각심을 불러일으킨 계기가 되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_러브퍼레이드.jpg',
   },
 
   '예멘 압사 사고': {
@@ -1668,7 +1774,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 예멘 당국은 사고 직후 사고 조사 위원회를 구성했으며, 국제사회는 위험 지역 내 인도적 지원의 체계화 필요성을 제기했다. 구조 및 분배 방식 개선, 혼잡 지역에 대한 사전 안전 점검의 필요성이 재조명되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_예멘압사.jpg',
   },
 
   //관리책임 부재 국내 사례
@@ -1685,7 +1792,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 한국철도공사는 즉각적으로 신호 시스템과 운행관리 체계 점검을 실시했으며, 철도운전자의 안전교육 및 비상 제동 규칙 준수 강화가 이루어졌다. 해당 사고는 열차 운행 시스템 내 안전 관리 부주의가 얼마나 큰 사고로 이어질 수 있는지를 보여주는 사례로 기록된다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_남원역열차.jpg',
   },
 
   '이천 냉동창고 화재 사고': {
@@ -1700,7 +1808,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 이 사고는 산업현장 내 안전불감증의 전형적 사례로 비판받았다. 이후 정부는 산업안전보건법을 개정하고, 화재 위험 작업의 동시작업 금지 조항을 강화했으며, 지하 작업장의 안전 점검과 환기 설비 의무화를 추진했다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_이천냉동창고.jpg',
   },
 
   '이태원 압사 사고': {
@@ -1715,7 +1824,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 정부는 사고 직후 대국민 사과를 발표하고, 재난 대응 매뉴얼과 군중 밀집 사전 예측 시스템 마련 등을 추진했다. 군중관리와 실시간 위험 감지에 대한 사회적 논의가 활발해졌으며, 국가 차원의 재난안전통제 체계 전면 개편이 추진되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_이태원압사.jpg',
   },
 
   '제 25회 세계 스카우트 잼버리 부실 운영': {
@@ -1730,7 +1840,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 잼버리 대회는 미국, 영국, 싱가포르 등 일부 참가국의 조기 철수로 조기 종료 수순을 밟게 되었다. 정부는 뒤늦게 군 병력과 시설, 장비를 급파했으나 이미 참가국의 불만과 국제적 조롱이 확산된 뒤였다. 이후 감사원은 예산 낭비와 주최 측의 준비 부족, 그리고 무능한 대응에 대해 감사를 착수했으며, 관련 지자체 및 부처의 책임론이 제기되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/responsibilityIMG/관리책임부재_잼버리.jpg',
   },
 
   //과도이익 추구 해외 사례
@@ -1747,7 +1858,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 이 사고는 미국 역사상 최악의 내수면 해상 사고 중 하나로 기록되었으며, 이후 선박의 복원성 검사와 승객 수 제한 규정 강화, 구명장비 설치 방식에 대한 전면 개편이 이뤄졌다. 구조적 결함을 인지하고도 무시한 결과의 비극이었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/profitIMG/과도이익추구_이스트랜드호.jpg',
   },
 
   'LANSA 508편 추락 사고': {
@@ -1762,7 +1874,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 항공사 LANSA는 사건 직후 폐업되었으며, 기상 악화 시 항공편 결행 기준 및 통제 강화, 정비 상태에 대한 감시 체계가 강화되었다. 해당 생존자의 회고는 이 사고의 관리 부실과 운항 판단 실패를 여실히 보여주는 증거로 회자되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/profitIMG/과도이익추구_LANSA508.jpg',
   },
 
   '로스 알파케스 참사': {
@@ -1776,7 +1889,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 이 사고 이후 스페인은 위험물 운송 규제를 대폭 강화하고, 도로 인근 캠핑장 허가 기준을 재검토했다. 과적, 통제 부재, 무리한 경로 설정 등 중첩된 전조증상을 무시한 결과로 기록된다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/profitIMG/과도이익추구_로스알파케스.jpg',
   },
 
   '도냐 파츠호 침몰 사고': {
@@ -1791,7 +1905,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 사고 후 필리핀 정부는 여객선 등록, 정원 관리, 선박 간 항로 관제 등에 대한 제도 개선을 발표했지만, 실효성에는 의문이 제기되었다. 이 사고는 과적, 안전불감증, 책임 부재가 복합된 최악의 참사로, 전 세계에 경종을 울렸다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/profitIMG/과도이익추구_도냐파즈호.jpg',
   },
 
   '벨류젯 592편 추락 사고': {
@@ -1805,7 +1920,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 미국 FAA는 즉시 위험물 탑재 기준을 강화하고, 소형 항공사의 화물 관리 프로세스를 점검하기 시작했다. 이 사고는 비용 절감 중심 운영이 얼마나 치명적인 안전 결함으로 이어질 수 있는지를 보여준 대표적 사례로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/profitIMG/과도이익추구_벨류젯592.jpg',
   },
 
   '르 줄라호 침몰 사고': {
@@ -1820,7 +1936,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 르 줄라호 사건 이후, 세네갈 정부는 교통부 장관을 포함한 일부 관리들을 경질했지만, 실질적 책임자 처벌이나 구조적 개선은 부족하다는 비판이 이어졌다. 이 사고는 과적, 안전불감증, 무리한 운항 강행이 빚어낸 전형적인 인재로 기록된다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/profitIMG/과도이익추구_르줄라호.jpg',
   },
 
   '알 살람 보카치오 98호 침몰 사고': {
@@ -1835,7 +1952,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 사고 이후 선박 회사와 이집트 정부는 거센 비판을 받았으며, 승객 안전 교육 미흡과 구명 장비 부족, 선장의 판단 미흡 등이 주요 원인으로 지적되었다. 정부는 일부 책임자를 형식적으로 처벌했지만, 유족들은 철저한 진상 규명과 선사의 책임을 요구하며 시위를 벌이기도 했다. 이 사고는 화재 후 적절한 대응 실패와 승객 안전 무시가 어떤 비극으로 이어질 수 있는지를 보여준 대표 사례로 남았다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/profitIMG/과도이익추구_알살람보카치오.jpg',
   },
 
   //과도이익 추구 국내 사례
@@ -1851,7 +1969,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 해양 경찰과 정부는 초기 구조 대응에 실패했고, 언론을 통해 정부의 무책임한 해상 관리 실태와 선사의 무리한 운항 결정이 집중적으로 보도되었다. 이 사고는 이후 선박 안전 규정과 승객 수용 기준, 항해 허가 제도에 큰 영향을 미치며 관련 법령이 일부 개정되었다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/profitIMG/과도이익추구_남영호.jpg',
   },
 
   '한성호 침몰 사고': {
@@ -1866,7 +1985,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 정부는 이 사건을 계기로 낚시 어선에 대한 안전 규제를 강화했으며, 기상 악화 시 출항 통제 기준을 새로 수립했다. 그러나 당시에도 불법 영업 및 허위 선박 신고 사례가 빈번했던 만큼, 구조적 안전 관리 부실이 뿌리 깊은 문제로 지적됐다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/profitIMG/과도이익추구_한성호.jpg',
   },
 
   '통영 YTL 30호 침몰 사건': {
@@ -1881,7 +2001,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 이 사고를 계기로 정부는 낚시어선 안전관리 특별 대책을 발표하며, 출항 전 기상 정보 확인 및 교육, 탑승자 전원 구명조끼 착용 의무화 등을 추진했다. 그러나 이후에도 유사한 구조적 문제가 반복적으로 드러났다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/profitIMG/과도이익추구_통영YTL.jpg',
   },
 
   '서해훼리호 침몰 사고': {
@@ -1896,7 +2017,8 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 사고는 당시 대한민국 역사상 최악의 여객선 침몰 사고로 기록되었고, 해운업계의 안전 불감증, 선박 점검 시스템의 부재, 기상 경고 무시 관행에 대한 대대적인 비판이 쏟아졌다. 정부는 선박 출항 규제를 강화하고 해양 안전 교육과 장비 기준을 개정했지만, 이후 유사 사고가 반복되며 실효성에 의문이 제기되기도 했다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image:
+      '/src/finalPage/chapter/chapter3Assets/profitIMG/과도이익추구_서훼리호.jpg',
   },
 
   '청해진해운 세월호 침몰 사고': {
@@ -1910,6 +2032,6 @@ NASA는 안전 문화의 결핍과 조직 내부의 위기소통 부재를 공�
 ③ 사고 이후
 사고는 한국 사회 전반에 충격을 안기며, 정부의 재난 대응 체계와 민간 해운사의 부실 운영, 청해진해운의 이윤 중심 경영에 대한 강도 높은 비판이 이어졌다. 이후 특별법 제정과 함께 진상 규명, 구조 실패 원인 분석, 해양 안전 교육 강화 등 다방면의 개혁이 추진되었다. 하지만 사회적 상처는 여전히 깊게 남아 있다.`,
     address: '',
-    image: './assets/img/train_accident.jpg',
+    image: './src/finalPage/chapter/chapter3Assets/SameIMG/세월호.jpg',
   },
 };
