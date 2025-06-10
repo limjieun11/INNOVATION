@@ -1,29 +1,5 @@
-// // 360도 뷰어 테스트 공간
-// // script.js;
-
-// // 'your-image.jpg' 파일을 사용하여 파노라마 이미지 생성
-// const panorama = new PANOLENS.ImagePanorama(
-//   './assets/images/panoramaTest3.jpg'
-// );
-
-// // Panolens 뷰어 생성
-// const viewer = new PANOLENS.Viewer({
-//   container: document.querySelector('#container'),
-//   autoRotate: false, // 자동 회전 사용 여부
-//   autoRotateSpeed: 0.3, // 회전 속도 (조정 가능)
-//   controlBar: true, // 컨트롤 바 표시 여부
-// });
-
-// // 뷰어에 파노라마 추가
-// viewer.add(panorama);
-
-// // 360도 씬 이미지 배열
-// // 360도 이미지 배열
-// === 초기 뷰어 설정 ===
-
+// === Panolens Viewer 생성 ===
 const container = document.querySelector('#container');
-
-// Panolens 뷰어 생성
 const viewer = new PANOLENS.Viewer({
   container: container,
   autoRotate: false,
@@ -31,89 +7,142 @@ const viewer = new PANOLENS.Viewer({
   controlBar: true,
 });
 
-// === 360도 이미지와 캡션 배열 ===
+// === 씬 배열 정의 (이스터에그 위치 포함) ===
 const scenes = [
   {
+    image: '../assets/panoramaTest/room_final2.webp',
+    caption: '4월 16일 나의 방',
+    hasEgg: false,
+  },
+  {
+    image: '../assets/panoramaTest/SubwayStation01.webp',
+    caption: '지하철',
+    hasEgg: true,
+    eggPosition: { x: 4500, y: -1900, z: 2000 },
+  },
+  {
+    image: '../assets/panoramaTest/_departmentstore.webp',
+    caption: '백화점',
+    hasEgg: true,
+    eggPosition: { x: -4000, y: 2500, z: -1900 },
+  },
+  {
     image: '../assets/panoramaTest/_ferry3.webp',
-    caption: '',
-  },
-  {
-    image: './assets/images/panoramaTest2.jpg',
-    caption: '정상 영업중인 백화점',
-  },
-  {
-    image: './assets/images/panoramaTest3.jpg',
-    caption: '처참한 모습',
+    caption: '여객선 복도',
+    hasEgg: true,
+    eggPosition: { x: -5000, y: -50, z: 5000 },
   },
 ];
 
 let currentScene = 0;
 let currentPanorama = null;
 
-// === 캡션 생성 ===
+// === 캡션 엘리먼트 생성 ===
 const captionEl = document.createElement('div');
-captionEl.style.position = 'absolute';
-captionEl.style.bottom = '60px';
-captionEl.style.width = '100%';
-captionEl.style.textAlign = 'center';
-captionEl.style.color = '#fff';
-captionEl.style.fontSize = '18px';
-captionEl.style.fontFamily = 'Arial, sans-serif';
-captionEl.style.textShadow = '0 0 5px black';
 captionEl.innerText = scenes[currentScene].caption;
+
+Object.assign(captionEl.style, {
+  position: 'fixed',
+  top: '165px',
+  left: '380px',
+  fontFamily: 'Noto Sans KR, sans-serif',
+  fontSize: '15px',
+  fontWeight: '400',
+  color: '#222',
+  background: 'rgba(255, 255, 255, 0.9)',
+  padding: '4px 10px',
+  borderRadius: '4px',
+  border: '1px solid #ccc',
+  zIndex: '9999',
+  opacity: '0',
+  transform: 'translateY(-4px)',
+  transition: 'all 0.4s ease',
+});
 document.body.appendChild(captionEl);
 
 // === 다음 버튼 생성 ===
 const nextBtn = document.createElement('button');
 nextBtn.innerText = '다음 ▶';
-nextBtn.style.position = 'absolute';
-nextBtn.style.bottom = '20px';
-nextBtn.style.right = '20px';
-nextBtn.style.padding = '10px 18px';
-nextBtn.style.background = '#f44';
-nextBtn.style.color = '#fff';
-nextBtn.style.border = 'none';
-nextBtn.style.borderRadius = '6px';
-nextBtn.style.cursor = 'pointer';
-nextBtn.style.fontWeight = 'bold';
+
+Object.assign(nextBtn.style, {
+  position: 'fixed',
+  top: '110px',
+  right: '145px',
+  background: '#ffffff',
+  color: '#000000',
+  padding: '8px 16px',
+  border: '1.5px solid #000000',
+  borderRadius: '6px',
+  fontSize: '14px',
+  fontWeight: '500',
+  cursor: 'pointer',
+  zIndex: '9999',
+  boxShadow: '0 2px 6px rgba(0 0 0 / 10%)',
+  transition: 'all 0.2s ease',
+});
+nextBtn.addEventListener('mouseover', () => {
+  nextBtn.style.backgroundColor = '#000';
+  nextBtn.style.color = '#fff';
+});
+nextBtn.addEventListener('mouseout', () => {
+  nextBtn.style.backgroundColor = '#fff';
+  nextBtn.style.color = '#000';
+});
 document.body.appendChild(nextBtn);
 
-// === 파노라마 씬 로드 함수 ===
+// === 파노라마 로딩 함수 ===
 function loadScene(index) {
-  const { image, caption } = scenes[index];
+  const { image, caption, hasEgg, eggPosition } = scenes[index];
   const newPanorama = new PANOLENS.ImagePanorama(image);
 
-  // 미리 캡션 세팅
+  // 캡션 애니메이션
   captionEl.innerText = caption;
+  captionEl.style.opacity = '0';
+  captionEl.style.transform = 'translateY(-4px)';
+  requestAnimationFrame(() => {
+    captionEl.style.opacity = '1';
+    captionEl.style.transform = 'translateY(0)';
+  });
 
-  // 이전 파노라마 제거
-  if (currentPanorama) {
+  // 기존 파노라마 제거
+  if (currentPanorama && typeof currentPanorama.dispose === 'function') {
     viewer.remove(currentPanorama);
     currentPanorama.dispose();
   }
 
-  // 미리 viewer에 추가 (💡 핵심!)
+  // 이스터에그 추가
+  if (hasEgg && eggPosition) {
+    const egg = new PANOLENS.Infospot(
+      150,
+      '/src/finalPage/assets/png/투명.png'
+    ); // ✅ 투명 아이콘 적용
+    egg.position.set(eggPosition.x, eggPosition.y, eggPosition.z);
+
+    egg.addEventListener('click', () => {
+      window.location.href = '/src/finalPage/chapter/chapter2Escape.html';
+    });
+
+    egg.addEventListener('ready', () => {
+      if (egg.element) {
+        egg.element.style.opacity = '0';
+        egg.element.style.pointerEvents = 'auto';
+        egg.element.style.width = '1px';
+        egg.element.style.height = '1px';
+      }
+    });
+
+    newPanorama.add(egg);
+  }
+
   viewer.add(newPanorama);
   currentPanorama = newPanorama;
-
-  // 로딩 성공 이벤트
-  newPanorama.addEventListener('load', () => {
-    console.log('✅ Panorama loaded:', image);
-  });
-
-  // 로딩 실패 이벤트
-  newPanorama.addEventListener('error', (event) => {
-    console.error('❌ 로딩 실패:', image);
-    console.error('🔍 에러 이벤트:', event);
-    captionEl.innerText = '⚠️ 이미지를 불러올 수 없습니다';
-  });
 }
 
-// === 버튼 클릭 시 다음 씬 로딩 ===
+// === 다음 버튼 클릭 시 씬 순환
 nextBtn.addEventListener('click', () => {
   currentScene = (currentScene + 1) % scenes.length;
   loadScene(currentScene);
 });
 
-// === 첫 번째 씬 로딩 ===
+// === 첫 번째 씬 로딩
 loadScene(currentScene);

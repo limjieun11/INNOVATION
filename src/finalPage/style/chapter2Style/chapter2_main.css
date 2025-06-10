@@ -1,12 +1,20 @@
 @charset "UTF-8";
+/* === 전체 페이지 기본 설정 === */
 body {
   position: relative;
+  z-index: 0;
+  height: 100vh;
+  padding: 0;
   margin: 0;
   overflow: hidden;
   font-family: "Noto Sans KR", sans-serif;
-  background-color: black;
+  background-image: url("/src/finalPage/assets/png/chapter/chapter2_IntroBG01.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
+/* === 배경 종이 이미지 === */
 .background-image {
   position: absolute;
   top: 0;
@@ -19,13 +27,75 @@ body {
      object-fit: cover;
 }
 
+/* === 360도 뷰어 영역 === */
 #container {
   position: absolute;
-  top: 230px; /* 이미지 기준으로 위치 조정 */
+  top: 230px;
   left: 50%;
   z-index: 5;
-  width: 84%; /* 너비를 비율로 */
-  height: 700px; /* 고정 높이 또는 비율 */
+  width: 84%;
+  height: 700px;
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
   transform: translateX(-50%);
+}
+
+/* === 사자성어 이미지 === */
+.saying-image {
+  position: absolute;
+  top: 60px;
+  left: 100px;
+  z-index: 9999;
+  width: auto;
+  height: 26px;
+  pointer-events: none;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+/* === 💬 캡션 텍스트 위치/스타일 조정 가능 영역 === */
+#caption-text {
+  position: absolute;
+  top: 62px;
+  left: 170px;
+  z-index: 9999;
+  padding: 4px 10px;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  color: #222;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: all 0.4s ease;
+}
+
+/* 💬 캡션 등장 시 효과 (JS에서 .show 클래스 추가됨) */
+#caption-text.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === 다음 버튼 (우측 상단) === */
+#next-btn {
+  position: fixed;
+  top: 16px;
+  right: 32px;
+  z-index: 9999;
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  cursor: pointer;
+  background: #fff;
+  border: 1.5px solid #000;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+#next-btn:hover {
+  color: #fff;
+  background: #000;
 }
