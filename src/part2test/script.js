@@ -34,15 +34,15 @@ const viewer = new PANOLENS.Viewer({
 // === 360도 이미지와 캡션 배열 ===
 const scenes = [
   {
-    image: './assets/images/texturetest02.webp',
+    image: './assets/images/이태원거리.webp',
     caption: '',
   },
   {
-    image: './assets/images/panoramaTest2.jpg',
+    image: './assets/images/이태원거리사고후.webp',
     caption: '정상 영업중인 백화점',
   },
   {
-    image: './assets/images/panoramaTest3.jpg',
+    image: './assets/images/백화점내부.webp',
     caption: '처참한 모습',
   },
 ];
