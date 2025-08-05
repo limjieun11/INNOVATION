@@ -1,9 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>메인 페이지 - 안전불감증 프로젝트</title>
+    <link rel="stylesheet" href="./assets/scss/common.css" />
+    <link rel="stylesheet" href="./assets/scss/main.css" />
   </head>
-  <body></body>
+  <body>
+    <main class="main-page">
+      <h1 class="title">당신이 놓친 징후들, 어디서부터 살펴볼까요?</h1>
+
+      <section class="chapter-buttons">
+        <button
+          class="chapter-btn"
+          data-link="./chapters/chapter1/intro/chapter1_intro.html"
+        >
+          CHAPTER 1 - 연작처당
+        </button>
+        <button
+          class="chapter-btn"
+          data-link="./chapters/chapter2/intro/chapter2_intro.html"
+        >
+          CHAPTER 2 - 전거지감
+        </button>
+        <button
+          class="chapter-btn"
+          data-link="./chapters/chapter3/intro/chapter3_intro.html"
+        >
+          CHAPTER 3 - 망양지탄
+        </button>
+        <button
+          class="chapter-btn"
+          data-link="./chapters/chapter4/intro/chapter4_intro.html"
+        >
+          CHAPTER 4 - 유비무환
+        </button>
+      </section>
+    </main>
+
+    <script src="./js/main.js" defer></script>
+  </body>
 </html>

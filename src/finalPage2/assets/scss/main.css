@@ -1,0 +1,38 @@
+/* assets/scss/main.scss */
+.main-page {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #f5f6f8;
+}
+
+.main-page .title {
+  margin-bottom: 3rem;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.main-page .chapter-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.main-page .chapter-buttons .chapter-btn {
+  padding: 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  transition: all 0.25s ease;
+}
+
+.main-page .chapter-buttons .chapter-btn:hover {
+  color: #fff;
+  background-color: #222;
+  border-color: #222;
+}
