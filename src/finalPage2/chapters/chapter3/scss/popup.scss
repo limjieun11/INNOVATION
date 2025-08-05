@@ -1,0 +1,50 @@
+/* popup.scss */
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: rgb(0 0 0 / 60%);
+}
+
+.popup-overlay.active {
+  display: flex;
+}
+
+.popup-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgb(0 0 0 / 40%);
+}
+
+#popup-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+#popup-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  font-size: 14px;
+  color: white;
+  cursor: pointer;
+  background: rgb(0 0 0 / 60%);
+  border: none;
+  border-radius: 6px;
+}

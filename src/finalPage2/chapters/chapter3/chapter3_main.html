@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CHAPTER 3 - Globe 시각화</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ✅ 스타일시트 연결 -->
+    <link rel="stylesheet" href="./scss/chapter3.css" />
+    <link rel="stylesheet" href="./scss/popup.css" />
+
+    <!-- ✅ 필수 CDN (globe.gl 포함) -->
+    <script src="https://unpkg.com/three@0.139.2/build/three.min.js"></script>
+    <script src="https://unpkg.com/globe.gl"></script>
+  </head>
+
+  <body>
+    <!-- ✅ 배경 이미지 (필요 시) -->
+    <img
+      class="background-image"
+      src="./images/globe/chapter3MainBg.png"
+      alt="배경 이미지"
+    />
+
+    <!-- ✅ 지구 컨테이너 -->
+    <div id="globe-container"></div>
+
+    <!-- ✅ 유형 버튼 -->
+    <div id="case-menu">
+      <button class="case-btn" data-type="regulation">안전 규정 위반</button>
+      <button class="case-btn" data-type="construction">
+        부실 공사 및 관리
+      </button>
+      <button class="case-btn" data-type="awareness">위험 인지 실패</button>
+      <button class="case-btn" data-type="responsibility">
+        관리 책임 부재
+      </button>
+      <button class="case-btn" data-type="profit">과도한 이익 추구</button>
+    </div>
+
+    <!-- ✅ 팝업 (선택사항) -->
+    <div id="popup" style="display: none">
+      <div class="popup-header">
+        <h2 class="country">제목</h2>
+      </div>
+      <div class="popup-body">
+        <div class="popup-content-wrap"></div>
+      </div>
+      <div class="popup-footer">
+        <button id="popup-close-btn">닫기</button>
+      </div>
+    </div>
+
+    <!-- ✅ JS 스크립트 연결 -->
+    <script src="./js/chapter3_globe.js"></script>
+  </body>
+</html>
