@@ -5,7 +5,7 @@ body {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: "Noto Sans KR", sans-serif;
 }
 
 .scene-page {
@@ -32,14 +32,14 @@ body {
   font-size: 16px;
   color: white;
   cursor: pointer;
-  background: rgb(0 0 0 / 60%);
+  background: rgba(0, 0, 0, 0.6);
   border: none;
   border-radius: 8px;
   transition: background 0.2s ease;
 }
 
 #next-button:hover {
-  background: rgb(0 0 0 / 80%);
+  background: rgba(0, 0, 0, 0.8);
 }
 
 .invisible-infospot {

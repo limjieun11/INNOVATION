@@ -1,0 +1,23 @@
+<head>
+  <meta charset="UTF-8" />
+  <title>myroom</title>
+
+  <!-- ✅ 반드시 먼저 Three.js → Panolens -->
+  <script src="https://cdn.jsdelivr.net/npm/three@0.126.1/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.0/build/panolens.min.js"></script>
+
+  <!-- ✅ 스타일시트는 그대로 -->
+  <link rel="stylesheet" href="./scss/scene_common.css" />
+</head>
+<body>
+  <main class="scene-page">
+    <div id="viewer"></div>
+    <button id="next-button">현장으로 이동</button>
+  </main>
+
+  <!-- ✅ Panolens 이후에 불러야 함 -->
+  <script src="js/scene_common.js"></script>
+  <script>
+    initPanorama('./images/panorama/myroom.webp', 'scene1_before.html', false);
+  </script>
+</body>
