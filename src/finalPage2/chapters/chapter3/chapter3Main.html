@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CHAPTER 3 - Globe</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style/chapter3Main.css" />
+    <link rel="stylesheet" href="./style/popup.css" />
+    <script src="https://unpkg.com/globe.gl"></script>
+  </head>
+  <body>
+    <div id="globe-container"></div>
+
+    <!-- 사고 유형 선택 버튼 -->
+    <div id="type-buttons">
+      <button data-type="rule">안전 규정 위반</button>
+      <button data-type="build">부실공사 및 관리</button>
+      <button data-type="perception">위험 인지 실패</button>
+      <button data-type="responsibility">관리 책임 부재</button>
+      <button data-type="profit">과도한 이익 추구</button>
+    </div>
+
+    <!-- 팝업 -->
+    <div id="popup" class="hidden">
+      <div class="popup-header">
+        <span id="popup-title"></span>
+        <span id="popup-close">×</span>
+      </div>
+      <img id="popup-image" src="" alt="사고 이미지" />
+    </div>
+
+    <!-- 스크립트 -->
+    <script type="module" src="./globe.js"></script>
+    <script src="./popup.js"></script>
+    <script src="./popupImgData.js"></script>
+  </body>
+</html>
