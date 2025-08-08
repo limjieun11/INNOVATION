@@ -1,28 +1,110 @@
-// 팝업 요소 참조
-const popup = document.getElementById('popup');
-const popupTitle = document.getElementById('popup-title');
-const popupImage = document.getElementById('popup-image');
-const popupCloseBtn = document.getElementById('popup-close');
+//
+import { popupData } from './popupData.js';
 
-// 팝업 열기 함수
-export function popupOpen(title, imgSrc) {
-  popupTitle.textContent = title;
-  popupImage.src = imgSrc;
-  popup.classList.remove('hidden');
+let isDetailOpen = false;
+
+export function openPopup(caseName, headlineText = '전조 사례 등록 예정') {
+  const popup = document.getElementById('popup');
+  const overlay = document.getElementById('popup-overlay');
+  const header = popup.querySelector('.popup-header');
+  const body = popup.querySelector('.popup-body');
+
+  if (!popup || !overlay || !header || !body) return;
+
+  popup.classList.remove('detail-open');
+  popup.style.display = 'flex';
+  overlay.style.display = 'block';
+  header.style.display = 'none';
+  isDetailOpen = false;
+
+  body.innerHTML = '';
+  const contentWrap = document.createElement('div');
+  contentWrap.className = 'popup-content-wrap';
+  body.appendChild(contentWrap);
+
+  const headlineEl = document.createElement('p');
+  headlineEl.className = 'headline-only';
+  headlineEl.textContent = headlineText;
+  headlineEl.style.cursor = 'pointer';
+
+  headlineEl.addEventListener('click', () => {
+    if (!isDetailOpen) {
+      const data = popupData[caseName];
+      openDetailPopup(caseName, data?.detail, data?.image);
+    }
+  });
+
+  contentWrap.appendChild(headlineEl);
 }
 
-// 팝업 닫기 함수
-function popupClose() {
-  popup.classList.add('hidden');
-  popupImage.src = '';
-}
+function openDetailPopup(title, fullText = '', imageUrl = '') {
+  const popup = document.getElementById('popup');
+  const header = popup.querySelector('.popup-header');
+  const body = popup.querySelector('.popup-body');
 
-// 닫기 버튼 클릭
-popupCloseBtn.addEventListener('click', popupClose);
+  if (!popup || !header || !body) return;
 
-// 팝업 외부 클릭 시 닫기
-window.addEventListener('click', (e) => {
-  if (e.target === popup) {
-    popupClose();
+  popup.classList.add('detail-open');
+  isDetailOpen = true;
+
+  const formattedText = (fullText || '상세 설명이 없습니다.').replace(
+    /(①|②|③|④|⑤|⑥|⑦|⑧|⑨|⑩)\s*([^\n]+)/g,
+    '<span class="section-title">$1 $2</span>'
+  );
+
+  body.innerHTML = '';
+  const contentWrap = document.createElement('div');
+  contentWrap.className = 'popup-content-wrap';
+  body.appendChild(contentWrap);
+
+  const scrollBox = document.createElement('div');
+  scrollBox.className = 'scroll-box';
+
+  const textEl = document.createElement('p');
+  textEl.className = 'headline';
+  textEl.innerHTML = formattedText;
+  scrollBox.appendChild(textEl);
+
+  const imageArea = document.createElement('div');
+  imageArea.className = 'popup-image-area';
+
+  if (imageUrl) {
+    const img = new Image();
+    img.onload = () => {
+      const ratio = img.naturalWidth / img.naturalHeight;
+      if (ratio < 1) {
+        contentWrap.classList.add('horizontal');
+      }
+    };
+    img.src = imageUrl;
+    img.alt = '상세 이미지';
+    imageArea.appendChild(img);
+  } else {
+    imageArea.innerHTML = '<span>이미지가 없습니다</span>';
   }
+
+  header.style.display = 'block';
+  header.querySelector('.country').textContent = title;
+
+  contentWrap.appendChild(scrollBox);
+  contentWrap.appendChild(imageArea);
+}
+
+export function closePopup() {
+  const popup = document.getElementById('popup');
+  const overlay = document.getElementById('popup-overlay');
+  if (!popup || !overlay) return;
+
+  popup.style.display = 'none';
+  overlay.style.display = 'none';
+  popup.classList.remove('popup-open', 'detail-open');
+  isDetailOpen = false;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const overlay = document.getElementById('popup-overlay');
+  const closeBtn = document.getElementById('popup-close-btn');
+
+  overlay?.addEventListener('click', closePopup);
+  closeBtn?.addEventListener('click', closePopup);
 });

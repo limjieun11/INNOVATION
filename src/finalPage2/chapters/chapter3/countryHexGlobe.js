@@ -1,3 +1,4 @@
+// countryHexGlobe.js
 import { openPopup } from './popup.js';
 import { popupData } from './popupData.js';
 
@@ -926,7 +927,7 @@ document.querySelectorAll('#case-menu button').forEach((btn) => {
     }
 
     // GeoJSON 불러와서 국가 강조
-    fetch('../assets/countries.geojson')
+    fetch('./style/countries.geojson')
       .then((res) => res.json())
       .then((geo) => {
         const filtered = geo.features.filter((feat) =>

@@ -1,5 +1,3 @@
-@charset "UTF-8";
-
 body,
 html {
   padding: 0;
@@ -55,7 +53,7 @@ html {
   color: #000;
   white-space: normal; /* 줄바꿈 허용 */
   pointer-events: none;
-  background: rgb(255 255 255);
+  background: rgba(255 255 255);
   border-radius: 6px;
   backdrop-filter: blur(4px);
   transform: translate(12px, 12px);
