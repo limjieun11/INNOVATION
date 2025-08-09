@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>질문</title>
+    <link rel="stylesheet" href="./style/questionCommon.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="progress"><span></span></div>
+
+      <h2 class="q-title">질문 텍스트</h2>
+
+      <div class="options">
+        <button class="opt" data-choice="a">
+          <div class="text">A 보기</div>
+        </button>
+        <button class="opt" data-choice="b">
+          <div class="text">B 보기</div>
+        </button>
+      </div>
+
+      <div class="result-box">
+        <div class="note">다른 사람들이 고른 결과 (사전 집계)</div>
+        <div class="result-row">
+          <div class="label">A</div>
+          <div class="bar a"><span></span></div>
+          <div class="percent a">0%</div>
+        </div>
+        <div class="result-row">
+          <div class="label">B</div>
+          <div class="bar b"><span></span></div>
+          <div class="percent b">0%</div>
+        </div>
+      </div>
+
+      <div class="nav">
+        <button id="prev" class="btn">이전</button>
+        <button id="next" class="btn primary" disabled>다음</button>
+      </div>
+    </div>
+
+    <script type="module" src="./script/navigation.js"></script>
+  </body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>마무리</title>
+    <link rel="stylesheet" href="./style/questionCommon.css" />
+    <style>
+      .answer-list {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: 14px;
+      }
+      .answer-list li {
+        background: #0c141f;
+        border: 1px solid #1e2a3d;
+        border-radius: 12px;
+        padding: 12px 14px;
+      }
+      .q {
+        font-weight: 700;
+        margin-bottom: 6px;
+      }
+      .a {
+        margin-bottom: 4px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <h2>참여해줘서 고마워요 👋</h2>
+      <p class="summary"></p>
+
+      <ul class="answer-list"></ul>
+
+      <div class="nav">
+        <button id="restart" class="btn">다시 하기</button>
+        <a class="btn primary" href="../chapter3/chapter3_main.html"
+          >이전 챕터로</a
+        >
+      </div>
+    </div>
+
+    <script type="module" src="./script/resultLogic.js"></script>
+  </body>
+</html>
