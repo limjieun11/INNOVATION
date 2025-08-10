@@ -1,4 +1,4 @@
-<!-- chpater3_main.html -->
+<!-- chapter3_main.html (수정본) -->
 <!DOCTYPE html>
 <html lang="ko">
   <head>
@@ -6,17 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CHAPTER 3 - Globe</title>
     <link rel="stylesheet" href="./style/chapter3Main.css" />
-    <link rel="stylesheet" href="./style/popup.css" />
+    <!-- 기존 팝업 CSS는 제거 -->
+    <!-- <link rel="stylesheet" href="./style/popup.css" /> -->
     <script src="https://unpkg.com/globe.gl"></script>
   </head>
   <body>
-    <!-- 🔽 배경 이미지 -->
-    <!-- <img
-      class="background-image"
-      src="../assets/png/chapter/chapter3MainBg.png"
-      alt="배경 이미지"
-    /> -->
-
     <!-- 🌍 지구 컨테이너 -->
     <div id="globe-container"></div>
 
@@ -37,21 +31,18 @@
       </p>
     </div>
 
-    <!-- 🌑 팝업 오버레이 (어두운 배경) -->
-    <div id="popup-overlay" style="display: none"></div>
-
-    <!-- ❗ 팝업 창 -->
-    <div id="popup" style="display: none">
-      <div class="popup-header">
-        <h2 class="country">제목</h2>
-      </div>
-      <div class="popup-body">
-        <div class="popup-content-wrap">
-          <!-- JS에서 headline 또는 detail 내용이 삽입됩니다 -->
-        </div>
-      </div>
-      <div class="popup-footer">
-        <button id="popup-close-btn">닫기</button>
+    <!-- ✅ 이미지 모달 (창 형태) -->
+    <div id="img-modal" aria-hidden="true">
+      <div class="backdrop"></div>
+      <div
+        class="dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-label="image dialog"
+      >
+        <button class="close" type="button" aria-label="닫기">✕</button>
+        <img alt="" />
+        <p class="caption"></p>
       </div>
     </div>
 

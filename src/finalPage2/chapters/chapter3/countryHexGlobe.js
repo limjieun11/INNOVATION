@@ -1,55 +1,59 @@
-// countryHexGlobe.js
-import { openPopup } from './popup.js';
-import { popupData } from './popupData.js';
+// countryHexGlobe.js  (모달 이미지 버전 / 로컬 이미지 자동 매핑)
 
-const globeContainer = document.getElementById('globe-container');
+// =================== 이미지 모달 유틸 ===================
+function openImageModal(url, captionText = '') {
+  const modal = document.getElementById('img-modal');
+  if (!modal) return;
+  const modalImg = modal.querySelector('img');
+  const caption = modal.querySelector('.caption');
 
-// 🌐 Globe 초기화
-const world = Globe()(globeContainer)
-  .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
-  .backgroundColor('rgba(0,0,0,0)')
-  .showAtmosphere(true)
-  .atmosphereColor('#ffffff')
-  .atmosphereAltitude(0.15)
-  .polygonCapColor((feat) =>
-    currentCountries.includes(feat.properties.name)
-      ? '#017B92'
-      : 'rgba(0, 0, 0, 0)'
-  )
-  .polygonSideColor(() => 'rgba(1, 122, 146, 0.24)')
-  .polygonStrokeColor(() => '#fff')
-  .polygonAltitude((feat) => countryAltitudes[feat.properties.name] || 0)
-  .polygonsTransitionDuration(300)
-  .hexPolygonColor(() => 'white')
-  .hexPolygonAltitude((d) => (d.properties.altitude || 0.1) + 0.3);
-world.onHexPolygonClick((hex) => {
-  const caseName = hex?.properties?.name;
-  const data = popupData[caseName];
+  if (url) modalImg.src = url;
+  modalImg.alt = captionText || '';
+  caption.textContent = captionText || '';
 
-  if (data) {
-    openPopup(caseName, data.headline, data.address, data.image);
-  } else {
-    openPopup(caseName, '전조 사례 등록 예정', '', '');
-  }
-});
-
-// Globe 회전 및 상호작용 설정
-world.controls().enabled = true;
-world.controls().autoRotate = false;
-world.controls().autoRotateSpeed = 0.3;
-
-// Canvas 포인터 이벤트 보정
-const canvas = globeContainer.querySelector('canvas');
-if (canvas) {
-  canvas.style.pointerEvents = 'auto';
-  canvas.style.zIndex = '2';
+  modal.classList.add('is-open');
+  modal.setAttribute('aria-hidden', 'false');
 }
 
-// ✅ 공통 변수
+function closeImageModal() {
+  const modal = document.getElementById('img-modal');
+  if (!modal) return;
+  const modalImg = modal.querySelector('img');
+  const caption = modal.querySelector('.caption');
+
+  modal.classList.remove('is-open');
+  modal.setAttribute('aria-hidden', 'true');
+
+  if (modalImg) {
+    modalImg.src = '';
+    modalImg.alt = '';
+  }
+  if (caption) caption.textContent = '';
+}
+
+// 모달 닫기 이벤트(배경/버튼/ESC)
+(() => {
+  const modal = document.getElementById('img-modal');
+  if (!modal) return;
+  const backdrop = modal.querySelector('.backdrop');
+  const closeBtn = modal.querySelector('.close');
+
+  backdrop?.addEventListener('click', closeImageModal);
+  closeBtn?.addEventListener('click', closeImageModal);
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeImageModal();
+    }
+  });
+})();
+
+// =================== 공통 상태 ===================
+const globeContainer = document.getElementById('globe-container');
 let currentCountries = [];
+let currentType = 'rule';
 const countryAltitudes = {};
 
-// ✅ 유형 설명 텍스트
+// =================== 설명 텍스트 ===================
 const typeDescriptions = {
   rule: '안전 규정은 단순한 권고가 아니라, 생명과 직결된 약속 입니다. 그러나 반복되는 무시와 방심은 결국 큰 참사로 이어졌습니다. 이 영역에서는 "안전 규정 위반"이 주요 원인이 된 국내외 사고들을 모아 보여줍니다. 작은 경고를 가벼이 여기지 않는 문화, 그 시작을 위해 기억 합니다.',
   build:
@@ -61,6 +65,8 @@ const typeDescriptions = {
   profit:
     '이익은 필요하지만, 생명보다 앞설 수는 없습니다. 그러나 다수의 참사는 "조금 더 벌기 위해" 안전을 희생한 결정에서 시작 되었습니다. 과적, 불법 개조, 정비 생략, 무리한 일정 강행 등은 경제적 손실 회피를 이유로 안전을 외면한 흔적들 입니다. "한 번쯤 괜찮겠지" 혹은 "돈이 안 되니까" 라는 판단이 만들어낸 비극을 보여줍니다. 가장 무서운 위험은 눈에 보이지 않는 위험이 아니라, 보면서도 외면한 탐욕 입니다.',
 };
+
+// =================== 데이터(네가 준 원본 + 이미지 자동 매핑) ===================
 
 // ✅ 유형별 국가 및 헥사곤 좌표
 const fullDataset = {
@@ -910,73 +916,150 @@ const fullDataset = {
   },
 };
 
-// ✅ 버튼 클릭 이벤트 처리
+// ===== 이미지 경로 자동 세팅 (로컬 폴더용) =====
+// 규칙: ./img/chapter3/<type>/<type>_01.jpg, _02.jpg ...
+const IMG_BASE = './img/chapter3';
+
+(function applyImagePaths(dataset) {
+  const n2 = (n) => String(n).padStart(2, '0');
+  ['rule', 'build', 'perception', 'responsibility', 'profit'].forEach(
+    (type) => {
+      const points = dataset[type]?.hexPoints || [];
+      points.forEach((p, i) => {
+        if (
+          !p.imageUrl ||
+          typeof p.imageUrl !== 'string' ||
+          p.imageUrl.trim() === ''
+        ) {
+          p.imageUrl = `${IMG_BASE}/${type}/${type}_${n2(i + 1)}.jpg`;
+        }
+      });
+    }
+  );
+})(fullDataset);
+
+// =================== Globe 생성 ===================
+const world = Globe()(globeContainer)
+  .globeImageUrl('//unpkg.com/three-globe/example/img/earth-night.jpg')
+  .backgroundColor('rgba(0,0,0,0)')
+  .showAtmosphere(true)
+  .atmosphereColor('#ffffff')
+  .atmosphereAltitude(0.15)
+  .polygonCapColor((feat) =>
+    currentCountries.includes(feat.properties.name)
+      ? '#017B92'
+      : 'rgba(0, 0, 0, 0)'
+  )
+  .polygonSideColor(() => 'rgba(1, 122, 146, 0.24)')
+  .polygonStrokeColor(() => '#fff')
+  .polygonAltitude((feat) => countryAltitudes[feat.properties.name] || 0)
+  .polygonsTransitionDuration(300)
+  .hexPolygonColor(() => 'white')
+  .hexPolygonAltitude((d) => (d.properties.altitude || 0.1) + 0.3);
+
+// hover 시 커서 변경
+world.onHexPolygonHover((hex) => {
+  globeContainer.style.cursor = hex ? 'pointer' : 'default';
+});
+
+// 상호작용 옵션
+world.controls().enabled = true;
+world.controls().autoRotate = false;
+world.controls().autoRotateSpeed = 0.3;
+
+// Canvas 포인터 이벤트 보정
+const canvas = globeContainer?.querySelector('canvas');
+if (canvas) {
+  canvas.style.pointerEvents = 'auto';
+  canvas.style.zIndex = '2';
+}
+
+// =================== 유형 전환 로직 ===================
+function setType(type) {
+  currentType = type;
+
+  const dataset = fullDataset[type];
+  if (!dataset) return;
+
+  const { countries, hexPoints } = dataset;
+
+  // 국가 강조/고도
+  currentCountries = countries;
+  currentCountries.forEach((c) => {
+    countryAltitudes[c] = 0.7 + Math.random() * 0.3;
+  });
+
+  // 설명 교체
+  const descBox = document.getElementById('type-description');
+  if (descBox && typeDescriptions[type]) {
+    descBox.innerText = typeDescriptions[type];
+  }
+
+  // GeoJSON 로드 → 해당 국가만 표시
+  fetch('./style/countries.geojson')
+    .then((res) => res.json())
+    .then((geo) => {
+      const filtered = geo.features.filter((feat) =>
+        currentCountries.includes(feat.properties.name)
+      );
+      world.polygonsData(filtered);
+    });
+
+  // 헥사곤(정사각형 폴리곤) 재적용
+  world.hexPolygonsData([]); // clear
+  const polys = (hexPoints || []).map((d) => ({
+    type: 'Feature',
+    properties: {
+      name: d.name,
+      altitude: d.altitude,
+      imageUrl: d.imageUrl || '',
+    },
+    geometry: {
+      type: 'Polygon',
+      coordinates: [
+        [
+          [d.lng - 0.5, d.lat - 0.5],
+          [d.lng + 0.5, d.lat - 0.5],
+          [d.lng + 0.5, d.lat + 0.5],
+          [d.lng - 0.5, d.lat + 0.5],
+          [d.lng - 0.5, d.lat - 0.5],
+        ],
+      ],
+    },
+  }));
+  setTimeout(() => world.hexPolygonsData(polys), 0); // 렌더 타이밍 안정
+}
+
+// 버튼 이벤트
 document.querySelectorAll('#case-menu button').forEach((btn) => {
   btn.addEventListener('click', () => {
     const type = btn.dataset.type;
-    const { countries, hexPoints } = fullDataset[type];
 
-    currentCountries = countries;
-    countries.forEach((c) => {
-      countryAltitudes[c] = 0.7 + Math.random() * 0.3;
-    });
-
-    const descBox = document.getElementById('type-description');
-    if (descBox && typeDescriptions[type]) {
-      descBox.innerText = typeDescriptions[type];
-    }
-
-    // GeoJSON 불러와서 국가 강조
-    fetch('./style/countries.geojson')
-      .then((res) => res.json())
-      .then((geo) => {
-        const filtered = geo.features.filter((feat) =>
-          currentCountries.includes(feat.properties.name)
-        );
-        world.polygonsData(filtered);
-      });
-
-    // 헥사곤 데이터 적용
-    world.hexPolygonsData([]); // 먼저 클리어
-
-    setTimeout(() => {
-      world.hexPolygonsData(
-        hexPoints.map((d) => ({
-          type: 'Feature',
-          properties: { name: d.name, altitude: d.altitude },
-          geometry: {
-            type: 'Polygon',
-            coordinates: [
-              [
-                [d.lng - 0.5, d.lat - 0.5],
-                [d.lng + 0.5, d.lat - 0.5],
-                [d.lng + 0.5, d.lat + 0.5],
-                [d.lng - 0.5, d.lat + 0.5],
-                [d.lng - 0.5, d.lat - 0.5],
-              ],
-            ],
-          },
-        }))
-      );
-    }, 0);
-
-    // 버튼 활성화 토글
+    // 활성화 토글
     document
       .querySelectorAll('#case-menu button')
       .forEach((b) => b.classList.remove('active'));
     btn.classList.add('active');
+
+    setType(type);
   });
 });
 
-// ✅ 첫 유형 자동 실행
+// 최초 1회 실행(첫 버튼)
 document.querySelector('#case-menu button')?.click();
 
-// countryHexGlobe.js 하단에 추가
-document
-  .querySelector('#popup #popup-content')
-  .addEventListener('click', () => {
-    openDetailPopup(
-      '이건 상세 설명입니다. 더 자세한 정보가 나와요.',
-      'image_path.png'
-    );
-  });
+// =================== 클릭 핸들러(이미지 모달) ===================
+world.onHexPolygonClick((hex) => {
+  const name = hex?.properties?.name || '';
+  let imageUrl = hex?.properties?.imageUrl || '';
+
+  if (!imageUrl) {
+    console.warn('[CH3] imageUrl이 비어있습니다:', name);
+    return;
+  }
+  openImageModal(imageUrl, name);
+});
+
+// =================== 구 코드/의존 제거 안내 ===================
+// - popup.js / popup.css, openPopup, popupData 등 팝업 관련 의존 전부 제거
+// - #popup / #popup-overlay 마크업도 HTML에서 제거(이미 모달 마크업으로 교체 완료)
