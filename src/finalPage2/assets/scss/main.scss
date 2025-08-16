@@ -1,39 +1,173 @@
-/* assets/scss/main.scss */
+@charset "UTF-8";
+
+/* =========================
+   0) 버튼 전용 폰트 (파일 경로 맞춰 넣기)
+   /src/finalPage2/assets/fonts/ProjectLabel-Bold.woff2
+========================= */
+@font-face {
+  font-family: ProjectLabel;
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/ProjectLabel-Bold.woff2') format('woff2');
+  font-display: swap;
+}
+
+/* =========================
+   1) 기본 레이아웃 + 풀블리드 배경
+========================= */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden; /* 스크롤 완전 제거 */
+  font-family: Pretendard, Inter, 'Noto Sans KR', system-ui, -apple-system,
+    'Segoe UI', Roboto, sans-serif;
+}
 
 .main-page {
-  min-height: 100vh;
-  padding: 4rem 2rem;
-  text-align: center;
-  background: #f5f6f8;
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 0;
 
-  .title {
-    margin-bottom: 3rem;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #222;
+  /* 배경 이미지 + 살짝 광원 그라디언트 */
+  background-image: radial-gradient(
+      900px 600px at 70% -10%,
+      rgb(0 212 255 / 12%),
+      transparent 55%
+    ),
+    url('../images/BG/mainBg.webp');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover; /* 화면 꽉 채우기(일부 크롭 가능) */
+
+  /* 가독성 오버레이 */
+  &::before {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: '';
+    background: rgb(0 0 0 / 25%);
   }
+}
 
-  .chapter-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 1.2rem;
-    max-width: 400px;
-    margin: 0 auto;
+/* iOS 주소창 변동 대응 */
+@supports (height: 100dvh) {
+  .main-page {
+    height: 100dvh;
+  }
+}
 
-    .chapter-btn {
-      padding: 1.2rem;
-      font-size: 1rem;
-      cursor: pointer;
-      background-color: #fff;
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      transition: all 0.25s ease;
+/* =========================
+   2) 타이틀
+========================= */
+.title {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 28px;
+  font-size: clamp(20px, 2.6vw, 28px);
+  font-weight: 800;
+  color: #e8f0f6;
+  text-align: center;
+}
 
-      &:hover {
-        color: #fff;
-        background-color: #222;
-        border-color: #222;
-      }
-    }
+/* =========================
+   3) 버튼 (세로쓰기 + 개별 위치)
+========================= */
+
+/* 전체 버튼 레이어: 뷰포트 기준 절대 배치용 */
+.chapter-buttons {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  pointer-events: none; /* 컨테이너는 클릭 막고, 버튼에서만 허용 */
+}
+
+/* 공통 버튼 스타일 */
+.chapter-btn {
+  --btn-w: 90px; /* 버튼 가로(세로쓰기 기준 폭) */
+  --btn-h: 180px; /* 버튼 세로(세로쓰기 기준 높이) */
+
+  position: absolute;
+  width: var(--btn-w);
+  height: var(--btn-h);
+  padding: 10px 6px;
+
+  /* 전용 폰트 적용(폴백 포함) */
+  font-family: ProjectLabel, Pretendard, 'Noto Sans KR', system-ui,
+    -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 58px;
+  font-weight: 800;
+  line-height: 1; // 필요하면 0.95 ~ 1.05 사이에서 미세 조정
+  color: #fff;
+
+  /* ▼ 자간/행간을 좀 더 촘촘하게 */
+  letter-spacing: -0.08em; // -0.02 ~ -0.06em 사이에서 취향 조절
+  white-space: nowrap; // 줄바꿈 방지(세로쓰기일 때도 안전)
+  pointer-events: auto; /* 클릭 허용 */
+  cursor: pointer;
+  background: #1e1b1b;
+  border: none;
+  border-radius: none;
+  box-shadow: 0 10px 26px rgb(0 0 0 / 28%);
+
+  /* ✅ 세로쓰기 */
+  writing-mode: vertical-rl;
+  transition: transform 0.08s ease, background 0.15s ease, box-shadow 0.2s ease;
+  text-orientation: upright;
+}
+
+.chapter-btn:hover {
+  font-weight: 800;
+  color: #1e1b1b;
+  background: #db1919;
+  box-shadow: 0 14px 32px rgb(0 0 0 / 35%);
+}
+
+.chapter-btn:active {
+  transform: translateY(1px);
+}
+
+.chapter-btn:focus-visible {
+  outline: 2px solid #00d4ff;
+  outline-offset: 2px;
+}
+
+/* ===== 원하는 위치(퍼센트만 조절하면 됨) ===== */
+.btn-mu {
+  /* 무시: 좌측 상단 */
+  top: 13%;
+  left: 4%;
+}
+
+.btn-gyeong {
+  /* 경고: 우측 상단 중간 */
+  top: 34%;
+  right: 32%;
+}
+
+.btn-hoo {
+  /* 후회: 좌측 중단 */
+  top: 56%;
+  left: 28%;
+}
+
+.btn-seong {
+  /* 성찰: 우측 하단 */
+  top: 79%;
+  right: 6%;
+}
+
+/* 좁은 화면에서 버튼 조금 축소 */
+@media (width <= 900px) {
+  .chapter-btn {
+    --btn-w: 50px;
+    --btn-h: 108px;
+
+    font-size: 18px;
   }
 }

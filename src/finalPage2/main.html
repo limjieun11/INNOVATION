@@ -4,67 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>메인 페이지 - 안전불감증 프로젝트</title>
-
-    <!-- 기존 스타일들 -->
-    <link rel="stylesheet" href="./assets/scss/common.css" />
+    <!-- <link rel="stylesheet" href="./assets/scss/common.css" /> -->
     <link rel="stylesheet" href="./assets/scss/main.css" />
-
-    <!-- ✅ 로딩 전용 CSS -->
-    <link rel="stylesheet" href="./assets/scss/loading.css" />
   </head>
   <body>
     <main class="main-page">
-      <h1 class="title">당신이 놓친 징후들, 어디서부터 살펴볼까요?</h1>
-
       <section class="chapter-buttons">
         <button
-          class="chapter-btn"
-          type="button"
+          class="chapter-btn btn-mu"
           data-link="./chapters/chapter1/intro/chapter1_intro.html"
         >
-          CHAPTER 1 - 연작처당
+          무시
         </button>
 
-        <!-- ✅ 이 버튼만 로딩을 거치게 할 것 -->
         <button
-          class="chapter-btn"
-          type="button"
+          class="chapter-btn btn-gyeong"
           data-link="./chapters/chapter2/intro/chapter2_intro.html"
-          data-loading="true"
         >
-          CHAPTER 2 - 전거지감
+          경고
         </button>
 
         <button
-          class="chapter-btn"
-          type="button"
+          class="chapter-btn btn-hoo"
           data-link="./chapters/chapter3/chapter3_main.html"
         >
-          CHAPTER 3 - 망양지탄
+          후회
         </button>
 
         <button
-          class="chapter-btn"
-          type="button"
+          class="chapter-btn btn-seong"
           data-link="./chapters/chapter4/index.html"
         >
-          CHAPTER 4 - 유비무환
+          성찰
         </button>
       </section>
     </main>
 
-    <!-- ✅ 로딩 오버레이 (처음엔 숨김 상태) -->
-    <div id="page-loading" aria-hidden="true">
-      <div class="box">
-        <div class="spinner" aria-hidden="true"></div>
-        <div class="label" role="status">헤드셋 착용을 권장합니다</div>
-      </div>
-    </div>
-
-    <!-- 기존 스크립트 -->
     <script src="./js/main.js" defer></script>
-
-    <!-- ✅ 로딩 제어 스크립트 -->
-    <script src="./js/loading.js" defer></script>
   </body>
 </html>
