@@ -184,24 +184,24 @@ body {
 }
 
 .chapter-btn {
-  --btn-w: 56px;
-  --btn-h: 118px;
+  --btn-w: 90px;
+  --btn-h: 180px;
   position: absolute;
   width: var(--btn-w);
   height: var(--btn-h);
   padding: 10px 6px;
   font-family: ProjectLabel, Pretendard, "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 58px;
+  font-size: 62px;
   font-weight: 800;
   line-height: 1;
   color: #fff;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.12em;
   white-space: nowrap;
   pointer-events: auto;
   cursor: pointer;
   background: #1e1b1b;
   border: none;
-  border-radius: 12px;
+  border-radius: none;
   box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
   writing-mode: vertical-rl;
   transition: transform 0.08s ease, background 0.15s ease, box-shadow 0.2s ease;
@@ -209,6 +209,7 @@ body {
 }
 
 .chapter-btn:hover {
+  color: #1e1b1b;
   background: #db1919;
   box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
 }
