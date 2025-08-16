@@ -140,12 +140,10 @@ body {
     box-shadow: $shadow;
   }
 
-  // 선택지 영역 (2지선다)
   .choices {
     display: grid;
     gap: 14px;
     margin-top: 6px;
-
     @media (width >= 860px) {
       grid-template-columns: 1fr 1fr;
     }
@@ -300,5 +298,70 @@ body {
   &.show {
     opacity: 1;
     transition: opacity 0.2s ease;
+  }
+}
+
+/* -------------------------------------------------
+   ▼▼▼  [추가] 하단 '다른 사람들의 선택 비율' 바  ▼▼▼
+-------------------------------------------------- */
+.crowdbar {
+  display: grid;
+  grid-template-columns: var(--left, 50%) var(--right, 50%);
+  width: min(1000px, 92vw);
+  height: 56px;
+  margin: 18px auto 0;
+  overflow: hidden;
+  background: rgb(0 0 0 / 35%);
+  border: 1px solid rgb(255 255 255 / 12%);
+  border-radius: $radius;
+  backdrop-filter: blur(2px);
+  transition: grid-template-columns 0.6s ease-out;
+
+  &__left,
+  &__right {
+    display: grid;
+    place-items: center;
+    font-weight: 700;
+    color: $text;
+    letter-spacing: 0.5px;
+  }
+
+  &__left {
+    background: linear-gradient(
+      180deg,
+      rgb(255 255 255 / 10%),
+      rgb(255 255 255 / 6%)
+    );
+  }
+
+  &__right {
+    background: linear-gradient(
+      180deg,
+      rgb(255 255 255 / 8%),
+      rgb(255 255 255 / 4%)
+    );
+  }
+
+  span {
+    font-size: clamp(14px, 2vw, 18px);
+    opacity: 0.9;
+  }
+}
+
+.crowd-caption {
+  width: min(1000px, 92vw);
+  margin: 10px auto 0;
+  font-size: 14px;
+  color: $muted;
+  text-align: center;
+}
+
+/* 모션 최소 선호 시 전환 제거 */
+@media (prefers-reduced-motion: reduce) {
+  .crowdbar,
+  .q-topbar .progress .bar,
+  .result-bars .bar .fill,
+  .q-body .choice .ratio .bar {
+    transition: none !important;
   }
 }

@@ -2,25 +2,23 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CH4 밸런스 게임</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CH4 시작</title>
     <link rel="stylesheet" href="./style/chapter4Main.css" />
   </head>
   <body>
-    <main class="wrap">
-      <h1>밸런스 게임</h1>
-      <p class="sub">
-        4가지 질문에 답하고, 다른 사람들이 고른 비율도 확인해보세요.
-      </p>
-      <button id="start">게임 시작</button>
+    <main id="ch4-index" class="container">
+      <h1>챕터 4: 성찰</h1>
+      <p>앞선 설문 결과를 반영해 문항을 구성합니다. 시작해볼까요?</p>
+      <button id="startBtn" class="btn btn--primary">시작</button>
     </main>
 
+    <script src="./script/questionData.js"></script>
+    <script src="./script/navigation.js"></script>
     <script>
-      document.getElementById('start').addEventListener('click', () => {
-        // 이전 기록 초기화 (원하면 주석 처리)
-        localStorage.removeItem('ch4Answers');
-        location.href = './question1.html';
-      });
+      document
+        .getElementById('startBtn')
+        .addEventListener('click', () => CH4Nav.start());
     </script>
   </body>
 </html>

@@ -1,68 +1,75 @@
-import { QUESTIONS, TOTAL, loadAnswers, saveAnswer } from './questionData.js';
+(function () {
+  const BANK = window.CH4_BANK;
 
-// 현재 파일명이 questionN.html 일 때 N 꺼내기
-function getCurrentQuestionId() {
-  const m = location.pathname.match(/question(\d+)\.html$/);
-  return m ? Number(m[1]) : 1;
-}
+  function getProfile() {
+    try {
+      return JSON.parse(localStorage.getItem('surveyProfile'));
+    } catch (_) {
+      return null;
+    }
+  }
 
-const qid = getCurrentQuestionId();
-const q = QUESTIONS.find((x) => x.id === qid);
+  function pickQuestions(profile) {
+    if (!profile || !profile.tags) return ['G1', 'G2', 'G3', 'R1'];
 
-// 엘리먼트
-const titleEl = document.querySelector('.q-title');
-const optA = document.querySelector('[data-choice="a"]');
-const optB = document.querySelector('[data-choice="b"]');
-const barA = document.querySelector('.bar.a > span');
-const barB = document.querySelector('.bar.b > span');
-const pctA = document.querySelector('.percent.a');
-const pctB = document.querySelector('.percent.b');
-const nextBtn = document.querySelector('#next');
-const prevBtn = document.querySelector('#prev');
-const progressFill = document.querySelector('.progress > span');
+    const ranked = Object.entries(profile.tags)
+      .sort((a, b) => b[1] - a[1])
+      .map(([k]) => k);
 
-// 초기 렌더
-titleEl.textContent = q.title;
-optA.querySelector('.text').textContent = q.a;
-optB.querySelector('.text').textContent = q.b;
+    const primary = ranked[0];
+    const secondary = ranked[1] || null;
 
-// 미리보기 퍼센트 반영
-barA.style.width = `${q.pre.a}%`;
-barB.style.width = `${q.pre.b}%`;
-pctA.textContent = `${q.pre.a}%`;
-pctB.textContent = `${q.pre.b}%`;
+    const findId = (tag) => BANK.find((q) => q.tag === tag)?.id;
+    const a = findId(primary);
+    const b = secondary ? findId(secondary) : null;
 
-// 진행률
-progressFill.style.width = `${((qid - 1) / TOTAL) * 100}%`;
+    const generals = BANK.filter((q) => q.tag === 'general').map((q) => q.id);
+    const picked = [];
+    if (a) picked.push(a);
+    if (b && b !== a) picked.push(b);
 
-// 기존 선택 표시
-const saved = loadAnswers()[qid];
-if (saved)
-  document.querySelector(`[data-choice="${saved}"]`).classList.add('selected');
+    while (picked.length < 3 && generals.length) {
+      const i = Math.floor(Math.random() * generals.length);
+      const g = generals.splice(i, 1)[0];
+      if (!picked.includes(g)) picked.push(g);
+    }
+    if (!picked.includes('R1')) picked.push('R1');
+    return picked.slice(0, 4);
+  }
 
-// 선택 핸들러
-function select(choice) {
-  document
-    .querySelectorAll('.opt')
-    .forEach((el) => el.classList.remove('selected'));
-  document.querySelector(`[data-choice="${choice}"]`).classList.add('selected');
-  saveAnswer(qid, choice);
-  nextBtn.disabled = false;
-}
+  function ensureOrder(opts = {}) {
+    const force = !!opts.force;
+    const profile = getProfile();
+    const pTs = profile?.ts || 0;
 
-optA.addEventListener('click', () => select('a'));
-optB.addEventListener('click', () => select('b'));
+    let saved;
+    try {
+      saved = JSON.parse(localStorage.getItem('ch4OrderV2'));
+    } catch (_) {}
 
-// 내비게이션
-prevBtn.addEventListener('click', () => {
-  if (qid > 1) location.href = `./question${qid - 1}.html`;
-  else location.href = './index.html';
-});
+    const needRebuild =
+      force ||
+      !saved ||
+      !Array.isArray(saved.ids) ||
+      (pTs && (!saved.profileTs || pTs > saved.profileTs));
 
-nextBtn.addEventListener('click', () => {
-  if (qid < TOTAL) location.href = `./question${qid + 1}.html`;
-  else location.href = './result.html';
-});
+    if (needRebuild) {
+      const ids = pickQuestions(profile);
+      saved = { ids, profileTs: pTs };
+      localStorage.setItem('ch4OrderV2', JSON.stringify(saved));
+    }
 
-// 초기 버튼 상태
-nextBtn.disabled = !saved;
+    if (localStorage.getItem('ch4Order')) localStorage.removeItem('ch4Order');
+    return saved.ids;
+  }
+
+  window.CH4Nav = {
+    ensureOrder,
+    start: () => {
+      ensureOrder({ force: true });
+      location.href = './question1.html';
+    },
+    nextHref: (idx) =>
+      idx + 1 <= 4 ? `./question${idx + 1}.html` : './result.html',
+  };
+})();

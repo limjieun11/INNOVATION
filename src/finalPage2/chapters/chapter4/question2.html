@@ -2,45 +2,34 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>질문</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CH4 질문 2</title>
+    <link rel="stylesheet" href="./style/chapter4Main.css" />
     <link rel="stylesheet" href="./style/questionCommon.css" />
   </head>
   <body>
-    <div class="page">
-      <div class="progress"><span></span></div>
+    <main id="ch4" class="container">
+      <div class="qhdr"><div id="progress">2/4</div></div>
 
-      <h2 class="q-title">질문 텍스트</h2>
+      <h1 id="q-text"></h1>
 
-      <div class="options">
-        <button class="opt" data-choice="a">
-          <div class="text">A 보기</div>
-        </button>
-        <button class="opt" data-choice="b">
-          <div class="text">B 보기</div>
-        </button>
+      <div class="opts">
+        <label id="optA" class="opt">
+          <input type="radio" name="pick" value="A" />
+          <span>선택 A</span>
+        </label>
+
+        <label id="optB" class="opt">
+          <input type="radio" name="pick" value="B" />
+          <span>선택 B</span>
+        </label>
       </div>
 
-      <div class="result-box">
-        <div class="note">다른 사람들이 고른 결과 (사전 집계)</div>
-        <div class="result-row">
-          <div class="label">A</div>
-          <div class="bar a"><span></span></div>
-          <div class="percent a">0%</div>
-        </div>
-        <div class="result-row">
-          <div class="label">B</div>
-          <div class="bar b"><span></span></div>
-          <div class="percent b">0%</div>
-        </div>
-      </div>
+      <button id="nextBtn" class="btn btn--primary">다음</button>
+    </main>
 
-      <div class="nav">
-        <button id="prev" class="btn">이전</button>
-        <button id="next" class="btn primary" disabled>다음</button>
-      </div>
-    </div>
-
-    <script type="module" src="./script/navigation.js"></script>
+    <script src="./script/questionData.js"></script>
+    <script src="./script/navigation.js"></script>
+    <script src="./script/questionHydrate.js" defer></script>
   </body>
 </html>

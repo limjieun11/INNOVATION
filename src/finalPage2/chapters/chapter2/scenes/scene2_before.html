@@ -6,6 +6,7 @@
     <script src="https://cdn.jsdelivr.net/npm/three@0.105.2/build/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.0/build/panolens.min.js"></script>
     <link rel="stylesheet" href="./scss/scene_common.css" />
+    <link rel="stylesheet" href="./scss/easter-egg.css" />
     <style>
       html,
       body {
@@ -27,22 +28,22 @@
   </head>
   <body>
     <main class="scene-page">
-      <div id="viewer"></div>
-      <div
-        id="egg"
-        style="
-          position: absolute;
-          top: 40%;
-          left: 70%;
-          width: 40px;
-          height: 40px;
-          background: transparent;
-          cursor: pointer;
-        "
-      ></div>
+      <div id="viewer">
+        <button
+          id="easter-egg"
+          type="button"
+          aria-label="비상 탈출"
+          data-next="../exit/chapter2_exit.html"
+          data-yaw="-130"
+          data-pitch="-1"
+        ></button>
+      </div>
+
       <button id="next-button">다음</button>
     </main>
     <script src="./js/scene_common.js"></script>
+    <script src="./js/easter-egg.js" defer></script>
+
     <script>
       initPanorama(
         './images/panorama/scene2_before.webp',

@@ -1,35 +1,69 @@
+@charset "UTF-8";
+
 /* assets/scss/intro.scss */
+
+/* 뷰포트 꽉 채우기 + 스크롤 제거 */
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #000;
+}
+
+/* 화면 고정 래퍼 */
 .intro-wrapper {
-  position: relative;
+  position: absolute;
+  inset: 0;
   width: 100vw;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; /* 세로가 넘치면 위/아래가 잘리도록 */
+  background: #000;
+}
+@supports (height: 100dvh) {
+  .intro-wrapper {
+    height: 100dvh;
+  }
 }
 
-.intro-wrapper video {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.intro-wrapper #skip-button {
+/* 가로 맞춤: width를 화면에 맞추고, 중앙 정렬 */
+#intro-video {
   position: absolute;
-  right: 5%;
-  bottom: 5%;
-  padding: 0.8rem 1.6rem;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #111;
-  cursor: pointer;
-  background-color: rgba(255 255 255 / 60%);
-  border: none;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0 0 0 / 15%);
-  backdrop-filter: blur(4px);
-  transition: background-color 0.3s ease;
+  top: 50%;
+  left: 50%;
+
+  /* object-fit 대신 직접 사이징으로 가로 우선 */
+
+  display: block;
+  width: 100vw; /* ✅ 가로를 화면에 딱 맞춤 */
+  min-width: 100vw;
+  max-width: none;
+  height: auto; /* 세로는 비율대로 */
+  background: #000; /* 레터박스 영역 색 */
+  transform: translate(-50%, -50%);
 }
 
-.intro-wrapper #skip-button:hover {
-  background-color: rgba(255 255 255 / 80%);
+/* 건너뛰기 버튼 */
+#skip-button {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 16px);
+  right: calc(env(safe-area-inset-right, 0px) + 16px);
+  z-index: 2147483647;
+  padding: 10px 14px;
+  font-weight: 700;
+  color: #00131a;
+  cursor: pointer;
+  background: #00d4ff;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0 0 0 / 35%);
+  transition: opacity 0.2s ease, transform 0.08s ease;
+}
+
+#skip-button:active {
+  transform: translateY(1px);
 }

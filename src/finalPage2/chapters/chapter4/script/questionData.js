@@ -1,48 +1,76 @@
-// 질문/선택지와 "미리 보여줄" 집계 퍼센트
-export const QUESTIONS = [
+// /chapter4/script/questionData.js
+window.CH4_BANK = [
   {
-    id: 1,
-    title: 'A vs B, 당신의 선택은?',
-    a: '아침형 인간',
-    b: '저녁형 인간',
-    pre: { a: 62, b: 38 },
+    id: 'A1',
+    tag: '경고무시',
+    text: '재난 문자 알림, 당신은?',
+    a: '항상 확인한다',
+    b: '중요해 보일 때만 본다',
+    crowd: { A: 0.62, B: 0.38 },
   },
   {
-    id: 2,
-    title: '평생 한 가지 선택만 가능하다면?',
-    a: '여행 자유',
-    b: '시간 여유',
-    pre: { a: 47, b: 53 },
+    id: 'A2',
+    tag: '편의우선',
+    text: '보행자 신호 10초, 차량 없음. 당신은?',
+    a: '신호 지킨다',
+    b: '빠르게 건넌다',
+    crowd: { A: 0.55, B: 0.45 },
   },
   {
-    id: 3,
-    title: '직장에서 더 중요한 것은?',
-    a: '연봉',
-    b: '워라밸',
-    pre: { a: 35, b: 65 },
+    id: 'A3',
+    tag: '주의산만',
+    text: '공사장 옆 인도에서 휴대폰 길찾기가 필요하다면?',
+    a: '안전한 곳에서 확인',
+    b: '걷다가 잠깐씩 본다',
+    crowd: { A: 0.68, B: 0.32 },
   },
   {
-    id: 4,
-    title: '한 달 동안 필수로 하나만!',
-    a: '커피',
-    b: '운동',
-    pre: { a: 58, b: 42 },
+    id: 'A4',
+    tag: '준비부족',
+    text: '낯선 실내 공간에 들어갔다. 비상구 확인?',
+    a: '항상 한다',
+    b: '급할 일 없으면 안 한다',
+    crowd: { A: 0.71, B: 0.29 },
+  },
+  {
+    id: 'A5',
+    tag: '방관',
+    text: '대중교통에서 위험한 행동을 봤다.',
+    a: '직접/간접으로 제지·알림',
+    b: '괜히 엮이지 않는다',
+    crowd: { A: 0.58, B: 0.42 },
+  },
+
+  {
+    id: 'G1',
+    tag: 'general',
+    text: '여행지에서 안전 규칙 vs 편리함이 충돌?',
+    a: '규칙 우선',
+    b: '편리함 우선',
+    crowd: { A: 0.64, B: 0.36 },
+  },
+  {
+    id: 'G2',
+    tag: 'general',
+    text: '폭우 예보 시 지하차도 통과?',
+    a: '우회',
+    b: '상황 봐서 통과',
+    crowd: { A: 0.77, B: 0.23 },
+  },
+  {
+    id: 'G3',
+    tag: 'general',
+    text: '인파가 급증한 행사장 동선?',
+    a: '우회 동선',
+    b: '빠르게 직진',
+    crowd: { A: 0.69, B: 0.31 },
+  },
+  {
+    id: 'R1',
+    tag: 'reflect',
+    text: '최근 “경고를 무시한 경험”이 있었나?',
+    a: '있었다(습관 고친다)',
+    b: '없다/기억 안 난다',
+    crowd: { A: 0.48, B: 0.52 },
   },
 ];
-
-// 진행률 계산용
-export const TOTAL = QUESTIONS.length;
-
-// 유틸: 답 저장/로드
-export function loadAnswers() {
-  try {
-    return JSON.parse(localStorage.getItem('ch4Answers')) ?? {};
-  } catch {
-    return {};
-  }
-}
-export function saveAnswer(qid, choice) {
-  const store = loadAnswers();
-  store[qid] = choice; // 'a' or 'b'
-  localStorage.setItem('ch4Answers', JSON.stringify(store));
-}

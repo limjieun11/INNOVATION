@@ -1,0 +1,54 @@
+/* === 로딩 오버레이 === */
+#page-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647; /* 최상단 보장 */
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  background: rgb(0 0 0 / 78%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+#page-loading.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+#page-loading .box {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  padding: 20px 24px;
+  background: rgb(18 25 35 / 72%);
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+}
+
+#page-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgb(255 255 255 / 25%);
+  border-top-color: #00d4ff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+#page-loading .label {
+  font-size: 14px;
+  color: #eaf6ff;
+  opacity: 0.95;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.body-lock {
+  overflow: hidden;
+  touch-action: none;
+}
