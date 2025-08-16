@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>메인 페이지 - 안전불감증 프로젝트</title>
-    <!-- <link rel="stylesheet" href="./assets/scss/common.css" /> -->
     <link rel="stylesheet" href="./assets/scss/main.css" />
+    <!-- ✅ 기존 로딩 CSS 연결 -->
+    <link rel="stylesheet" href="./assets/scss/loading.css" />
   </head>
   <body>
     <main class="main-page">
@@ -17,9 +18,11 @@
           무시
         </button>
 
+        <!-- ✅ CH2만 로딩 오버레이 사용 -->
         <button
           class="chapter-btn btn-gyeong"
           data-link="./chapters/chapter2/intro/chapter2_intro.html"
+          data-loading="true"
         >
           경고
         </button>
@@ -40,6 +43,16 @@
       </section>
     </main>
 
+    <!-- ✅ 기존 로딩 JS가 기대하는 오버레이 마크업 -->
+    <div id="page-loading" aria-hidden="true" hidden>
+      <div class="box" role="dialog" aria-label="로딩 안내">
+        <div class="spinner" aria-hidden="true"></div>
+        <div class="label" role="status">로딩 중… 헤드셋 착용을 권장합니다</div>
+      </div>
+    </div>
+
     <script src="./js/main.js" defer></script>
+    <!-- ✅ 기존 로딩 JS 연결 -->
+    <script src="./js/loading.js" defer></script>
   </body>
 </html>

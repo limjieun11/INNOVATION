@@ -77,15 +77,15 @@ body {
 
 /* 공통 버튼 스타일 */
 .chapter-btn {
-  --btn-w: 90px; /* 버튼 가로(세로쓰기 기준 폭) */
-  --btn-h: 180px; /* 버튼 세로(세로쓰기 기준 높이) */
+  --btn-w: 120px; /* 버튼 가로(세로쓰기 기준 폭) */
+  --btn-h: 250px; /* 버튼 세로(세로쓰기 기준 높이) */
   position: absolute;
   width: var(--btn-w);
   height: var(--btn-h);
   padding: 10px 6px;
   /* 전용 폰트 적용(폴백 포함) */
   font-family: ProjectLabel, Pretendard, "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  font-size: 58px;
+  font-size: 72px;
   font-weight: 800;
   line-height: 1;
   color: #fff;

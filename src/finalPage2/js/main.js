@@ -1,8 +1,11 @@
-// js/main.js
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.chapter-btn').forEach((btn) => {
+    // ✅ 로딩 버튼은 loading.js에 맡김
+    if (btn.hasAttribute('data-loading')) return;
 
-document.querySelectorAll('.chapter-btn').forEach((button) => {
-  button.addEventListener('click', () => {
-    const link = button.dataset.link;
-    window.location.href = link;
+    btn.addEventListener('click', () => {
+      const link = btn.dataset.link;
+      if (link) window.location.href = link;
+    });
   });
 });
