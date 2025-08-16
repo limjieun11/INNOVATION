@@ -1,9 +1,6 @@
 @charset "UTF-8";
 
-/* =========================
-   0) 버튼 전용 폰트 (파일 경로 맞춰 넣기)
-   /src/finalPage2/assets/fonts/ProjectLabel-Bold.woff2
-========================= */
+/* ===== 버튼 전용 폰트 ===== */
 @font-face {
   font-family: ProjectLabel;
   font-style: normal;
@@ -12,9 +9,7 @@
   font-display: swap;
 }
 
-/* =========================
-   1) 기본 레이아웃 + 풀블리드 배경
-========================= */
+/* ===== 풀블리드 레이아웃 ===== */
 html,
 body {
   height: 100%;
@@ -22,7 +17,7 @@ body {
 }
 
 body {
-  overflow: hidden; /* 스크롤 완전 제거 */
+  overflow: hidden;
   font-family: Pretendard, Inter, 'Noto Sans KR', system-ui, -apple-system,
     'Segoe UI', Roboto, sans-serif;
 }
@@ -33,8 +28,6 @@ body {
   display: grid;
   place-items: center;
   padding: 0;
-
-  /* 배경 이미지 + 살짝 광원 그라디언트 */
   background-image: radial-gradient(
       900px 600px at 70% -10%,
       rgb(0 212 255 / 12%),
@@ -43,87 +36,199 @@ body {
     url('../images/BG/mainBg.webp');
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover; /* 화면 꽉 채우기(일부 크롭 가능) */
-
-  /* 가독성 오버레이 */
-  &::before {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    content: '';
-    background: rgb(0 0 0 / 25%);
-  }
+  background-size: cover;
 }
-
-/* iOS 주소창 변동 대응 */
 @supports (height: 100dvh) {
   .main-page {
     height: 100dvh;
   }
 }
 
-/* =========================
-   2) 타이틀
-========================= */
-.title {
-  position: relative;
-  z-index: 1;
-  margin: 0 0 28px;
-  font-size: clamp(20px, 2.6vw, 28px);
-  font-weight: 800;
-  color: #e8f0f6;
-  text-align: center;
+/* ===== 한자 레이어 & 배치 ===== */
+.hanja-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
 }
 
-/* =========================
-   3) 버튼 (세로쓰기 + 개별 위치)
-========================= */
+.hanja {
+  position: absolute;
+  max-width: 90vw;
+  height: auto;
+  pointer-events: auto;
+  user-select: none;
+  transition: filter 0.35s ease, opacity 0.35s ease;
+  -webkit-user-drag: none;
+}
 
-/* 전체 버튼 레이어: 뷰포트 기준 절대 배치용 */
+/* ===== 한자 배치/크기 (작게 + 상한 clamp) ===== */
+.hanja-1 {
+  /* 연작처당 - 상단 */
+  top: 8%;
+  left: 9%;
+  width: clamp(520px, 48vw, 1000px);
+}
+
+.hanja-2 {
+  /* 전거지감 - 중상단 */
+  top: 31%;
+  left: 7%;
+  width: clamp(460px, 42vw, 900px);
+}
+
+.hanja-3 {
+  /* 망양지탄 - 중하단 */
+  top: 52%;
+  right: 9%;
+  width: clamp(440px, 40vw, 880px);
+
+  /* 흐림 효과는 기존 .blur-reveal 유지 */
+}
+
+.hanja-4 {
+  /* 유비무환 - 하단 */
+  bottom: 7%;
+  left: 26%;
+  width: clamp(500px, 44vw, 980px);
+}
+
+/* (2) 깜빡임: 기본 1.2s → 호버 0.35s */
+.flicker {
+  --spd: 1.2s;
+
+  animation: hanja-flicker var(--spd) infinite steps(12);
+}
+
+.flicker:hover {
+  --spd: 0.35s;
+}
+@keyframes hanja-flicker {
+  0% {
+    opacity: 0.95;
+  }
+
+  10% {
+    opacity: 0.6;
+    filter: brightness(0.9) contrast(1.05);
+  }
+
+  20% {
+    opacity: 0.85;
+  }
+
+  30% {
+    opacity: 0.5;
+    filter: brightness(0.8) contrast(1.1);
+  }
+
+  40% {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity: 0.65;
+    filter: brightness(0.95);
+  }
+
+  60% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 0.55;
+  }
+
+  80% {
+    opacity: 0.92;
+  }
+
+  90% {
+    opacity: 0.7;
+  }
+
+  100% {
+    opacity: 0.95;
+  }
+}
+
+/* (3) 블러 → 리빌 */
+.blur-reveal {
+  opacity: 0.9;
+  filter: blur(5px) contrast(0.95) brightness(0.92);
+}
+
+.blur-reveal:hover {
+  opacity: 1;
+  filter: blur(0) contrast(1) brightness(1);
+}
+
+/* (4) 팝업 스케일 */
+.pop {
+  transition: transform 0.14s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.pop:hover {
+  transform: scale(1.22);
+}
+
+/* (1) 파티클 컨테이너/닷 */
+.hanja-particles {
+  position: absolute;
+  overflow: visible;
+  pointer-events: auto;
+}
+
+.hanja-particles .dot {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  border-radius: 1px;
+  transition: transform 0.45s ease, opacity 0.45s ease;
+  will-change: transform, opacity;
+}
+
+.hanja-particles.scatter .dot {
+  opacity: 0.6;
+  transform: translate(var(--dx), var(--dy)) rotate(var(--rot));
+}
+
+/* ===== 세로쓰기 버튼 ===== */
 .chapter-buttons {
   position: fixed;
   inset: 0;
   z-index: 10;
-  pointer-events: none; /* 컨테이너는 클릭 막고, 버튼에서만 허용 */
+  pointer-events: none;
 }
 
-/* 공통 버튼 스타일 */
 .chapter-btn {
-  --btn-w: 120px; /* 버튼 가로(세로쓰기 기준 폭) */
-  --btn-h: 250px; /* 버튼 세로(세로쓰기 기준 높이) */
+  --btn-w: 56px;
+  --btn-h: 118px;
 
   position: absolute;
   width: var(--btn-w);
   height: var(--btn-h);
   padding: 10px 6px;
-
-  /* 전용 폰트 적용(폴백 포함) */
   font-family: ProjectLabel, Pretendard, 'Noto Sans KR', system-ui,
     -apple-system, 'Segoe UI', Roboto, sans-serif;
-  font-size: 72px;
+  font-size: 58px;
   font-weight: 800;
-  line-height: 1; // 필요하면 0.95 ~ 1.05 사이에서 미세 조정
+  line-height: 1;
   color: #fff;
-
-  /* ▼ 자간/행간을 좀 더 촘촘하게 */
-  letter-spacing: -0.08em; // -0.02 ~ -0.06em 사이에서 취향 조절
-  white-space: nowrap; // 줄바꿈 방지(세로쓰기일 때도 안전)
-  pointer-events: auto; /* 클릭 허용 */
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  pointer-events: auto;
   cursor: pointer;
   background: #1e1b1b;
   border: none;
-  border-radius: none;
+  border-radius: 12px;
   box-shadow: 0 10px 26px rgb(0 0 0 / 28%);
-
-  /* ✅ 세로쓰기 */
   writing-mode: vertical-rl;
   transition: transform 0.08s ease, background 0.15s ease, box-shadow 0.2s ease;
   text-orientation: upright;
 }
 
 .chapter-btn:hover {
-  font-weight: 800;
-  color: #1e1b1b;
   background: #db1919;
   box-shadow: 0 14px 32px rgb(0 0 0 / 35%);
 }
@@ -137,32 +242,28 @@ body {
   outline-offset: 2px;
 }
 
-/* ===== 원하는 위치(퍼센트만 조절하면 됨) ===== */
+/* 개별 위치 */
 .btn-mu {
-  /* 무시: 좌측 상단 */
-  top: 13%;
-  left: 4%;
+  top: 14%;
+  left: 2%;
 }
 
 .btn-gyeong {
-  /* 경고: 우측 상단 중간 */
-  top: 34%;
-  right: 32%;
+  top: 30%;
+  right: 2.2%;
 }
 
 .btn-hoo {
-  /* 후회: 좌측 중단 */
   top: 56%;
-  left: 28%;
+  left: 2%;
 }
 
 .btn-seong {
-  /* 성찰: 우측 하단 */
-  top: 79%;
-  right: 6%;
+  top: 74%;
+  right: 2.2%;
 }
 
-/* 좁은 화면에서 버튼 조금 축소 */
+/* 반응형 축소 */
 @media (width <= 900px) {
   .chapter-btn {
     --btn-w: 50px;

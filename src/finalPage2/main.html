@@ -4,12 +4,52 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>메인 페이지 - 안전불감증 프로젝트</title>
+
+    <!-- 메인 스타일 -->
     <link rel="stylesheet" href="./assets/scss/main.css" />
-    <!-- ✅ 기존 로딩 CSS 연결 -->
+    <!-- 기존 로딩 스타일 (이미 가지고 있다고 했던 파일) -->
     <link rel="stylesheet" href="./assets/scss/loading.css" />
   </head>
+
   <body>
     <main class="main-page">
+      <!-- 한자 그래픽 레이어 -->
+      <div class="hanja-layer" aria-hidden="true">
+        <!-- 1) 파티클: 호버 시 흩어졌다가 모임 -->
+        <img
+          id="hanja1"
+          class="hanja hanja-1"
+          src="./assets/images/hanja/hanja-yanquechutang.webp"
+          alt="연작처당"
+          draggable="false"
+        />
+
+        <!-- 2) 깜빡임: 기본 깜빡, 호버 시 더 빠르게 -->
+        <img
+          class="hanja hanja-2 flicker"
+          src="./assets/images/hanja/hanja-qianchezhijian.webp"
+          alt="전거지감"
+          draggable="false"
+        />
+
+        <!-- 3) 블러 리빌: 흐림 → 호버 시 선명 -->
+        <img
+          class="hanja hanja-3 blur-reveal"
+          src="./assets/images/hanja/hanja-wangyangzhitan.webp"
+          alt="망양지탄"
+          draggable="false"
+        />
+
+        <!-- 4) 팝업: 호버 시 급확대 -->
+        <img
+          class="hanja hanja-4 pop"
+          src="./assets/images/hanja/hanja-youbeiwuhuan.webp"
+          alt="유비무환"
+          draggable="false"
+        />
+      </div>
+
+      <!-- 챕터 버튼(세로쓰기) -->
       <section class="chapter-buttons">
         <button
           class="chapter-btn btn-mu"
@@ -43,7 +83,7 @@
       </section>
     </main>
 
-    <!-- ✅ 기존 로딩 JS가 기대하는 오버레이 마크업 -->
+    <!-- 기존 로딩 JS가 기대하는 오버레이 마크업 -->
     <div id="page-loading" aria-hidden="true" hidden>
       <div class="box" role="dialog" aria-label="로딩 안내">
         <div class="spinner" aria-hidden="true"></div>
@@ -52,7 +92,8 @@
     </div>
 
     <script src="./js/main.js" defer></script>
-    <!-- ✅ 기존 로딩 JS 연결 -->
+    <script src="./js/hanja.js" defer></script>
+    <!-- 기존 파일 재사용 -->
     <script src="./js/loading.js" defer></script>
   </body>
 </html>
