@@ -1,12 +1,12 @@
 /*******************************************************
- * CH4 Intro — index.html 전용 (stylelint 호환)
+ * CH4 Intro + Result 공용 스타일 (stylelint 호환)
  ********************************************************/
 @use 'sass:color';
 
 /* 색/레이어 */
 $accent: #19e6ff;
 $text: #e8f0f6;
-$z-back: 10;
+$z-back: 11; // 네비 버튼이 항상 위
 $z-cta: 9;
 
 /* 리셋/베이스 */
@@ -21,20 +21,21 @@ body {
   height: 100%;
 }
 
-/* 전역 기본 배경은 검정만 */
 body {
   font-family: 'Noto Sans KR', system-ui, -apple-system, sans-serif;
   color: $text;
-  background: #000;
+  background: #000; // 기본은 검정
 }
 
-/* ✅ 인트로 페이지 전용 배경 (index.html 에서 <body class="ch4-intro">) */
+/* ===================== 인트로 ===================== */
+
+/* index.html 에서 <body class="ch4-intro"> */
 body.ch4-intro {
   background: linear-gradient(180deg, rgb(0 0 0 / 0%), rgb(0 0 0 / 0%)),
     url('../assets/img/bg/introBg.webp') center/cover no-repeat fixed;
 }
 
-/* 좌상단 back 버튼 */
+/* 좌상단 back 버튼 (인트로/결과 공용) */
 .back-btn {
   position: fixed;
   top: max(16px, env(safe-area-inset-top));
@@ -62,7 +63,7 @@ body.ch4-intro {
   }
 }
 
-/* 중앙 그리드 컨테이너 */
+/* 인트로 중앙 레이아웃 */
 #ch4-index.container {
   display: grid;
   gap: 12px;
@@ -71,7 +72,6 @@ body.ch4-intro {
   padding: 10vh 16px 22vh;
   text-align: center;
 
-  /* (타이틀/설명은 현재 사용 안 해도 유지) */
   h1 {
     font-family: 'Noto Serif KR', serif;
     font-size: clamp(40px, 8.5vw, 120px);
@@ -87,21 +87,15 @@ body.ch4-intro {
   }
 }
 
-/* 시작하기 버튼: 텍스트만 보이게 */
+/* 시작하기 버튼: 텍스트만 (인트로) */
 #start-btn {
   position: fixed;
-  bottom: calc(10vh + env(safe-area-inset-bottom)); // 아래에서 10vh 위로
+  bottom: calc(10vh + env(safe-area-inset-bottom));
   left: 50%;
   z-index: $z-cta;
-
-  /* 크기는 글자 기준으로만 */
   display: inline-grid;
   place-items: center;
-  min-width: auto;
-  height: auto;
-  padding: 16px 36px; /* 터치 여백 살짝 ↑ */
-
-  /* 타이포 (크기 ↑) */
+  padding: 16px 36px;
   font-size: clamp(32px, 8.5vw, 56px);
   font-weight: 900;
   color: #e0e0e0;
@@ -109,8 +103,6 @@ body.ch4-intro {
   text-decoration: none;
   text-shadow: 0 0 14px rgb(0 0 0 / 45%);
   cursor: pointer;
-
-  /* 배경/테두리/그림자 제거 */
   background: transparent;
   border: 0;
   border-radius: 0;
@@ -119,7 +111,7 @@ body.ch4-intro {
   transition: color 0.15s ease, text-shadow 0.15s ease, transform 0.12s ease;
 
   &:hover {
-    color: $accent; // ← 글자색만 변경
+    color: $accent;
     text-shadow: 0 0 14px color.change($accent, $alpha: 0.55);
     transform: translateX(-50%) translateY(-2px);
   }
@@ -134,10 +126,66 @@ body.ch4-intro {
   }
 }
 
+/* ===================== 결과 페이지 ===================== */
+
+/* result.html 에서 <body class="ch4-result" style="--ch4-bg:url(..)"> 사용
+   ⚠️ var()로 치환되는 url은 '이 CSS 파일 위치' 기준으로 해석됨 */
+body.ch4-result {
+  --ch4-bg: url('../assets/img/bg/questionBg.webp'); // 기본값
+
+  background: linear-gradient(180deg, rgb(0 0 0 / 18%), rgb(0 0 0 / 22%)),
+    var(--ch4-bg) center/cover no-repeat fixed;
+}
+
+/* 우상단 HOME 버튼 */
+.home-btn {
+  position: fixed;
+  top: max(16px, env(safe-area-inset-top));
+  right: max(16px, env(safe-area-inset-right));
+  z-index: $z-back;
+  display: inline-grid;
+  grid-auto-flow: column;
+  gap: 8px;
+  place-items: center;
+  padding: 6px 10px;
+  color: $text;
+  text-decoration: none;
+  background: rgb(0 0 0 / 30%);
+  border-radius: 12px;
+
+  img {
+    width: 22px;
+    height: 22px;
+    filter: drop-shadow(0 6px 12px rgb(0 0 0 / 45%));
+  }
+
+  span {
+    font-size: clamp(12px, 1.6vw, 14px);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  &:hover {
+    background: rgb(0 0 0 / 45%);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 3px;
+  }
+}
+
+/* 결과 컨테이너 기본 여백 */
+#ch4-result.container {
+  min-height: 100dvh;
+  padding: clamp(16px, 3vw, 32px);
+}
+
 /* 모션 최소화 */
 @media (prefers-reduced-motion: reduce) {
   .back-btn,
-  #start-btn {
+  #start-btn,
+  .home-btn {
     transition: none;
   }
 }

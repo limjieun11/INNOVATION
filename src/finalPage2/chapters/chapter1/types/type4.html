@@ -8,6 +8,27 @@
     <link rel="stylesheet" href="./scss/archive.css" />
 
     <link rel="preload" as="image" href="./img/Bg/type4.webp" />
+    <style>
+      @font-face {
+        font-family: JSongMyung-Regular-KO;
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+            format('woff2'),
+          url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+            format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* 챕터1 말풍선 전용 */
+      .balloon {
+        font-family: JSongMyung-Regular-KO, serif !important;
+        font-weight: 400 !important; /* ✅ Regular만 지원 */
+        font-synthesis: none;
+        line-height: 1.6;
+        letter-spacing: 0.02em;
+      }
+    </style>
   </head>
   <body class="type4">
     <div id="balloon-container"></div>

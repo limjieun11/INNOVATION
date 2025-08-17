@@ -4,26 +4,27 @@
     <meta charset="UTF-8" />
     <title>CH2 탈출</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- SCSS 컴파일된 CSS -->
     <link rel="stylesheet" href="./scss/chapter2_exit.css" />
   </head>
-  <body class="exit-page">
-    <main class="exit-card" role="dialog" aria-label="탈출 안내">
-      <h1>탈출 성공</h1>
-      <p class="desc">
-        눈치 빠르게 위험 신호를 감지해 벗어났어요.<br />
-        다음 장면으로 넘어가거나, 방금 장면을 다시 볼 수 있어요.
-      </p>
 
-      <div class="actions">
-        <!-- 필요에 맞게 목적지 수정 가능 -->
-        <a class="btn ghost" href="../scenes/scene1_before.html"
-          >장면 다시 보기</a
-        >
-        <a class="btn primary" href="../intro/chapter2_intro.html"
-          >인트로로 가기</a
-        >
-      </div>
-    </main>
+  <body class="exit-page">
+    <!-- 좌측 상단: 챕터2 인트로로 -->
+    <a
+      href="../intro/chapter2_intro.html"
+      class="back-btn"
+      aria-label="챕터 2 인트로로"
+    >
+      <img src="../../../assets/images/ui/back.png" alt="" />
+    </a>
+
+    <!-- 우측 상단: 메인(사이트 홈)으로 -->
+    <a href="../../../main.html" class="home-btn" aria-label="메인 화면으로">
+      <img src="../../../assets/images/ui/home.png" alt="" />
+    </a>
+
+    <!-- 중앙 카드 제거: 필요 시 SCSS에서 display:block으로 살릴 수 있음 -->
+    <main class="exit-card" aria-hidden="true"></main>
 
     <script src="./js/chapter2_exit.js" defer></script>
   </body>

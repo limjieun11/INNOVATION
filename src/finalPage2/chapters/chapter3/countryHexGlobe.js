@@ -1,15 +1,15 @@
 // countryHexGlobe.js  (모달 이미지 버전 / 로컬 이미지 자동 매핑)
 
 // =================== 이미지 모달 유틸 ===================
+// openImageModal 함수
 function openImageModal(url, captionText = '') {
   const modal = document.getElementById('img-modal');
   if (!modal) return;
   const modalImg = modal.querySelector('img');
-  const caption = modal.querySelector('.caption');
+  // const caption = modal.querySelector('.caption');  // <- 캡션 제거
 
   if (url) modalImg.src = url;
   modalImg.alt = captionText || '';
-  caption.textContent = captionText || '';
 
   modal.classList.add('is-open');
   modal.setAttribute('aria-hidden', 'false');
@@ -105,7 +105,13 @@ const fullDataset = {
     ],
     hexPoints: [
       // 대한민국
-      { lat: 36.815, lng: 127.119, name: '천안 열차 추돌사고', altitude: 0.85 },
+      {
+        lat: 36.815,
+        lng: 127.119,
+        name: '천안 열차 추돌사고',
+        altitude: 0.85,
+        imageUrl: './img/chapter3/rule/rule_cheonantrain.webp',
+      },
       { lat: 35.211, lng: 128.56, name: '모산 수학여행 참사', altitude: 0.85 },
       {
         lat: 37.342,
@@ -164,14 +170,27 @@ const fullDataset = {
       },
 
       // 미국
-      { lat: 45.0506, lng: -87.7515, name: '페시티고 화재', altitude: 1.0 },
+      {
+        lat: 45.0506,
+        lng: -87.7515,
+        name: '페시티고 화재',
+        altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_peshtigo.webp',
+      },
       {
         lat: 40.7309,
         lng: -73.9959,
         name: '트라이앵글 의류공장 화재 사고',
         altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_triangle.webp',
       },
-      { lat: 41.7325, lng: -49.9469, name: '타이타닉호 침몰', altitude: 1.0 },
+      {
+        lat: 41.7325,
+        lng: -49.9469,
+        name: '타이타닉호 침몰',
+        altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_tytanic.webp',
+      },
       { lat: 35.4437, lng: 139.638, name: '사쿠라기초 사고', altitude: 1.3 },
       { lat: 35.7335, lng: 139.7825, name: '미카와시마 사고', altitude: 0.95 },
       {

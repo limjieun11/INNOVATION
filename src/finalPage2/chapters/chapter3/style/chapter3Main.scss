@@ -5,6 +5,18 @@
  * - rgba($c,a) → color.change($c, $alpha: ...)
  ********************************************************/
 
+/* 웹폰트 선언: 최상단 유지 */
+@font-face {
+  font-family: JSongMyung-Regular-KO;
+  font-style: normal;
+  font-weight: normal;
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+      format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+      format('woff2');
+  font-display: swap;
+}
+
 @use 'sass:color';
 
 /* ===================== 변수 ===================== */
@@ -33,8 +45,6 @@ body {
   font-family: 'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', Roboto,
     Arial, sans-serif;
   color: $text;
-
-  /* ⭐ 배경: 별 이미지 (경로는 프로젝트에 맞게) */
   background: #000 url('../img/BG/introBg.webp') center/cover no-repeat fixed;
 }
 
@@ -44,13 +54,12 @@ body {
   inset: 0;
   z-index: $z-globe;
 
-  /* Globe 캔버스는 투명 */
   canvas {
     background: transparent !important;
   }
 }
 
-/* ===================== 메뉴 베이스(중복 선언 금지) ===================== */
+/* ===================== 메뉴 ===================== */
 #case-menu {
   position: fixed;
   z-index: $z-ui;
@@ -58,14 +67,11 @@ body {
   flex-direction: column;
 }
 
-/* === 모디파이어: 텍스트만 보이는 버전 + 왼쪽 중앙 정렬 === */
 #case-menu.menu-plain {
   top: 50%;
   left: 36px;
   gap: 28px;
   align-items: flex-start;
-
-  /* 박스 장식 제거 */
   padding: 0;
   background: transparent;
   border: 0;
@@ -76,14 +82,16 @@ body {
   button {
     all: unset;
     display: block;
+    font-family: JSongMyung-Regular-KO, serif;
     font-size: clamp(12px, 1.7vw, 16px);
-    font-weight: 800;
+    font-weight: 400; /* ✅ 이 폰트는 400만 확실 */
     line-height: 1.2;
     color: #eaf6ff;
     letter-spacing: 0.2px;
     cursor: pointer;
     opacity: 0.9;
     transition: opacity 0.2s ease, transform 0.15s ease;
+    font-synthesis: none; /* ✅ 굵기 합성 방지 */
 
     &:hover {
       opacity: 1;
@@ -98,22 +106,24 @@ body {
   }
 }
 
-/* ── 모바일: 상단 중앙 정렬(원하는 레이아웃) ── */
+/* 모바일 */
 @media (max-width: $mobile-break) {
   #globe-container {
     display: none;
-  } /* 필요 없으면 주석 처리 */
+  }
 
   #case-menu.menu-plain {
     top: 48px;
     left: 50%;
     gap: clamp(24px, 7vh, 64px);
-    transform: translateX(-50%); /* 상단 중앙 */
+    transform: translateX(-50%);
 
     button {
-      font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+      font-family: JSongMyung-Regular-KO, serif; /* ✅ 모바일도 동일 폰트 */
       font-size: clamp(22px, 7.2vw, 40px);
+      font-weight: 400;
       text-align: center;
+      font-synthesis: none;
 
       &:hover {
         transform: none;
@@ -136,7 +146,6 @@ body {
   max-width: min(40vw, 540px);
   padding: 16px 18px;
   background: $panel;
-  border: 0;
   border-radius: 8px;
   box-shadow: $shadow-ui;
   backdrop-filter: blur(4px);
@@ -146,9 +155,11 @@ body {
     gap: 8px;
     align-items: center;
     margin: 0 0 10px;
+    font-family: JSongMyung-Regular-KO, serif; /* ✅ 적용 */
     font-size: 20px;
-    font-weight: 800;
+    font-weight: 600; /* ✅ 800→600으로 낮춤 */
     color: #fff;
+    letter-spacing: 0.2px;
 
     .caret {
       font-size: 0.6em;
@@ -161,14 +172,15 @@ body {
 
   #type-description {
     margin: 0;
+    font-family: JSongMyung-Regular-KO, serif; /* ✅ 적용 */
     font-size: 14px;
-    line-height: 1.7;
+    font-weight: 400;
+    line-height: 1.8; /* ✅ 명조체 여백 확보 */
     color: color.adjust($text, $lightness: 4%);
     text-shadow: 0 1px 0 rgb(0 0 0 / 35%);
   }
 }
 
-/* 모바일 설명 박스(투명/타이포 확대) */
 @media (max-width: $mobile-break) {
   #type-description-box {
     right: 24px;
@@ -182,8 +194,9 @@ body {
     backdrop-filter: none;
 
     #desc-title {
-      font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+      font-family: JSongMyung-Regular-KO, serif; /* ✅ 모바일도 동일 폰트 */
       font-size: clamp(18px, 5vw, 26px);
+      font-weight: 600;
 
       .caret {
         color: color.adjust($accent, $lightness: 10%);
@@ -191,14 +204,16 @@ body {
     }
 
     #type-description {
+      font-family: JSongMyung-Regular-KO, serif;
       font-size: clamp(13px, 3.7vw, 17px);
+      font-weight: 400;
       line-height: 1.9;
       color: #e9eef2;
     }
   }
 }
 
-/* ===================== BACK 버튼 (좌상단 고정, back.png) ===================== */
+/* ===================== BACK 버튼 ===================== */
 .back-btn {
   position: fixed;
   top: max(16px, env(safe-area-inset-top));
@@ -208,7 +223,6 @@ body {
   place-items: center;
   width: 48px;
   height: 48px;
-  padding: 0;
   cursor: pointer;
   background: transparent;
   border: 0;
@@ -232,7 +246,7 @@ body {
   }
 }
 
-/* ===================== 이미지 모달 ===================== */
+/* ===================== 이미지 모달 (수정) ===================== */
 #img-modal {
   position: fixed;
   inset: 0;
@@ -246,7 +260,7 @@ body {
   .backdrop {
     position: absolute;
     inset: 0;
-    background: rgb(0 0 0 / 60%);
+    background: rgb(40 109 120 / 60%);
   }
 
   .dialog {
@@ -254,10 +268,10 @@ body {
     top: 50%;
     left: 50%;
     display: grid;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto 1fr;
     gap: 8px;
-    width: min(90vw, 560px);
-    max-height: min(90vh, 720px);
+    width: min(96vw, 900px); /* 필요 시 1200px로 확대 */
+    max-height: 90vh;
     padding: 12px;
     background: rgb(18 25 35 / 96%);
     border-radius: 16px;
@@ -275,30 +289,26 @@ body {
     }
 
     img {
+      display: block;
       width: 100%;
+      max-width: 100%;
       height: auto;
-      max-height: 60vh;
+      max-height: calc(90vh - 64px);
+      margin: 0 auto;
       object-fit: contain;
       border-radius: 10px;
       box-shadow: 0 10px 30px rgb(0 0 0 / 35%);
     }
 
     .caption {
-      padding: 4px 2px;
-      font-size: 14px;
-      color: #e8f0f6;
-      text-align: center;
-      opacity: 0.9;
+      display: none;
     }
   }
 }
 
-/* ===================== 접근성: 모션 최소화 ===================== */
+/* ===================== 접근성 ===================== */
 @media (prefers-reduced-motion: reduce) {
-  #case-menu.menu-plain button {
-    transition: none;
-  }
-
+  #case-menu.menu-plain button,
   .back-btn {
     transition: none;
   }

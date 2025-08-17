@@ -10,6 +10,29 @@
 
     <!-- Globe.js (UMD 전역: window.Globe) -->
     <script src="https://unpkg.com/globe.gl"></script>
+    <!-- 임시 강제 테스트: head 맨 아래에 추가 -->
+    <style>
+      @font-face {
+        font-family: JSongMyung-Regular-KO;
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+            format('woff2'),
+          url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+            format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* 왼쪽 메뉴/설명 강제 적용 */
+      #case-menu.menu-plain button,
+      #type-description-box,
+      #type-description-box #desc-title,
+      #type-description-box #type-description {
+        font-family: JSongMyung-Regular-KO, serif !important;
+        font-weight: 400;
+        font-synthesis: none;
+      }
+    </style>
   </head>
   <body>
     <!-- 🌍 지구 컨테이너 -->
