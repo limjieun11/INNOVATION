@@ -1,21 +1,19 @@
-// ========== questionCommon.scss ==========
-// 공통 변수
-$bg: #0b0f14;
-$panel: #121923;
-$panel-2: #0f1520;
-$accent: #00d4ff;
-$accent-2: #6cf0ff;
-$muted: #a9b4c0;
-$text: #e8f0f6;
-$danger: #ff3b55;
-$success: #19e28b;
-$radius: 16px;
-$radius-sm: 10px;
-$shadow: 0 10px 30px rgb(0 0 0 / 35%);
+/*******************************************************
+ * CH4 Questions — EP1~EP4 공통 스타일
+ ********************************************************/
+@use 'sass:color';
 
-// 기본 리셋(간단)
+$accent: #19e6ff;
+$text: #e8f0f6;
+$muted: #dfe7ee;
+$z-top: 8;
+$z-bottom: 8;
+
+/* Reset */
 * {
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 html,
@@ -23,345 +21,180 @@ body {
   height: 100%;
 }
 
+/* 배경 (인트로와 다르게) */
+:root {
+  --ch4-q-bg: url('../assets/img/bg/questionBg.webp');
+
+  /* 하단 통계 위치 미세 조정용 (페이지별로 body style로 덮어쓰기 가능) */
+  --stats-bottom: 15vh;
+}
+
 body {
-  margin: 0;
-  font-family: Pretendard, Inter, 'Noto Sans KR', system-ui, -apple-system,
-    'Segoe UI', Roboto, sans-serif;
+  font-family: 'Noto Sans KR', system-ui, -apple-system, sans-serif;
   color: $text;
-  background: radial-gradient(
-      1200px 800px at 70% -10%,
-      rgb(0 212 255 / 12%),
-      transparent 55%
-    )
-    $bg;
+  background: linear-gradient(180deg, rgb(0 0 0 / 25%), rgb(0 0 0 / 25%)),
+    var(--ch4-q-bg) center/cover no-repeat fixed;
 }
 
-// 공통 래퍼
-.q-wrap {
+/* 상단 에피소드 띠 — 배경 제거(글자만) */
+.q-top {
+  position: sticky;
+  top: 0;
+  z-index: $z-top;
+  padding: clamp(16px, 3.6vw, 28px) 16px;
+  text-align: center;
+  text-shadow: 0 2px 14px rgb(0 0 0 / 45%);
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
+
+  .ep-title {
+    margin-bottom: clamp(8px, 1.6vw, 12px);
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(22px, 3.5vw, 40px);
+    font-weight: 800;
+    letter-spacing: 0.05em;
+  }
+
+  .ep-sub {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(16px, 2.2vw, 26px);
+    line-height: 1.6;
+    color: $muted;
+  }
+}
+
+/* 선택 섹션(2열) */
+.q-options {
   display: grid;
-  grid-template-rows: auto 1fr auto;
-  gap: 16px;
-  min-height: 100dvh;
-  padding: clamp(16px, 3vw, 28px);
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(14px, 2vw, 24px);
+  align-items: start;
+  padding: clamp(16px, 2.6vw, 28px);
 }
 
-/* -------------------------------------------------
-   결과 바(덜 구체적인 .bar를 먼저 선언해 경고 방지)
--------------------------------------------------- */
-.result-bars {
-  display: grid;
-  gap: 12px;
+.option {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
 
-  .bar {
-    overflow: hidden;
-    background: $panel-2;
-    border: 1px solid rgb(255 255 255 / 6%);
-    border-radius: $radius;
+  /* ▼ 둥근 모서리/배경/그림자 제거 */
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  isolation: isolate;
 
-    .fill {
-      display: grid;
-      place-items: center;
-      width: var(--pct, 50%);
-      height: 48px;
-      font-weight: 800;
-      color: #00131a;
-      background: linear-gradient(90deg, $accent, $success);
-      transition: width 0.35s ease;
-    }
-  }
-}
+  img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
 
-/* -------------------------------------------------
-   상단 바 (제목/진행도)
--------------------------------------------------- */
-.q-topbar {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  justify-content: space-between;
-
-  .title {
-    display: flex;
-    gap: 10px;
-    align-items: baseline;
-
-    h1 {
-      margin: 0;
-      font-size: clamp(18px, 2.8vw, 26px);
-      font-weight: 800;
-      letter-spacing: 0.2px;
-    }
-
-    .step {
-      padding: 4px 8px;
-      font-size: 12px;
-      color: $accent;
-      background: rgb(0 212 255 / 12%);
-      border: 1px solid rgb(0 212 255 / 35%);
-      border-radius: 999px;
-    }
+    /* ▼ 이미지도 radius 제거 */
+    border-radius: 0;
+    filter: brightness(0.98);
+    transition: transform 0.25s ease, filter 0.25s ease;
   }
 
-  .progress {
-    flex: 1 0 220px;
-    max-width: 360px;
-    height: 10px;
-    overflow: hidden;
-    background: $panel-2;
-    border-radius: 999px;
-    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 6%);
+  &:hover img {
+    filter: brightness(1);
+    transform: scale(1.02);
+  }
 
-    /* stylelint-disable-next-line no-descending-specificity */
-    .bar {
-      width: var(--progress, 0%);
-      height: 100%;
-      background: linear-gradient(90deg, $accent, $accent-2);
-      transition: width 0.25s ease;
-    }
+  /* 선택지 텍스트는 사용하지 않음 */
+  figcaption {
+    display: none !important;
   }
 }
 
-/* -------------------------------------------------
-   질문 본문
--------------------------------------------------- */
-.q-body {
-  display: grid;
-  gap: 16px;
-  align-content: start;
-
-  .question {
-    padding: 16px 14px;
-    font-size: clamp(18px, 2.6vw, 24px);
-    font-weight: 700;
-    line-height: 1.5;
-    background: $panel;
-    border: 1px solid rgb(255 255 255 / 6%);
-    border-radius: $radius;
-    box-shadow: $shadow;
-  }
-
-  .choices {
-    display: grid;
-    gap: 14px;
-    margin-top: 6px;
-    @media (width >= 860px) {
-      grid-template-columns: 1fr 1fr;
-    }
-  }
-
-  .choice {
-    position: relative;
-    display: grid;
-    gap: 10px;
-    align-content: center;
-    min-height: 120px;
-    padding: clamp(14px, 2vw, 20px);
-    cursor: pointer;
-    background: $panel-2;
-    border: 1px solid rgb(255 255 255 / 8%);
-    border-radius: $radius;
-    transition: transform 0.12s ease, border-color 0.15s ease,
-      box-shadow 0.25s ease;
-
-    .ratio {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      font-size: 12px;
-      color: $muted;
-
-      &::after {
-        display: block;
-        width: 86px;
-        height: 6px;
-        margin-top: 6px;
-        overflow: hidden;
-        content: '';
-        background: rgb(255 255 255 / 8%);
-        border-radius: 999px;
-        box-shadow: inset 0 0 0 1px rgb(255 255 255 / 4%);
-      }
-
-      /* stylelint-disable-next-line no-descending-specificity */
-      .bar {
-        position: absolute;
-        top: calc(12px + 18px);
-        right: 12px;
-        width: var(--ratio, 0%);
-        height: 6px;
-        background: linear-gradient(90deg, $success, $accent);
-        border-radius: 999px;
-        transition: width 0.25s ease;
-      }
-    }
-
-    .label {
-      font-size: clamp(16px, 2.2vw, 20px);
-      font-weight: 700;
-      line-height: 1.4;
-    }
-
-    .desc {
-      font-size: 14px;
-      color: $muted;
-    }
-
-    &:hover {
-      border-color: rgb(0 212 255 / 35%);
-      transform: translateY(-1px);
-    }
-
-    &.selected {
-      outline: 2px solid $accent;
-      box-shadow: 0 0 0 4px rgb(0 212 255 / 12%);
-    }
-
-    &.disabled {
-      cursor: not-allowed;
-      opacity: 0.6;
-      filter: grayscale(0.1);
-    }
-  }
-}
-
-/* -------------------------------------------------
-   하단 네비게이션
--------------------------------------------------- */
-.q-nav {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: space-between;
-
-  .left,
-  .right {
-    display: flex;
-    gap: 10px;
-  }
-
-  button {
-    padding: 12px 16px;
-    font-weight: 700;
-    appearance: none;
-    cursor: pointer;
-    border: 0;
-    border-radius: $radius-sm;
-    box-shadow: $shadow;
-    transition: transform 0.08s ease, background 0.2s ease, opacity 0.2s ease;
-
-    &.primary {
-      color: #081017;
-      background: linear-gradient(180deg, $accent, $accent-2);
-    }
-
-    &.ghost {
-      color: $text;
-      background: $panel;
-      border: 1px solid rgb(255 255 255 / 8%);
-    }
-
-    &.link {
-      padding: 10px 12px;
-      color: $muted;
-      background: transparent;
-      box-shadow: none;
-    }
-
-    &:active {
-      transform: translateY(1px);
-    }
-
-    &:disabled {
-      cursor: not-allowed;
-      opacity: 0.5;
-    }
-  }
-}
-
-/* -------------------------------------------------
-   토스트
--------------------------------------------------- */
-.toast {
+/* 하단 통계 — 배경 바 제거, 가운데 하단에 고정(문구+퍼센트만) */
+.q-stats {
   position: fixed;
-  bottom: 30px;
+  bottom: var(--stats-bottom);
   left: 50%;
-  padding: 10px 14px;
-  font-size: 14px;
-  color: #00131a;
-  pointer-events: none;
-  background: $accent;
-  border-radius: 999px;
-  box-shadow: $shadow;
-  opacity: 0;
+  z-index: $z-bottom;
+
+  /* ▼ 배경/그림자/블러 제거 */
+  padding: 0;
+  background: none;
+  box-shadow: none;
+  backdrop-filter: none;
   transform: translateX(-50%);
 
-  &.show {
-    opacity: 1;
-    transition: opacity 0.2s ease;
-  }
-}
-
-/* -------------------------------------------------
-   ▼▼▼  [추가] 하단 '다른 사람들의 선택 비율' 바  ▼▼▼
--------------------------------------------------- */
-.crowdbar {
-  display: grid;
-  grid-template-columns: var(--left, 50%) var(--right, 50%);
-  width: min(1000px, 92vw);
-  height: 56px;
-  margin: 18px auto 0;
-  overflow: hidden;
-  background: rgb(0 0 0 / 35%);
-  border: 1px solid rgb(255 255 255 / 12%);
-  border-radius: $radius;
-  backdrop-filter: blur(2px);
-  transition: grid-template-columns 0.6s ease-out;
-
-  &__left,
-  &__right {
+  .stats-wrap {
     display: grid;
-    place-items: center;
-    font-weight: 700;
+    grid-template-columns: 1fr auto 1fr;
+    gap: clamp(8px, 1.8vw, 16px);
+    align-items: baseline;
+    width: min(92vw, 1180px);
+    margin: 0 auto;
+  }
+
+  .stat {
+    font-size: clamp(18px, 2.2vw, 26px);
+    font-weight: 800;
     color: $text;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 12px rgb(0 0 0 / 55%);
+    transition: color 0.2s ease, text-shadow 0.2s ease, transform 0.2s ease;
+
+    &.left {
+      text-align: left;
+    }
+
+    &.right {
+      text-align: right;
+    }
+
+    /* 숫자 강조 효과(선택 시) */
+    &.bump {
+      animation: stat-bump 0.5s ease;
+    }
+
+    &.flash {
+      color: $accent;
+      text-shadow: 0 0 14px color.change($accent, $alpha: 0.55);
+    }
   }
 
-  &__left {
-    background: linear-gradient(
-      180deg,
-      rgb(255 255 255 / 10%),
-      rgb(255 255 255 / 6%)
-    );
-  }
-
-  &__right {
-    background: linear-gradient(
-      180deg,
-      rgb(255 255 255 / 8%),
-      rgb(255 255 255 / 4%)
-    );
-  }
-
-  span {
-    font-size: clamp(14px, 2vw, 18px);
-    opacity: 0.9;
+  .stats-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(18px, 2.4vw, 28px);
+    font-weight: 800;
+    color: #fff;
+    letter-spacing: 0.02em;
+    text-shadow: 0 2px 14px rgb(0 0 0 / 55%);
   }
 }
 
-.crowd-caption {
-  width: min(1000px, 92vw);
-  margin: 10px auto 0;
-  font-size: 14px;
-  color: $muted;
-  text-align: center;
+@keyframes stat-bump {
+  0% {
+    transform: translateY(0) scale(1);
+  }
+
+  30% {
+    transform: translateY(-2px) scale(1.12);
+  }
+
+  100% {
+    transform: translateY(0) scale(1);
+  }
 }
 
-/* 모션 최소 선호 시 전환 제거 */
+/* 모바일 */
+@media (width <= 880px) {
+  .q-options {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* 모션 최소화 */
 @media (prefers-reduced-motion: reduce) {
-  .crowdbar,
-  .q-topbar .progress .bar,
-  .result-bars .bar .fill,
-  .q-body .choice .ratio .bar {
-    transition: none !important;
+  .option img {
+    transition: none;
+  }
+
+  .q-stats .stat {
+    animation: none !important;
   }
 }

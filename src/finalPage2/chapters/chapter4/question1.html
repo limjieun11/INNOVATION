@@ -3,33 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>CH4 질문 1</title>
-    <link rel="stylesheet" href="./style/chapter4Main.css" />
+    <title>CH4 EP.1</title>
     <link rel="stylesheet" href="./style/questionCommon.css" />
   </head>
   <body>
-    <main id="ch4" class="container">
-      <div class="qhdr"><div id="progress">1/4</div></div>
+    <header class="q-top" role="banner">
+      <div class="ep-title">EP.1</div>
+      <p class="ep-sub">
+        수업중 화재 경보기가 울린다<br />
+        그러나 아무도 나가지 않고 동요하지 않는 상황 나는 여기서
+      </p>
+    </header>
 
-      <h1 id="q-text"></h1>
-
-      <div class="opts">
-        <label id="optA" class="opt">
-          <input type="radio" name="pick" value="A" />
-          <span>선택 A</span>
-        </label>
-
-        <label id="optB" class="opt">
-          <input type="radio" name="pick" value="B" />
-          <span>선택 B</span>
-        </label>
-      </div>
-
-      <button id="nextBtn" class="btn btn--primary">다음</button>
+    <main class="q-options" id="q-root" role="main">
+      <figure class="option" id="choice-left" data-choice="left">
+        <img src="./assets/img/results/ep1_left.webp" alt="선택지 1" />
+      </figure>
+      <figure class="option" id="choice-right" data-choice="right">
+        <img src="./assets/img/results/ep1_right.webp" alt="선택지 2" />
+      </figure>
     </main>
 
-    <script src="./script/questionData.js"></script>
+    <footer class="q-stats" role="contentinfo">
+      <div class="stats-wrap">
+        <div class="stat left" id="stat-left">0%</div>
+        <div class="stats-title">다른 사람들의 대답은?</div>
+        <div class="stat right" id="stat-right">0%</div>
+      </div>
+    </footer>
+
     <script src="./script/navigation.js"></script>
-    <script src="./script/questionHydrate.js" defer></script>
+    <script src="./script/questionHydrate.js"></script>
+    <script>
+      // 이 페이지의 로컬 집계 키
+      CH4WireChoices({ qid: 'ep1', nextHref: 'question2.html' });
+    </script>
   </body>
 </html>

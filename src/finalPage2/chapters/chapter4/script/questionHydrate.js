@@ -1,134 +1,144 @@
+// 로컬 전용 누적 그래프(처음 0%/0% → 선택 때마다 누적, 애니메이션로 증가)
 (function () {
-  const BANK = window.CH4_BANK;
+  const KEY_LOCAL = 'ch4CrowdLocalV3'; // { [qid]: { left: n, right: n } }
 
-  let saved;
-  try {
-    saved = JSON.parse(localStorage.getItem('ch4OrderV2'));
-  } catch (_) {}
-  const order = saved?.ids || [];
-  if (!order.length) {
-    location.href = './index.html';
-    return;
-  }
+  // --- URL 리셋 스위치: ...question1.html?reset=1 로 열면 로컬 데이터 초기화 ---
+  let __RESET_TRIGGERED__ = false;
+  (function resetSwitch() {
+    const qs = new URLSearchParams(location.search);
+    if (qs.has('reset')) {
+      // 현 버전 + 예전 키들까지 같이 삭제
+      ['ch4CrowdLocalV3', 'ch4CrowdLocal', 'ch4Answers', 'ch4OrderV2'].forEach(
+        (k) => localStorage.removeItem(k)
+      );
 
-  const m = location.pathname.match(/question(\d+)\.html$/);
-  const idx = m ? parseInt(m[1], 10) : 1;
-  const qid = order[idx - 1];
-  const q = BANK.find((x) => x.id === qid) || {};
-
-  const elText = document.getElementById('q-text');
-  const elA = document.getElementById('optA');
-  const elB = document.getElementById('optB');
-  const aInput = elA?.querySelector('input');
-  const bInput = elB?.querySelector('input');
-  const btnNext = document.getElementById('nextBtn');
-  const progress = document.getElementById('progress');
-
-  if (progress) progress.textContent = `${idx}/4`;
-  if (elText) elText.textContent = q.text || '';
-  if (elA) elA.querySelector('span').textContent = q.a || '';
-  if (elB) elB.querySelector('span').textContent = q.b || '';
-
-  const answersKey = 'ch4Answers';
-  const crowdKey = 'ch4CrowdLocal';
-
-  let answers = {};
-  let localCrowd = {};
-  try {
-    answers = JSON.parse(localStorage.getItem(answersKey)) || {};
-  } catch (_) {}
-  try {
-    localCrowd = JSON.parse(localStorage.getItem(crowdKey)) || {};
-  } catch (_) {}
-
-  const name = `q${idx}`;
-  if (answers[name] === 'A' && aInput) aInput.checked = true;
-  if (answers[name] === 'B' && bInput) bInput.checked = true;
-
-  // crowdbar 보장(없으면 생성)
-  function ensureCrowdBar() {
-    let bar = document.getElementById('crowdbar');
-    let pctAEl = document.getElementById('crowdPctA');
-    let pctBEl = document.getElementById('crowdPctB');
-    if (!bar) {
-      bar = document.createElement('section');
-      bar.id = 'crowdbar';
-      bar.className = 'crowdbar';
-      const l = document.createElement('div');
-      l.className = 'crowdbar__left';
-      const r = document.createElement('div');
-      r.className = 'crowdbar__right';
-      const sa = document.createElement('span');
-      sa.id = 'crowdPctA';
-      sa.textContent = '--%';
-      const sb = document.createElement('span');
-      sb.id = 'crowdPctB';
-      sb.textContent = '--%';
-      l.appendChild(sa);
-      r.appendChild(sb);
-      bar.append(l, r);
-      const container = document.getElementById('ch4') || document.body;
-      if (btnNext?.parentElement)
-        btnNext.parentElement.insertBefore(bar, btnNext);
-      else container.appendChild(bar);
-      pctAEl = sa;
-      pctBEl = sb;
+      __RESET_TRIGGERED__ = true;
+      // 쿼리 스트립하고 한 번만 새로고침(깨끗한 URL, 0%로 시작)
+      location.replace(location.pathname);
     }
-    return { bar, pctAEl, pctBEl };
+  })();
+  if (__RESET_TRIGGERED__) return;
+
+  const read = (k, f = {}) => {
+    try {
+      return JSON.parse(localStorage.getItem(k)) ?? f;
+    } catch {
+      return f;
+    }
+  };
+  const write = (k, v) => {
+    try {
+      localStorage.setItem(k, JSON.stringify(v));
+    } catch {}
+  };
+
+  // 숫자 텍스트 세팅
+  const setPct = (el, v) => {
+    if (el) el.textContent = `${Math.round(v)}%`;
+  };
+
+  // 부드러운 증가(숫자만) — 변화가 잘 보이게
+  const animatePct = ({ elL, elR, fromL, fromR, toL, toR, duration = 800 }) => {
+    const start = performance.now();
+    const ease = (x) => 1 - Math.pow(1 - x, 3); // easeOutCubic
+    function frame(now) {
+      const t = Math.min(1, (now - start) / duration);
+      const e = ease(t);
+      setPct(elL, fromL + (toL - fromL) * e);
+      setPct(elR, fromR + (toR - fromR) * e);
+      if (t < 1) requestAnimationFrame(frame);
+      else {
+        setPct(elL, toL);
+        setPct(elR, toR);
+      }
+    }
+    requestAnimationFrame(frame);
+  };
+
+  // 현재 퍼센트 계산(로컬 누적만)
+  function ratio(counts) {
+    const L = counts.left || 0;
+    const R = counts.right || 0;
+    const sum = L + R;
+    if (sum === 0) return { left: 0, right: 0 }; // 처음엔 0/0
+    const left = (L / sum) * 100;
+    return { left, right: 100 - left };
   }
-  const { bar, pctAEl, pctBEl } = ensureCrowdBar();
 
-  // ===== 퍼센트 계산/표시 =====
-  const PRIOR = Number(window.CH4_CROWD_PRIOR ?? 30); // ← 가중치(기본 30로 낮춤)
-
-  function computeCrowd(question, statsOverride) {
-    const seedA =
-      question?.crowd && typeof question.crowd.A === 'number'
-        ? question.crowd.A
-        : 0.5;
-    const seedB = 1 - seedA;
-    const stats = statsOverride ?? localCrowd[qid] ?? { A: 0, B: 0 };
-    const a = seedA * PRIOR + (stats.A || 0);
-    const b = seedB * PRIOR + (stats.B || 0);
-    const pa = a / (a + b);
-    return { pa, pb: 1 - pa };
+  // 숫자 강조 효과(애니메이션 클래스는 CSS에 정의: .bump, .flash)
+  function pop(el) {
+    if (!el) return;
+    el.classList.remove('bump');
+    el.classList.remove('flash');
+    void el.offsetWidth; // reflow
+    el.classList.add('bump');
+    el.classList.add('flash');
+    setTimeout(() => el.classList.remove('flash'), 600);
   }
 
-  function renderCrowd(statsOverride) {
-    if (!bar) return;
-    const { pa, pb } = computeCrowd(q, statsOverride);
-    const left = Math.round(pa * 100);
-    const right = 100 - left;
-    bar.style.gridTemplateColumns = `${left}% ${right}%`;
-    if (pctAEl) pctAEl.textContent = `${left}%`;
-    if (pctBEl) pctBEl.textContent = `${right}%`;
-  }
+  // 공개: 페이지에서 호출해 연결
+  window.CH4WireChoices = function ({ qid, nextHref }) {
+    const L = document.getElementById('stat-left');
+    const R = document.getElementById('stat-right');
 
-  renderCrowd();
+    // 1) 최초 표시: 0% / 0%
+    setPct(L, 0);
+    setPct(R, 0);
 
-  // 선택 → 저장 → (즉시 UI 반영) → 다음
-  btnNext?.addEventListener('click', () => {
-    const picked = (aInput?.checked && 'A') || (bInput?.checked && 'B') || null;
-    if (!picked) {
-      alert('하나를 선택해 주세요.');
-      return;
+    // 2) 이전에 이 질문에 투표한 내역이 있다면 → 그 비율로 0→현재값 애니메이션
+    const map0 = read(KEY_LOCAL, {});
+    const cur0 = map0[qid] || { left: 0, right: 0 };
+    const end0 = ratio(cur0);
+    if (cur0.left + cur0.right > 0) {
+      animatePct({
+        elL: L,
+        elR: R,
+        fromL: 0,
+        fromR: 0,
+        toL: end0.left,
+        toR: end0.right,
+        duration: 900,
+      });
     }
 
-    // 1) 답 저장
-    answers[name] = picked;
-    answers[qid] = picked;
-    localStorage.setItem(answersKey, JSON.stringify(answers));
+    // 3) 선택 시: 로컬 누적 + 비율 애니메이션 + 강조 → 다음 화면
+    document.querySelectorAll('.option').forEach((opt) => {
+      opt.addEventListener('click', () => {
+        const side = opt.id.includes('left') ? 'left' : 'right';
 
-    // 2) 로컬 집계 업데이트 + 즉시 화면에 미리 반영
-    const current = localCrowd[qid] || { A: 0, B: 0 };
-    const after = { ...current, [picked]: (current[picked] || 0) + 1 };
-    localCrowd[qid] = after;
-    localStorage.setItem(crowdKey, JSON.stringify(localCrowd));
-    renderCrowd(after); // ← 클릭 직후 눈에 보이게 변화
+        const map = read(KEY_LOCAL, {});
+        const cur = map[qid] || { left: 0, right: 0 };
 
-    // 3) 약간의 지연 후 다음 페이지로
-    setTimeout(() => {
-      location.href = window.CH4Nav.nextHref(idx);
-    }, 280);
-  });
+        const from = ratio(cur);
+        cur[side] = (cur[side] || 0) + 1; // 누적 1 증가
+        map[qid] = cur;
+        write(KEY_LOCAL, map);
+
+        const to = ratio(cur);
+
+        animatePct({
+          elL: L,
+          elR: R,
+          fromL: from.left,
+          fromR: from.right,
+          toL: to.left,
+          toR: to.right,
+          duration: 700,
+        });
+        pop(L);
+        pop(R);
+
+        // 앱 네비 훅 우선
+        if (window.CH4Nav?.choose) {
+          window.CH4Nav.choose(side);
+          return;
+        }
+        // 없으면 약간 딜레이 후 다음
+        if (nextHref)
+          setTimeout(() => {
+            window.location.href = nextHref;
+          }, 420);
+      });
+    });
+  };
 })();

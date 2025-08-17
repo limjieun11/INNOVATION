@@ -3,33 +3,36 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>CH4 질문 3</title>
-    <link rel="stylesheet" href="./style/chapter4Main.css" />
+    <title>CH4 EP.3</title>
     <link rel="stylesheet" href="./style/questionCommon.css" />
   </head>
   <body>
-    <main id="ch4" class="container">
-      <div class="qhdr"><div id="progress">3/4</div></div>
+    <header class="q-top" role="banner">
+      <div class="ep-title">EP.3</div>
+      <p class="ep-sub">행사장 동선이 혼잡해지기 시작한다. 나는 여기서</p>
+    </header>
 
-      <h1 id="q-text"></h1>
-
-      <div class="opts">
-        <label id="optA" class="opt">
-          <input type="radio" name="pick" value="A" />
-          <span>선택 A</span>
-        </label>
-
-        <label id="optB" class="opt">
-          <input type="radio" name="pick" value="B" />
-          <span>선택 B</span>
-        </label>
-      </div>
-
-      <button id="nextBtn" class="btn btn--primary">다음</button>
+    <main class="q-options" id="q-root" role="main">
+      <figure class="option" id="choice-left">
+        <img src="./assets/img/results/ep3_left.webp" alt="선택지 1" />
+      </figure>
+      <figure class="option" id="choice-right">
+        <img src="./assets/img/results/ep3_right.webp" alt="선택지 2" />
+      </figure>
     </main>
 
-    <script src="./script/questionData.js"></script>
+    <footer class="q-stats" role="contentinfo">
+      <div class="stats-wrap">
+        <div class="stat left" id="stat-left">0%</div>
+        <div class="stats-title">다른 사람들의 대답은?</div>
+        <div class="stat right" id="stat-right">0%</div>
+      </div>
+    </footer>
+
     <script src="./script/navigation.js"></script>
-    <script src="./script/questionHydrate.js" defer></script>
+    <script src="./script/questionHydrate.js"></script>
+    <script>
+      CH4WireChoices({ qid: 'ep3', nextHref: 'question4.html' });
+    </script>
   </body>
 </html>

@@ -74,3 +74,13 @@ window.CH4_BANK = [
     crowd: { A: 0.48, B: 0.52 },
   },
 ];
+
+// 퍼센트 데이터 (원하면 여기만 바꾸면 됨)
+window.CH4_DATA = {
+  stats: {
+    1: { left: 61, right: 39 },
+    2: { left: 60, right: 40 },
+    3: { left: 62, right: 38 },
+    4: { left: 58, right: 42 },
+  },
+};
