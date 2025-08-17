@@ -3,63 +3,97 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>메인 페이지</title>
+    <title>메인 페이지 - 안전불감증 프로젝트</title>
 
-    <!-- 🎨 메인 스타일 연결 -->
-    <link rel="stylesheet" href="./style/main.css" />
-
-    <!-- 💥 p5.js 라이브러리 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
-
-    <!-- 🧩 캔버스 유틸 함수 (선택) -->
-    <script src="./script/mainJs/p5Util.js"></script>
-
-    <!-- 🌌 파티클 클래스 정의 -->
-    <script src="./script/mainJs/particle.js"></script>
-
-    <!-- 🧠 메인 파티클 드로잉 로직 -->
-    <script src="./script/mainJs/sketch.js"></script>
+    <!-- 메인 스타일 -->
+    <link rel="stylesheet" href="./assets/scss/main.css" />
+    <!-- 기존 로딩 스타일 -->
+    <link rel="stylesheet" href="./assets/scss/loading.css" />
   </head>
 
   <body>
-    <!-- 🌆 배경 이미지 -->
-    <img
-      class="background-image"
-      src="./assets/png/mainBg_02.png"
-      alt="배경 이미지"
-    />
+    <main class="main-page">
+      <!-- 한자 그래픽 레이어 -->
+      <div class="hanja-layer" aria-hidden="true">
+        <!-- 1) 파티클: 커서 주변만 비는 “구멍 효과” (캔버스 렌더 대상) -->
+        <img
+          id="hanja1"
+          class="hanja hanja-1"
+          src="./assets/images/hanja/hanja-yanquechutang.webp"
+          alt="연작처당"
+          draggable="false"
+        />
 
-    <div id="safety-wrapper">
-      <img
-        id="safety-scribble"
-        src="./assets/png/펜-낙서.png"
-        alt="낙서 효과"
-      />
+        <!-- 2) 깜빡임: 기본 깜빡, 호버 시 더 빠르게 -->
+        <img
+          class="hanja hanja-2 flicker"
+          src="./assets/images/hanja/hanja-qianchezhijian.webp"
+          alt="전거지감"
+          draggable="false"
+        />
+
+        <!-- 3) 블러 리빌: 흐림 → 호버 시 선명 -->
+        <img
+          class="hanja hanja-3 blur-reveal"
+          src="./assets/images/hanja/hanja-wangyangzhitan.webp"
+          alt="망양지탄"
+          draggable="false"
+        />
+
+        <!-- 4) 팝업: 호버 시 급확대 -->
+        <img
+          class="hanja hanja-4 pop"
+          src="./assets/images/hanja/hanja-youbeiwuhuan.webp"
+          alt="유비무환"
+          draggable="false"
+        />
+      </div>
+
+      <!-- 챕터 버튼(세로쓰기) -->
+      <section class="chapter-buttons">
+        <button
+          class="chapter-btn btn-mu"
+          data-link="./chapters/chapter1/intro/chapter1_intro.html"
+        >
+          무시
+        </button>
+
+        <!-- ✅ CH2만 로딩 오버레이 사용 -->
+        <button
+          class="chapter-btn btn-gyeong"
+          data-link="./chapters/chapter2/intro/chapter2_intro.html"
+          data-loading="true"
+        >
+          경고
+        </button>
+
+        <button
+          class="chapter-btn btn-hoo"
+          data-link="./chapters/chapter3/chapter3_main.html"
+        >
+          후회
+        </button>
+
+        <button
+          class="chapter-btn btn-seong"
+          data-link="./chapters/chapter4/index.html"
+        >
+          성찰
+        </button>
+      </section>
+    </main>
+
+    <!-- 기존 로딩 JS가 기대하는 오버레이 마크업 -->
+    <div id="page-loading" aria-hidden="true" hidden>
+      <div class="box" role="dialog" aria-label="로딩 안내">
+        <div class="spinner" aria-hidden="true"></div>
+        <div class="label" role="status">로딩 중… 헤드셋 착용을 권장합니다</div>
+      </div>
     </div>
 
-    <div id="cursor-circle"></div>
-
-    <!-- 🖼️ 연작처당 PNG는 p5.js 캔버스로 대체되므로 DOM에 불필요
-    <img id="particle-image" src="./assets/png/title1.png" alt="연작처당" />
-    -->
-
-    <!-- 🪐 캔버스 삽입용 div -->
-    <img id="title2" src="./assets/png/title2.png" alt="전거지감" />
-    <img id="title3" src="./assets/png/title3.png" alt="망양지탄" />
-    <img id="title4" src="./assets/png/title4.png" alt="유비무환" />
-    <div id="canvas-container"></div>
-
-    <a href="./chapter1_intro.html" class="chapter-btn" id="btn-ignorance">
-      <img src="./assets/png/Btn/무시_textBtn.png" alt="무시 버튼" />
-    </a>
-    <a href="./chapter2_intro.html" class="chapter-btn" id="btn-warning">
-      <img src="./assets/png/Btn/경고_textBtn.png" alt="경고 버튼" />
-    </a>
-    <a href="./chapter3_intro.html" class="chapter-btn" id="btn-regret">
-      <img src="./assets/png/Btn/후회_textBtn.png" alt="후회 버튼" />
-    </a>
-    <a href="./chapter4_intro.html" class="chapter-btn" id="btn-reflection">
-      <img src="./assets/png/Btn/성찰_textBtn.png" alt="성찰 버튼" />
-    </a>
+    <!-- 페이지 스크립트 -->
+    <script src="./js/main.js" defer></script>
+    <script src="./js/hanja.js" defer></script>
+    <script src="./js/loading.js" defer></script>
   </body>
 </html>

@@ -1,40 +1,66 @@
-<!-- chapters/chapter1/intro/chapter1_intro.html -->
 <!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CHAPTER 1 - 연작처당</title>
-    <link rel="stylesheet" href="../../../assets/scss/common.css" />
     <link rel="stylesheet" href="./scss/chapter1_intro.css" />
   </head>
   <body>
     <main class="chapter1-intro">
-      <h1>CHAPTER 1 - 연작처당</h1>
-      <p class="description">
-        무심코 지나친 경고들, 그 시작은 바로 여기에 있었습니다.<br />
-        다음 중 어떤 반응이 우리 일상 속 안전 불감증의 시작이었을까요?
-      </p>
+      <div
+        class="bg-png no-vignette"
+        style="
+          --bg-url: url('../images/BG/chapter1IntroBg.webp');
+          --bg-size: cover;
+          --bg-pos: 50% 50%;
+          --bg-opacity: 1;
+          --bg-darken: 0;
+          --bg-blur: 0px;
+        "
+        aria-hidden="true"
+      ></div>
 
-      <section class="type-buttons">
-        <button class="type-btn" data-link="../types/type1.html">
-          북한 도발
-        </button>
-        <button class="type-btn" data-link="../types/type2.html">
-          자연재해
-        </button>
-        <button class="type-btn" data-link="../types/type3.html">
-          재난 문자 무시
-        </button>
-        <button class="type-btn" data-link="../types/type4.html">
-          사고예방 무시
-        </button>
-        <button class="type-btn" data-link="../types/type5.html">
-          화재 경보기 무시
-        </button>
-        <button class="type-btn" data-link="../types/type6.html">
-          위험한 놀이
-        </button>
+      <button
+        class="back-btn"
+        type="button"
+        aria-label="메인으로"
+        data-fallback="../../../main.html"
+      >
+        <img src="../../../assets/images/ui/back.png" alt="" />
+      </button>
+
+      <section class="scene-grid">
+        <a class="scene-card" href="../types/type1.html">
+          <img src="./images/thumbs/type1.webp" alt="북한 도발" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
+        <a class="scene-card" href="../types/type2.html">
+          <img src="./images/thumbs/type2.webp" alt="자연재해" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
+        <a class="scene-card" href="../types/type3.html">
+          <img src="./images/thumbs/type3.webp" alt="재난 문자 무시" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
+        <a class="scene-card" href="../types/type4.html">
+          <img src="./images/thumbs/type4.webp" alt="사고예방 무시" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
+        <a class="scene-card" href="../types/type5.html">
+          <img src="./images/thumbs/type5.webp" alt="화재 경보기 무시" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
+        <a class="scene-card" href="../types/type6.html">
+          <img src="./images/thumbs/type6.webp" alt="위험한 놀이" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
       </section>
     </main>
 

@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /* === 로딩 오버레이 === */
 #page-loading {
   position: fixed;
@@ -6,7 +8,7 @@
   display: grid;
   place-items: center;
   pointer-events: none;
-  background: rgb(0 0 0 / 78%);
+  background: rgba(0 0 0/ 78%);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
@@ -21,8 +23,8 @@
   gap: 12px;
   justify-items: center;
   padding: 20px 24px;
-  background: rgb(18 25 35 / 72%);
-  border: 1px solid rgb(255 255 255 / 25%);
+  background: rgba(18 25 35/ 72%);
+  border: 1px solid rgba(255 255 255/ 25%);
   border-radius: 14px;
   backdrop-filter: blur(6px);
 }
@@ -30,8 +32,8 @@
 #page-loading .spinner {
   width: 40px;
   height: 40px;
-  border: 3px solid rgb(255 255 255 / 25%);
-  border-top-color: #00d4ff;
+  border: 3px solid rgba(255 255 255/ 25%);
+  border-top-color: #ff2525;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

@@ -7,7 +7,7 @@
 
     <!-- 메인 스타일 -->
     <link rel="stylesheet" href="./assets/scss/main.css" />
-    <!-- 기존 로딩 스타일 (이미 가지고 있다고 했던 파일) -->
+    <!-- 기존 로딩 스타일 -->
     <link rel="stylesheet" href="./assets/scss/loading.css" />
   </head>
 
@@ -15,14 +15,16 @@
     <main class="main-page">
       <!-- 한자 그래픽 레이어 -->
       <div class="hanja-layer" aria-hidden="true">
-        <!-- 1) 파티클: 호버 시 흩어졌다가 모임 -->
-        <img
-          id="hanja1"
-          class="hanja hanja-1"
-          src="./assets/images/hanja/hanja-yanquechutang.webp"
-          alt="연작처당"
-          draggable="false"
-        />
+        <!-- 1) 한자-1: 래퍼 + 광택 스윕(hover) + 입장 inkfade -->
+        <div class="hanja hanja-1">
+          <img
+            id="hanja1"
+            class="hanja-img"
+            src="./assets/images/hanja/hanja-yanquechutang.webp"
+            alt="연작처당"
+            draggable="false"
+          />
+        </div>
 
         <!-- 2) 깜빡임: 기본 깜빡, 호버 시 더 빠르게 -->
         <img
@@ -83,17 +85,61 @@
       </section>
     </main>
 
+    <!-- ▶ 프로젝트 소개 트리거 + 패널 + 오버레이 -->
+    <button
+      id="infoBtn"
+      class="info-trigger info-pos-tr"
+      aria-haspopup="dialog"
+      aria-expanded="false"
+    >
+      프로젝트 소개
+    </button>
+
+    <div id="infoOverlay" class="info-overlay" hidden></div>
+
+    <aside
+      id="infoPanel"
+      class="info-panel"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="infoTitle"
+      hidden
+    >
+      <header class="info-header">
+        <button id="infoBack" class="info-back" aria-label="뒤로 가기">
+          ←
+        </button>
+        <h2 id="infoTitle">Before the Disaster</h2>
+        <span class="header-gap" aria-hidden="true"></span>
+      </header>
+
+      <section class="info-body">
+        <blockquote class="lead">
+          “사고는 갑자기 일어나지 않는다. 무시된 전조증상이 쌓여 재난이 된다.”
+        </blockquote>
+        <p>
+          이 프로젝트는 우리 사회에 만연한 안전 불감증을 기록하고, 반복되는
+          사고의 근원에 놓인 전조증상을 시각적으로 드러냅니다. 사소해 보였던
+          징후, 익숙해서 무심히 지나친 경고들이 어떻게 참사로 이어졌는지를
+          사용자에게 직접 체험시키며, 위험을 인지하고 대응하는 문화의 필요성을
+          환기합니다. 기억만으로는 변화를 만들 수 없습니다. 작은 위험에도 귀
+          기울이는 태도가 반복을 멈추는 시작입니다.
+        </p>
+      </section>
+    </aside>
+    <!-- ▲ 프로젝트 소개 끝 -->
+
     <!-- 기존 로딩 JS가 기대하는 오버레이 마크업 -->
     <div id="page-loading" aria-hidden="true" hidden>
       <div class="box" role="dialog" aria-label="로딩 안내">
         <div class="spinner" aria-hidden="true"></div>
-        <div class="label" role="status">로딩 중… 헤드셋 착용을 권장합니다</div>
+        <div class="label" role="status">헤드셋 착용을 권장합니다...</div>
       </div>
     </div>
 
+    <!-- 페이지 스크립트 -->
     <script src="./js/main.js" defer></script>
-    <script src="./js/hanja.js" defer></script>
-    <!-- 기존 파일 재사용 -->
+    <!-- <script src="./js/hanja.js" defer></script>  // 현재 파티클 비활성 -->
     <script src="./js/loading.js" defer></script>
   </body>
 </html>

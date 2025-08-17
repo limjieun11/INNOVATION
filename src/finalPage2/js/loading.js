@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
           e.stopPropagation();
           e.stopImmediatePropagation();
 
-          showLoadingAndNavigate(url, 2000); // 2초 보장
+          showLoadingAndNavigate(url, 3000); // 2초 보장
         }
         // 다른 챕터는 main.js 등 기존 로직이 즉시 이동
       },

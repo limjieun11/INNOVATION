@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+/* 유틸 */
+[hidden] {
+  display: none !important;
+}
+
 /* ===== 버튼 전용 폰트 ===== */
 @font-face {
   font-family: ProjectLabel;
@@ -59,41 +64,106 @@ body {
   pointer-events: auto;
   user-select: none;
   transition: filter 0.35s ease, opacity 0.35s ease;
-  -webkit-user-drag: none;
 }
 
-/* ===== 한자 배치/크기 (작게 + 상한 clamp) ===== */
+.hanja-canvas {
+  position: absolute;
+  z-index: 7;
+  width: auto;
+  height: auto;
+  pointer-events: none;
+}
+
+/* ===== 한자-1: 래퍼 + 광택 스윕 + 입장 inkfade ===== */
 .hanja-1 {
-  /* 연작처당 - 상단 */
-  top: 8%;
-  left: 9%;
-  width: clamp(520px, 48vw, 1000px);
+  position: absolute;
+  top: 12%;
+  left: 25%;
+  width: clamp(520px, 43vw, 1000px);
+  overflow: hidden;
+  pointer-events: auto;
 }
 
+.hanja-1 .hanja-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  filter: blur(8px) contrast(0.85) brightness(0.9);
+  transition: filter 0.35s ease;
+  animation: inkfade 1.8s ease-out forwards;
+}
+
+.hanja-1::after {
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  pointer-events: none;
+  content: '';
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgb(255 255 255 / 52%),
+    transparent
+  );
+  opacity: 0;
+  transform: skewX(-25deg);
+  transition: opacity 0.3s ease;
+}
+
+.hanja-1:hover::after {
+  opacity: 1;
+  animation: shine 1s forwards;
+}
+
+.hanja-1:hover .hanja-img {
+  filter: blur(0.6px) contrast(1.08) brightness(1.03);
+}
+
+@keyframes inkfade {
+  0% {
+    opacity: 0;
+    filter: blur(8px) contrast(0.75) brightness(0.85);
+  }
+
+  45% {
+    opacity: 0.55;
+    filter: blur(4px) contrast(0.9) brightness(0.95);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0) contrast(1) brightness(1);
+  }
+}
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+/* ===== 나머지 한자 ===== */
 .hanja-2 {
-  /* 전거지감 - 중상단 */
-  top: 31%;
-  left: 7%;
-  width: clamp(460px, 42vw, 900px);
+  top: 34%;
+  left: 4%;
+  width: clamp(460px, 40vw, 900px);
 }
 
 .hanja-3 {
-  /* 망양지탄 - 중하단 */
-  top: 52%;
+  top: 55%;
   right: 9%;
-  width: clamp(440px, 40vw, 880px);
-
-  /* 흐림 효과는 기존 .blur-reveal 유지 */
+  width: clamp(440px, 42vw, 880px);
 }
 
 .hanja-4 {
-  /* 유비무환 - 하단 */
-  bottom: 7%;
-  left: 26%;
-  width: clamp(500px, 44vw, 980px);
+  bottom: 2%;
+  left: 25%;
+  width: clamp(500px, 42vw, 980px);
 }
 
-/* (2) 깜빡임: 기본 1.2s → 호버 0.35s */
+/* (2) 깜빡임 */
 .flicker {
   --spd: 1.2s;
 
@@ -172,27 +242,6 @@ body {
   transform: scale(1.22);
 }
 
-/* (1) 파티클 컨테이너/닷 */
-.hanja-particles {
-  position: absolute;
-  overflow: visible;
-  pointer-events: auto;
-}
-
-.hanja-particles .dot {
-  position: absolute;
-  width: 2px;
-  height: 2px;
-  border-radius: 1px;
-  transition: transform 0.45s ease, opacity 0.45s ease;
-  will-change: transform, opacity;
-}
-
-.hanja-particles.scatter .dot {
-  opacity: 0.6;
-  transform: translate(var(--dx), var(--dy)) rotate(var(--rot));
-}
-
 /* ===== 세로쓰기 버튼 ===== */
 .chapter-buttons {
   position: fixed;
@@ -221,11 +270,11 @@ body {
   cursor: pointer;
   background: #1e1b1b;
   border: none;
-  border-radius: none;
+  border-radius: 0;
   box-shadow: 0 10px 26px rgb(0 0 0 / 28%);
   writing-mode: vertical-rl;
-  transition: transform 0.08s ease, background 0.15s ease, box-shadow 0.2s ease;
   text-orientation: upright;
+  transition: transform 0.08s ease, background 0.15s ease, box-shadow 0.2s ease;
 }
 
 .chapter-btn:hover {
@@ -243,25 +292,25 @@ body {
   outline-offset: 2px;
 }
 
-/* 개별 위치 */
+/* 버튼 위치 */
 .btn-mu {
-  top: 14%;
-  left: 2%;
+  top: 12%;
+  left: 4%;
 }
 
 .btn-gyeong {
-  top: 30%;
-  right: 2.2%;
+  top: 34%;
+  right: 30%;
 }
 
 .btn-hoo {
   top: 56%;
-  left: 2%;
+  left: 27%;
 }
 
 .btn-seong {
-  top: 74%;
-  right: 2.2%;
+  top: 79%;
+  right: 7%;
 }
 
 /* 반응형 축소 */
@@ -271,5 +320,257 @@ body {
     --btn-h: 108px;
 
     font-size: 18px;
+  }
+}
+
+/* 접근성: 모션 최소화 선호 시 정적으로 */
+@media (prefers-reduced-motion: reduce) {
+  .hanja-1 {
+    opacity: 1 !important;
+    filter: none !important;
+    animation: none !important;
+  }
+
+  .flicker {
+    animation: none !important;
+  }
+}
+
+/* ===== 프로젝트 소개 버튼/패널 ===== */
+
+/* 텍스트만 보이는 버튼 */
+
+/* 텍스트만 보이는 버튼 + 트윙클 애니메이션 */
+.info-trigger {
+  position: fixed;
+  z-index: 30;
+  padding: 6px 8px;
+
+  /* 폰트/크기 조절 여기서 */
+  font-family: ProjectLabel, Pretendard, system-ui, sans-serif;
+  font-size: clamp(24px, 1.6vw, 28px);
+  font-weight: 900;
+  color: var(--c-base);
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  animation: info-twinkle var(--twinkle-speed) ease-in-out infinite;
+  will-change: color, text-shadow;
+
+  /* 트윙클 설정(원하는 색/속도로 바꿔도 됨) */
+  --twinkle-speed: 1s;
+  --c-base: #111;
+  --c-hot: #db1919; /* 붉은 포인트 */
+  --c-cool: #00d4ff; /* 시안 포인트 */
+}
+
+.info-trigger:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+
+  /* 호버 시 살짝 더 빠르게 */
+  animation-duration: 1.6s;
+}
+
+.info-trigger:active {
+  transform: translateY(1px);
+}
+
+.info-trigger:focus-visible {
+  outline: 2px solid #00d4ff;
+  outline-offset: 2px;
+}
+
+@keyframes info-twinkle {
+  0%,
+  18% {
+    color: var(--c-base);
+    text-shadow: none;
+  }
+
+  22%,
+  28% {
+    color: var(--c-hot);
+    text-shadow: 0 0 6px rgb(219 25 25 / 55%), 0 0 12px rgb(219 25 25 / 35%);
+  }
+
+  32%,
+  52% {
+    color: var(--c-base);
+    text-shadow: none;
+  }
+
+  56%,
+  62% {
+    color: var(--c-cool);
+    text-shadow: 0 0 6px rgb(0 212 255 / 55%), 0 0 12px rgb(0 212 255 / 35%);
+  }
+
+  66%,
+  100% {
+    color: var(--c-base);
+    text-shadow: none;
+  }
+}
+
+/* 모션 최소화 선호 시 애니메이션 꺼주기 */
+@media (prefers-reduced-motion: reduce) {
+  .info-trigger {
+    animation: none;
+  }
+}
+
+/* 위치 헬퍼(원하는 클래스 하나만 버튼에 추가) + 미세조정 변수 */
+:root {
+  --info-top: 50px;
+  --info-right: 55px;
+
+  // --info-left: 18px;
+  // --info-bottom: 14px;
+}
+
+.info-pos-tr {
+  top: var(--info-top);
+  right: var(--info-right);
+}
+
+.info-pos-tl {
+  top: var(--info-top);
+  left: var(--info-left);
+}
+
+.info-pos-br {
+  right: var(--info-right);
+  bottom: var(--info-bottom);
+}
+
+.info-pos-bl {
+  bottom: var(--info-bottom);
+  left: var(--info-left);
+}
+
+.info-pos-tc {
+  top: var(--info-top);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.info-pos-bc {
+  bottom: var(--info-bottom);
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.info-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  pointer-events: none;
+  background: rgba(0 0 0 / 45%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.info-overlay.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.info-panel {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 90;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  width: min(38vw, 680px);
+  height: 100dvh;
+  color: #111;
+  background: #d9d9d9 url('../images/BG/noise.webp') center/320px repeat;
+  border-left: 3px solid #111;
+  box-shadow: -20px 0 40px rgb(0 0 0 / 35%);
+  transform: translateX(100%);
+  transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.info-panel.open {
+  transform: translateX(0);
+}
+@media (width <= 900px) {
+  .info-panel {
+    width: 100vw;
+  }
+}
+
+/* 헤더: 3열 그리드(← | 제목 | 빈칸) */
+.info-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  align-items: center;
+  padding: 14px 14px 10px;
+  background: rgba(255 255 255 / 70%);
+  border-bottom: 3px solid #111;
+  backdrop-filter: blur(2px);
+}
+
+.info-header h2 {
+  margin: 0;
+  font-family: ProjectLabel, Pretendard, system-ui, sans-serif; /* ← 폰트 */
+  font-size: clamp(20px, 3vw, 36px);
+  font-weight: 900;
+  text-align: center;
+}
+
+/* 왼쪽 뒤로가기 버튼 */
+.info-back {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 32px;
+  padding: 0;
+  color: #111;
+  cursor: pointer;
+  background: #fff;
+  border: 2px solid #111;
+  border-radius: 6px;
+}
+
+.info-back:hover {
+  background: #f2f2f2;
+}
+
+/* 오른쪽 균형용 빈 칸 */
+.header-gap {
+  display: inline-block;
+  width: 36px;
+  height: 32px;
+}
+
+.info-body {
+  padding: 18px;
+  overflow: auto;
+  font-family: Pretendard, 'Noto Sans KR', system-ui, sans-serif; /* ← 폰트 */
+  font-size: clamp(14px, 1.05vw, 18px); /* ← 크기 */
+  line-height: 1.55;
+}
+
+.info-body .lead {
+  padding: 10px 12px;
+  margin: 10px 0 16px;
+  font-style: italic;
+  font-weight: 700;
+  background: rgba(0 0 0 / 6%);
+  border-left: 4px solid #111;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-panel,
+  .info-overlay {
+    transition: none;
   }
 }
