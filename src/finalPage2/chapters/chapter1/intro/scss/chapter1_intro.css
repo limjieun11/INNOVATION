@@ -18,7 +18,8 @@ body {
   /* 글로우 색상 */
   --glow-base: 255 255 255; /* 기본(비호버) */
   --glow-hover: 219 254 102; /* 호버 색상 */
-  --push-down: 7vh;
+  /* 상단 내림값(기존 7vh → 16vh로 증가) */
+  --push-down: 16vh;
   padding: clamp(24px, 4vw, 40px) clamp(16px, 3vw, 32px);
   padding-top: calc(clamp(24px, 4vw, 40px) + var(--push-down));
   text-align: center;
@@ -61,18 +62,20 @@ body {
     height: 100vh;
   }
 }
-/* ===== 되돌아가기 버튼 ===== */
+/* ===== 뒤로가기 버튼(항상 좌상단 고정) ===== */
 .back-btn {
-  position: fixed;
-  top: 18px;
-  left: 18px;
-  z-index: 20;
+  position: fixed !important;
+  top: 20px;
+  left: 36px;
+  z-index: 100;
+  place-self: auto auto;
   width: 56px;
   height: 56px;
   padding: 0;
-  cursor: pointer;
   background: transparent;
   border: 0;
+  border-radius: 0;
+  transform: none;
 }
 
 .back-btn img {
@@ -114,7 +117,8 @@ body {
   grid-template-columns: repeat(3, minmax(var(--card-min), 1fr));
   gap: clamp(16px, 2.4vw, 36px);
   width: min(1300px, 94vw);
-  margin: clamp(12px, 2.4vw, 24px) auto 12px;
+  margin: calc(clamp(12px, 2.4vw, 24px) + 14vh) auto 12px; /* ← 추가 내려쓰기 */
+  /* 기존 margin을 풀고, 위쪽 여백을 더 크게 줌 */
 }
 
 /* ===== 썸네일 카드 ===== */
@@ -122,7 +126,7 @@ body {
   position: relative;
   display: block;
   aspect-ratio: 16/9;
-  overflow: visible; /* box-shadow가 잘 보이게 */
+  overflow: visible;
   border: 0;
   border-radius: 0;
   /* 기본: 화이트 글로우 + 깊이감 */
@@ -130,7 +134,7 @@ body {
   transform: translateY(-4px) scale(1.01);
 }
 
-/* 어둡게 만드는 오버레이 (hover에서만 보임) */
+/* 어둡게 오버레이 */
 .scene-card::before {
   position: absolute;
   inset: 0;
@@ -145,7 +149,7 @@ body {
   background: rgba(0, 0, 0, 0.45);
 }
 
-/* 이미지는 카드 꽉 채우기 */
+/* 이미지 꽉 채우기 */
 .scene-card > img,
 .scene-card picture > img,
 .scene-card figure > img {
@@ -176,7 +180,7 @@ body {
   position: absolute;
   top: 50%;
   left: 50%;
-  z-index: 2; /* ::before(1), img(0) 위 */
+  z-index: 2;
   display: inline-flex;
   gap: 10px;
   align-items: center;
@@ -185,7 +189,7 @@ body {
   font-weight: 800;
   color: #fff;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.55);
-  pointer-events: none; /* 클릭은 아래 링크가 받도록 */
+  pointer-events: none;
   background: rgba(0, 0, 0, 0.35);
   border-radius: 999px;
   opacity: 0;
@@ -195,19 +199,17 @@ body {
   transition: opacity 0.22s ease, transform 0.22s ease;
 }
 
-/* 돋보기 아이콘 (mask SVG) */
 .scene-card .hover-cta::before {
   flex: 0 0 26px;
   width: 26px;
   height: 26px;
   content: "";
   background: #fff;
-  /* 표준/웹킷 마스크 */
   -webkit-mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23fff" d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 1 0 14 15.5l.27.28h.79l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>') center/contain no-repeat;
           mask: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="%23fff" d="M15.5 14h-.79l-.28-.27A6.5 6.5 0 1 0 14 15.5l.27.28h.79l5 5 1.5-1.5-5-5zm-6 0A4.5 4.5 0 1 1 14 9.5 4.5 4.5 0 0 1 9.5 14z"/></svg>') center/contain no-repeat;
 }
 
-/* hover 시 CTA 나타남 + 글로우 컬러 변경 */
+/* 호버 시 글로우 컬러 변경 + CTA 표시 */
 .scene-card:hover {
   box-shadow: 0 22px 56px rgba(0, 0, 0, 0.6), 0 0 20px rgba(var(--glow-hover)/100%), 0 0 28px rgba(var(--glow-hover)/90%);
 }
