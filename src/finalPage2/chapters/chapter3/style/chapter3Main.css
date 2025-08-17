@@ -1,6 +1,12 @@
 @charset "UTF-8";
-
-/* ========== Reset & Base ========== */
+/*******************************************************
+ * CHAPTER 3 — Main Screen (SCSS / stylelint 호환)
+ * - @use "sass:color" 모듈 함수 사용
+ * - lighten()  → color.adjust($c, $lightness: ...)
+ * - rgba($c,a) → color.change($c, $alpha: ...)
+ ********************************************************/
+/* ===================== 변수 ===================== */
+/* ===================== 리셋/베이스 ===================== */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -12,120 +18,204 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-family: 'Noto Sans KR', sans-serif;
-  background: #000;
+  font-family: "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #e8f0f6;
+  /* ⭐ 배경: 별 이미지 (경로는 프로젝트에 맞게) */
+  background: #000 url("../img/BG/introBg.webp") center/cover no-repeat fixed;
 }
 
-/* ========== Globe ========== */
+/* ===================== 지구 컨테이너 ===================== */
 #globe-container {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 1; /* 메뉴/버튼보다 아래 */
-  width: 100vw;
-  height: 100vh;
-}
-
-#globe-container canvas {
   z-index: 1;
-  pointer-events: auto;
+  /* Globe 캔버스는 투명 */
+}
+#globe-container canvas {
+  background: transparent !important;
 }
 
-/* ========== Case Menu (유형 버튼) ========== */
+/* ===================== 메뉴 베이스(중복 선언 금지) ===================== */
 #case-menu {
   position: fixed;
-  top: 60px;
-  left: 30px;
-  z-index: 100; /* 캔버스 위 */
+  z-index: 5;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 16px 20px;
-  color: #fff;
-  pointer-events: auto;
-  background: rgb(0 0 0 / 40%);
-  border: 1px solid #0ff;
-  border-radius: 4px;
 }
 
-#case-menu button {
-  width: 180px;
-  padding: 10px 12px;
-  font-size: 14px;
-  color: #ccc;
-  text-align: left;
-  cursor: pointer;
+/* === 모디파이어: 텍스트만 보이는 버전 + 왼쪽 중앙 정렬 === */
+#case-menu.menu-plain {
+  top: 50%;
+  left: 36px;
+  gap: 28px;
+  align-items: flex-start;
+  /* 박스 장식 제거 */
+  padding: 0;
   background: transparent;
-  border: none;
-  border-left: 2px solid transparent;
-  transition: all 0.2s ease;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: translateY(-50%);
+}
+#case-menu.menu-plain button {
+  all: unset;
+  display: block;
+  font-size: clamp(12px, 1.7vw, 16px);
+  font-weight: 800;
+  line-height: 1.2;
+  color: #eaf6ff;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  opacity: 0.9;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+#case-menu.menu-plain button:hover {
+  opacity: 1;
+  transform: translateX(2px);
+}
+#case-menu.menu-plain button.active {
+  color: #19e6ff;
+  text-shadow: 0 0 10px rgba(25, 230, 255, 0.45);
+  opacity: 1;
 }
 
-#case-menu button:hover {
-  color: #0ff;
+/* ── 모바일: 상단 중앙 정렬(원하는 레이아웃) ── */
+@media (max-width: 820px) {
+  #globe-container {
+    display: none;
+  } /* 필요 없으면 주석 처리 */
+  #case-menu.menu-plain {
+    top: 48px;
+    left: 50%;
+    gap: clamp(24px, 7vh, 64px);
+    transform: translateX(-50%); /* 상단 중앙 */
+  }
+  #case-menu.menu-plain button {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: clamp(22px, 7.2vw, 40px);
+    text-align: center;
+  }
+  #case-menu.menu-plain button:hover {
+    transform: none;
+  }
+  #case-menu.menu-plain button.active {
+    color: #99f4ff;
+    text-shadow: 0 0 14px rgba(144, 255, 255, 0.55);
+  }
 }
-
-#case-menu button.active {
-  font-weight: 600;
-  color: #fff;
-  border-left: 2px solid #0ff;
-}
-
-/* ========== Type Description ========== */
+/* ===================== 좌하단 설명 박스 ===================== */
 #type-description-box {
   position: fixed;
-  bottom: 40px;
-  left: 30px;
-  z-index: 50;
-  max-width: 300px;
-  padding: 12px 16px;
-  font-size: 14px;
-  line-height: 1.6;
-  color: #ddd;
-  background: rgb(0 0 0 / 50%);
-  border-left: 3px solid #0ff;
+  bottom: 32px;
+  left: 24px;
+  z-index: 5;
+  max-width: min(40vw, 540px);
+  padding: 16px 18px;
+  background: rgba(0, 0, 0, 0.35);
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(4px);
+          backdrop-filter: blur(4px);
 }
-
-/* ========== Back Button ========== */
-#back-button {
-  position: fixed;
-  right: 30px;
-  bottom: 30px;
-  z-index: 100;
-  padding: 10px 16px;
-  font-size: 14px;
+#type-description-box #desc-title {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 0 0 10px;
+  font-size: 20px;
+  font-weight: 800;
   color: #fff;
+}
+#type-description-box #desc-title .caret {
+  font-size: 0.6em;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 0 12px rgba(255, 122, 0, 0.55);
+  transform: translateY(-0.04em);
+}
+#type-description-box #type-description {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: #f7fafc;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+}
+
+/* 모바일 설명 박스(투명/타이포 확대) */
+@media (max-width: 820px) {
+  #type-description-box {
+    right: 24px;
+    bottom: 28px;
+    left: 24px;
+    max-width: none;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    -webkit-backdrop-filter: none;
+            backdrop-filter: none;
+  }
+  #type-description-box #desc-title {
+    font-family: "Noto Serif KR", "Nanum Myeongjo", serif;
+    font-size: clamp(18px, 5vw, 26px);
+  }
+  #type-description-box #desc-title .caret {
+    color: #4cecff;
+  }
+  #type-description-box #type-description {
+    font-size: clamp(13px, 3.7vw, 17px);
+    line-height: 1.9;
+    color: #e9eef2;
+  }
+}
+/* ===================== BACK 버튼 (좌상단 고정, back.png) ===================== */
+.back-btn {
+  position: fixed;
+  top: max(16px, env(safe-area-inset-top));
+  left: max(16px, env(safe-area-inset-left));
+  z-index: 6;
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
   cursor: pointer;
-  background: rgb(255 255 255 / 10%);
-  border: 1px solid #fff;
-  border-radius: 6px;
-  backdrop-filter: blur(4px);
-  transition: background 0.3s ease;
+  background: transparent;
+  border: 0;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.back-btn:hover {
+  opacity: 0.95;
+  transform: translateX(-1px);
+}
+.back-btn:focus-visible {
+  outline: 2px solid #19e6ff;
+  outline-offset: 3px;
+}
+.back-btn img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
 }
 
-#back-button:hover {
-  background: rgb(0 255 255 / 20%);
-}
-
-/* ========== Image Modal (창형) ========== */
+/* ===================== 이미지 모달 ===================== */
 #img-modal {
   position: fixed;
   inset: 0;
   z-index: 9999;
   display: none;
 }
-
 #img-modal.is-open {
   display: block;
 }
-
-/* 어두운 배경 */
 #img-modal .backdrop {
   position: absolute;
   inset: 0;
-  background: rgb(0 0 0 / 60%);
+  background: rgba(0, 0, 0, 0.6);
 }
-
-/* 가운데 팝업창 */
 #img-modal .dialog {
   position: absolute;
   top: 50%;
@@ -136,39 +226,43 @@ body {
   width: min(90vw, 560px);
   max-height: min(90vh, 720px);
   padding: 12px;
-  background: rgb(18 25 35 / 96%);
+  background: rgba(18, 25, 35, 0.96);
   border-radius: 16px;
-  box-shadow: 0 20px 60px rgb(0 0 0 / 45%);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
   transform: translate(-50%, -50%);
 }
-
-/* 닫기 버튼 */
-#img-modal .close {
+#img-modal .dialog .close {
   justify-self: end;
   padding: 6px 10px;
   color: #fff;
   cursor: pointer;
-  background: rgb(0 0 0 / 30%);
+  background: rgba(0, 0, 0, 0.3);
   border: 0;
   border-radius: 10px;
 }
-
-/* 이미지 */
-#img-modal img {
-  display: block;
+#img-modal .dialog img {
   width: 100%;
   height: auto;
   max-height: 60vh;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   border-radius: 10px;
-  box-shadow: 0 10px 30px rgb(0 0 0 / 35%);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
 }
-
-/* 캡션 */
-#img-modal .caption {
+#img-modal .dialog .caption {
   padding: 4px 2px;
   font-size: 14px;
   color: #e8f0f6;
   text-align: center;
-  opacity: 0.85;
+  opacity: 0.9;
+}
+
+/* ===================== 접근성: 모션 최소화 ===================== */
+@media (prefers-reduced-motion: reduce) {
+  #case-menu.menu-plain button {
+    transition: none;
+  }
+  .back-btn {
+    transition: none;
+  }
 }

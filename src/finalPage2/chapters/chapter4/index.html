@@ -6,19 +6,25 @@
     <title>CH4 시작</title>
     <link rel="stylesheet" href="./style/chapter4Main.css" />
   </head>
-  <body>
-    <main id="ch4-index" class="container">
-      <h1>챕터 4: 성찰</h1>
-      <p>앞선 설문 결과를 반영해 문항을 구성합니다. 시작해볼까요?</p>
-      <button id="startBtn" class="btn btn--primary">시작</button>
-    </main>
+  <!-- ✅ 인트로 전용 클래스로 배경 스코프 적용 -->
+  <body class="ch4-intro">
+    <!-- 🔙 좌상단: 돌아가기 -->
+    <a href="javascript:history.back()" class="back-btn" aria-label="뒤로 가기">
+      <img src="../../assets/images/ui/back.png" alt="" />
+    </a>
+
+    <!-- 🎨 배경만 표시 (문구 없음) -->
+    <main id="ch4-index" class="container" aria-hidden="true"></main>
+
+    <!-- ⏩ 가운데 하단 CTA (텍스트만 보이는 스타일) -->
+    <button id="start-btn" aria-label="시작하기">시작하기</button>
 
     <script src="./script/questionData.js"></script>
     <script src="./script/navigation.js"></script>
     <script>
-      document
-        .getElementById('startBtn')
-        .addEventListener('click', () => CH4Nav.start());
+      document.getElementById('start-btn')?.addEventListener('click', () => {
+        CH4Nav.start();
+      });
     </script>
   </body>
 </html>

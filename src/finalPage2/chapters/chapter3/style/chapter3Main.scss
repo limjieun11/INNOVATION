@@ -1,6 +1,24 @@
-@charset "UTF-8";
+/*******************************************************
+ * CHAPTER 3 — Main Screen (SCSS / stylelint 호환)
+ * - @use "sass:color" 모듈 함수 사용
+ * - lighten()  → color.adjust($c, $lightness: ...)
+ * - rgba($c,a) → color.change($c, $alpha: ...)
+ ********************************************************/
 
-/* ===================== 기본 초기화 ===================== */
+@use 'sass:color';
+
+/* ===================== 변수 ===================== */
+$accent: #19e6ff; // 포인트 컬러
+$text: #e8f0f6; // 본문 색
+$panel: rgb(0 0 0 / 35%); // 패널 배경(반투명)
+$shadow-ui: 0 8px 30px rgb(0 0 0 / 35%);
+$z-globe: 1;
+$z-ui: 5; // 메뉴/설명 등 UI
+$z-back: 6; // BACK 버튼
+$z-modal: 9999; // 이미지 모달
+$mobile-break: 820px;
+
+/* ===================== 리셋/베이스 ===================== */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -12,49 +30,205 @@ body {
   width: 100%;
   height: 100%;
   overflow: hidden;
-  font-family: 'Noto Sans KR', sans-serif;
-  background: #000; // 지구 배경에 맞춘 블랙
+  font-family: 'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', Roboto,
+    Arial, sans-serif;
+  color: $text;
+
+  /* ⭐ 배경: 별 이미지 (경로는 프로젝트에 맞게) */
+  background: #000 url('../img/BG/introBg.webp') center/cover no-repeat fixed;
 }
 
 /* ===================== 지구 컨테이너 ===================== */
 #globe-container {
-  position: relative;
-  z-index: 1;
-  width: 100vw;
-  height: 100vh;
+  position: fixed;
+  inset: 0;
+  z-index: $z-globe;
+
+  /* Globe 캔버스는 투명 */
+  canvas {
+    background: transparent !important;
+  }
 }
 
-/* ===================== 유형 선택 버튼 그룹 ===================== */
-#type-buttons {
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  z-index: 10;
+/* ===================== 메뉴 베이스(중복 선언 금지) ===================== */
+#case-menu {
+  position: fixed;
+  z-index: $z-ui;
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
-#type-buttons button {
-  padding: 8px 14px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff;
-  cursor: pointer;
-  background: rgba(0 0 0 / 40%);
-  border: 1px solid rgba(255 255 255 / 30%);
-  border-radius: 8px;
-  transition: background 0.25s ease, transform 0.2s ease;
+/* === 모디파이어: 텍스트만 보이는 버전 + 왼쪽 중앙 정렬 === */
+#case-menu.menu-plain {
+  top: 50%;
+  left: 36px;
+  gap: 28px;
+  align-items: flex-start;
 
-  &:hover {
-    background: rgba(255 255 255 / 20%);
-    transform: scale(1.05);
+  /* 박스 장식 제거 */
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: translateY(-50%);
+
+  button {
+    all: unset;
+    display: block;
+    font-size: clamp(12px, 1.7vw, 16px);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #eaf6ff;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+
+    &:hover {
+      opacity: 1;
+      transform: translateX(2px);
+    }
+
+    &.active {
+      color: $accent;
+      text-shadow: 0 0 10px color.change($accent, $alpha: 0.45);
+      opacity: 1;
+    }
+  }
+}
+
+/* ── 모바일: 상단 중앙 정렬(원하는 레이아웃) ── */
+@media (max-width: $mobile-break) {
+  #globe-container {
+    display: none;
+  } /* 필요 없으면 주석 처리 */
+
+  #case-menu.menu-plain {
+    top: 48px;
+    left: 50%;
+    gap: clamp(24px, 7vh, 64px);
+    transform: translateX(-50%); /* 상단 중앙 */
+
+    button {
+      font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+      font-size: clamp(22px, 7.2vw, 40px);
+      text-align: center;
+
+      &:hover {
+        transform: none;
+      }
+
+      &.active {
+        color: color.adjust($accent, $lightness: 25%);
+        text-shadow: 0 0 14px rgb(144 255 255 / 55%);
+      }
+    }
+  }
+}
+
+/* ===================== 좌하단 설명 박스 ===================== */
+#type-description-box {
+  position: fixed;
+  bottom: 32px;
+  left: 24px;
+  z-index: $z-ui;
+  max-width: min(40vw, 540px);
+  padding: 16px 18px;
+  background: $panel;
+  border: 0;
+  border-radius: 8px;
+  box-shadow: $shadow-ui;
+  backdrop-filter: blur(4px);
+
+  #desc-title {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 0 0 10px;
+    font-size: 20px;
+    font-weight: 800;
+    color: #fff;
+
+    .caret {
+      font-size: 0.6em;
+      line-height: 1;
+      color: #fff;
+      text-shadow: 0 0 12px color.change(#ff7a00, $alpha: 0.55);
+      transform: translateY(-0.04em);
+    }
   }
 
-  &.active {
-    color: #000;
-    background: #00d4ff;
-    border-color: #00d4ff;
+  #type-description {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.7;
+    color: color.adjust($text, $lightness: 4%);
+    text-shadow: 0 1px 0 rgb(0 0 0 / 35%);
+  }
+}
+
+/* 모바일 설명 박스(투명/타이포 확대) */
+@media (max-width: $mobile-break) {
+  #type-description-box {
+    right: 24px;
+    bottom: 28px;
+    left: 24px;
+    max-width: none;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+
+    #desc-title {
+      font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+      font-size: clamp(18px, 5vw, 26px);
+
+      .caret {
+        color: color.adjust($accent, $lightness: 10%);
+      }
+    }
+
+    #type-description {
+      font-size: clamp(13px, 3.7vw, 17px);
+      line-height: 1.9;
+      color: #e9eef2;
+    }
+  }
+}
+
+/* ===================== BACK 버튼 (좌상단 고정, back.png) ===================== */
+.back-btn {
+  position: fixed;
+  top: max(16px, env(safe-area-inset-top));
+  left: max(16px, env(safe-area-inset-left));
+  z-index: $z-back;
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.95;
+    transform: translateX(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 3px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 18px rgb(0 0 0 / 35%));
   }
 }
 
@@ -62,21 +236,19 @@ body {
 #img-modal {
   position: fixed;
   inset: 0;
-  z-index: 9999;
+  z-index: $z-modal;
   display: none;
 
   &.is-open {
     display: block;
   }
 
-  /* 어두운 배경 */
   .backdrop {
     position: absolute;
     inset: 0;
-    background: rgba(0 0 0 / 60%);
+    background: rgb(0 0 0 / 60%);
   }
 
-  /* 가운데 팝업창 */
   .dialog {
     position: absolute;
     top: 50%;
@@ -87,39 +259,47 @@ body {
     width: min(90vw, 560px);
     max-height: min(90vh, 720px);
     padding: 12px;
-    background: rgba(18 25 35 / 96%);
+    background: rgb(18 25 35 / 96%);
     border-radius: 16px;
-    box-shadow: 0 20px 60px rgba(0 0 0 / 45%);
+    box-shadow: 0 20px 60px rgb(0 0 0 / 45%);
     transform: translate(-50%, -50%);
+
+    .close {
+      justify-self: end;
+      padding: 6px 10px;
+      color: #fff;
+      cursor: pointer;
+      background: rgb(0 0 0 / 30%);
+      border: 0;
+      border-radius: 10px;
+    }
+
+    img {
+      width: 100%;
+      height: auto;
+      max-height: 60vh;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 35%);
+    }
+
+    .caption {
+      padding: 4px 2px;
+      font-size: 14px;
+      color: #e8f0f6;
+      text-align: center;
+      opacity: 0.9;
+    }
+  }
+}
+
+/* ===================== 접근성: 모션 최소화 ===================== */
+@media (prefers-reduced-motion: reduce) {
+  #case-menu.menu-plain button {
+    transition: none;
   }
 
-  /* 닫기 버튼 */
-  .close {
-    justify-self: end;
-    padding: 6px 10px;
-    color: #fff;
-    cursor: pointer;
-    background: rgba(0 0 0 / 30%);
-    border: 0;
-    border-radius: 10px;
-  }
-
-  /* 이미지 */
-  img {
-    width: 100%;
-    height: auto;
-    max-height: 60vh;
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0 10px 30px rgba(0 0 0 / 35%);
-  }
-
-  /* 캡션 */
-  .caption {
-    padding: 4px 2px;
-    font-size: 14px;
-    color: #e8f0f6;
-    text-align: center;
-    opacity: 0.85;
+  .back-btn {
+    transition: none;
   }
 }

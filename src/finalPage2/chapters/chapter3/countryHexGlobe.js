@@ -66,6 +66,15 @@ const typeDescriptions = {
     '이익은 필요하지만, 생명보다 앞설 수는 없습니다. 그러나 다수의 참사는 "조금 더 벌기 위해" 안전을 희생한 결정에서 시작 되었습니다. 과적, 불법 개조, 정비 생략, 무리한 일정 강행 등은 경제적 손실 회피를 이유로 안전을 외면한 흔적들 입니다. "한 번쯤 괜찮겠지" 혹은 "돈이 안 되니까" 라는 판단이 만들어낸 비극을 보여줍니다. 가장 무서운 위험은 눈에 보이지 않는 위험이 아니라, 보면서도 외면한 탐욕 입니다.',
 };
 
+// 유형 → 제목 텍스트
+const typeTitles = {
+  rule: '안전 규정 위반',
+  build: '부실공사 및 관리',
+  perception: '위험 인지 실패',
+  responsibility: '관리 책임 부재',
+  profit: '과도한 이익 추구',
+};
+
 // =================== 데이터(네가 준 원본 + 이미지 자동 매핑) ===================
 
 // ✅ 유형별 국가 및 헥사곤 좌표
@@ -990,10 +999,28 @@ function setType(type) {
   });
 
   // 설명 교체
-  const descBox = document.getElementById('type-description');
-  if (descBox && typeDescriptions[type]) {
-    descBox.innerText = typeDescriptions[type];
+  // ✅ 제목/설명 동기화 (desc-title-text가 없어도 자동 생성)
+  const titleWrap = document.getElementById('desc-title'); // <h3 id="desc-title">
+  const titleSpan = document.getElementById('desc-title-text'); // <span id="desc-title-text">
+
+  if (titleWrap) {
+    if (titleSpan) {
+      // 이미 분리된 span이 있으면 텍스트만 교체
+      titleSpan.textContent = typeTitles[type] || '';
+    } else {
+      // 분리된 span이 없다면 caret을 유지한 채 자동 생성
+      const caretHTML =
+        titleWrap.querySelector('.caret')?.outerHTML ||
+        '<span class="caret" aria-hidden="true">▶</span>';
+      titleWrap.innerHTML = `${caretHTML} <span id="desc-title-text">${
+        typeTitles[type] || ''
+      }</span>`;
+    }
   }
+
+  // 본문 설명 교체
+  const descEl = document.getElementById('type-description');
+  if (descEl) descEl.textContent = typeDescriptions[type] || '';
 
   // GeoJSON 로드 → 해당 국가만 표시
   fetch('./style/countries.geojson')
