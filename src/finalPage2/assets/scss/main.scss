@@ -309,11 +309,11 @@ body {
   right: 7%;
 }
 
-@media (width <= 900px) {
+@media (width > 1728px) {
   .chapter-btn {
-    --btn-w: 50px;
-    --btn-h: 108px;
-    --btn-fs: 18px;
+    --btn-w: 120px;
+    --btn-h: 240px;
+    --btn-fs: 80px;
   }
 }
 
@@ -461,7 +461,7 @@ body {
 .info-panel.open {
   transform: translateX(0);
 }
-@media (width <= 900px) {
+@media (width > 1728px) {
   .info-panel {
     width: 100vw;
   }
