@@ -224,7 +224,7 @@ body {
 }
 
 .chapter-btn {
-  --btn-w: 90px;
+  --btn-w: 500px;
   --btn-h: 180px;
   --btn-fs: 62px;
   position: absolute;
