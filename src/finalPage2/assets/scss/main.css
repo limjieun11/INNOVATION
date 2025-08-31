@@ -1,9 +1,12 @@
 @charset "UTF-8";
+
 /* =========================
    main.scss — 배포 안정 버전
    핵심: 루트경로 고정, 리셋, dvh 폴백, 폰트 안정화, 크기 튐 방지
    ========================= */
+
 /* 0) 자원 루트(깃허브 페이지 배포 경로 기준) */
+
 /* 1) 기본 리셋 & 유틸 */
 *,
 *::before,
@@ -27,13 +30,16 @@ body {
   font-family: ProjectLabel;
   font-style: normal;
   font-weight: 700;
-  src: url("/INNOVATION/src/finalPage2/fonts/ProjectLabel-Bold.woff2") format("woff2");
+  src: url('/INNOVATION/src/finalPage2/fonts/ProjectLabel-Bold.woff2')
+    format('woff2');
   font-display: swap; /* FOUT 최소화 */
 }
+
 /* 3) 기본 글꼴 */
 body {
   overflow: hidden;
-  font-family: ProjectLabel, Pretendard, Inter, "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: ProjectLabel, Pretendard, Inter, 'Noto Sans KR', system-ui,
+    -apple-system, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* 4) 메인 풀블리드 레이아웃 + dvh 폴백 */
@@ -44,7 +50,12 @@ body {
   place-items: center;
   min-height: 100vh; /* 폴백 */
   padding: 0;
-  background-image: radial-gradient(900px 600px at 70% -10%, rgba(0, 212, 255, 0.12), transparent 55%), url("../images/BG/mainBg.webp");
+  background-image: radial-gradient(
+      900px 600px at 70% -10%,
+      rgba(0 212 255/ 12%),
+      transparent 55%
+    ),
+    url('../images/BG/mainBg.webp');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -55,6 +66,7 @@ body {
     height: 100dvh;
   }
 }
+
 /* 5) 한자 레이어 */
 .hanja-layer {
   position: fixed;
@@ -68,8 +80,8 @@ body {
   position: absolute;
   height: auto;
   -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 
 .hanja {
@@ -97,6 +109,7 @@ body {
   display: block;
   width: 100%;
   height: auto;
+
   /* 실제 비율로 교체 가능: 예) 4/1, 3/1 등 */
   aspect-ratio: 4/1;
   opacity: 0;
@@ -110,8 +123,13 @@ body {
   inset: 0 auto 0 -75%;
   width: 50%;
   pointer-events: none;
-  content: "";
-  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.52), transparent);
+  content: '';
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255 255 255 / 52%),
+    transparent
+  );
   opacity: 0;
   transform: skewX(-25deg);
   transition: opacity 0.3s ease;
@@ -131,10 +149,12 @@ body {
     opacity: 0;
     filter: blur(8px) contrast(0.75) brightness(0.85);
   }
+
   45% {
     opacity: 0.55;
     filter: blur(4px) contrast(0.9) brightness(0.95);
   }
+
   100% {
     opacity: 1;
     filter: blur(0) contrast(1) brightness(1);
@@ -145,6 +165,7 @@ body {
     left: 125%;
   }
 }
+
 /* 5-2) 나머지 한자 포지션 */
 .hanja-2 {
   top: 34%;
@@ -167,6 +188,7 @@ body {
 /* 5-3) 이펙트 */
 .flicker {
   --spd: 1.2s;
+
   animation: hanja-flicker var(--spd) infinite steps(12);
 }
 
@@ -175,26 +197,32 @@ body {
 }
 
 @keyframes hanja-flicker {
-  0%, 100% {
+  0%,
+  100% {
     text-shadow: none;
     opacity: 0.95;
   }
+
   10% {
     opacity: 0.6;
     filter: brightness(0.9) contrast(1.05);
   }
+
   30% {
     opacity: 0.5;
     filter: brightness(0.8) contrast(1.1);
   }
+
   50% {
     opacity: 0.65;
     filter: brightness(0.95);
   }
+
   80% {
     opacity: 0.92;
   }
 }
+
 /* 5-4) 블러 → 리빌 */
 .blur-reveal {
   opacity: 0.9;
@@ -227,11 +255,13 @@ body {
   --btn-w: 90px;
   --btn-h: 180px;
   --btn-fs: 62px;
+
   position: absolute;
   width: var(--btn-w);
   height: var(--btn-h);
   padding: 10px 6px;
-  font-family: ProjectLabel, Pretendard, Inter, "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-family: ProjectLabel, Pretendard, Inter, 'Noto Sans KR', system-ui,
+    -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: var(--btn-fs);
   font-weight: 800;
   line-height: 1;
@@ -243,16 +273,17 @@ body {
   background: #1e1b1b;
   border: none;
   border-radius: 0;
-  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 10px 26px rgba(0 0 0 /28%);
   writing-mode: vertical-rl;
-  transition: transform 0.08s ease, background 0.15s ease, box-shadow 0.2s ease, color 0.15s ease;
+  transition: transform 0.08s ease, background 0.15s ease, box-shadow 0.2s ease,
+    color 0.15s ease;
   text-orientation: upright;
 }
 
 .chapter-btn:hover {
   color: #1e1b1b;
   background: #db1919;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 14px 32px rgba(0 0 0 / 35%);
 }
 
 .chapter-btn:active {
@@ -291,6 +322,7 @@ body {
     --btn-fs: 18px;
   }
 }
+
 /* 7) 접근성 */
 @media (prefers-reduced-motion: reduce) {
   .hanja-1,
@@ -300,6 +332,7 @@ body {
     animation: none !important;
   }
 }
+
 /* 8) 프로젝트 소개 패널 */
 .info-trigger {
   position: fixed;
@@ -334,19 +367,29 @@ body {
 }
 
 @keyframes info-twinkle {
-  0%, 18%, 32%, 52%, 66%, 100% {
+  0%,
+  18%,
+  32%,
+  52%,
+  66%,
+  100% {
     color: var(--c-base);
     text-shadow: none;
   }
-  22%, 28% {
+
+  22%,
+  28% {
     color: var(--c-hot);
-    text-shadow: 0 0 6px rgba(219, 25, 25, 0.55), 0 0 12px rgba(219, 25, 25, 0.35);
+    text-shadow: 0 0 6px rgba(219 25 25 / 55%), 0 0 12px rgba(219 25 25/ 35%);
   }
-  56%, 62% {
+
+  56%,
+  62% {
     color: var(--c-cool);
-    text-shadow: 0 0 6px rgba(0, 212, 255, 0.55), 0 0 12px rgba(0, 212, 255, 0.35);
+    text-shadow: 0 0 6px rgba(0 212 255/ 55%), 0 0 12px rgba(0 212 255 / 35%);
   }
 }
+
 /* 위치 헬퍼 변수 */
 :root {
   --info-top: 50px;
@@ -392,7 +435,7 @@ body {
   inset: 0;
   z-index: 80;
   pointer-events: none;
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0 0 0 /45%);
   opacity: 0;
   transition: opacity 0.25s ease;
 }
@@ -412,9 +455,10 @@ body {
   width: min(38vw, 680px);
   height: 100dvh;
   color: #111;
-  background: #d9d9d9 url("/INNOVATION/src/finalPage2/images/BG/noise.webp") center/320px repeat;
+  background: #d9d9d9 url('/INNOVATION/src/finalPage2/images/BG/noise.webp')
+    center/320px repeat;
   border-left: 3px solid #111;
-  box-shadow: -20px 0 40px rgba(0, 0, 0, 0.35);
+  box-shadow: -20px 0 40px rgba(0 0 0/ 35%);
   transform: translateX(100%);
   transition: transform 0.28s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
@@ -428,16 +472,17 @@ body {
     width: 100vw;
   }
 }
+
 .info-header {
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 8px;
   align-items: center;
   padding: 14px 14px 10px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255 255 255/ 70%);
   border-bottom: 3px solid #111;
   -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
 }
 
 .info-header h2 {
@@ -475,7 +520,7 @@ body {
 .info-body {
   padding: 18px;
   overflow: auto;
-  font-family: Pretendard, "Noto Sans KR", system-ui, sans-serif;
+  font-family: Pretendard, 'Noto Sans KR', system-ui, sans-serif;
   font-size: clamp(14px, 1.05vw, 18px);
   line-height: 1.55;
 }
@@ -485,7 +530,7 @@ body {
   margin: 10px 0 16px;
   font-style: italic;
   font-weight: 700;
-  background: rgba(0, 0, 0, 0.06);
+  background: rgba(0 0 0/ 6%);
   border-left: 4px solid #111;
 }
 
