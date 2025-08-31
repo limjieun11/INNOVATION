@@ -467,12 +467,12 @@ body {
   transform: translateX(0);
 }
 
-/* 수정 후 */
-@media (width <= 1728px) {
+@media (width < 1728px) {
+  /* 900px 대신 1728px로 수정 */
   .chapter-btn {
-    --btn-w: 50px;
-    --btn-h: 108px;
-    --btn-fs: 18px;
+    --btn-w: 120px;
+    --btn-h: 240px;
+    --btn-fs: 80px;
   }
 }
 
