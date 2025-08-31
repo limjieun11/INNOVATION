@@ -467,9 +467,12 @@ body {
   transform: translateX(0);
 }
 
-@media (width <= 900px) {
-  .info-panel {
-    width: 100vw;
+@media (width <= 1728px) {
+  /* 900px 대신 1728px로 수정 */
+  .chapter-btn {
+    --btn-w: 90px;
+    --btn-h: 180px;
+    --btn-fs: 62px;
   }
 }
 
