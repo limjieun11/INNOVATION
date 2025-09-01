@@ -264,9 +264,11 @@ body {
   }
   .scene-grid {
     /* 그리드 최소 너비와 최대 너비를 키워 더 큰 화면에 맞춰 조정 */
-    --card-min: 600px; /* 이전 520px -> 600px로 증가 */
-    gap: clamp(24px, 3vw, 48px); /* 그리드 간격도 살짝 늘림 */
-    width: min(1800px, 96vw); /* 이전 1600px, 94vw -> 1800px, 96vw로 증가 */
+    --card-min: 600px;
+    gap: clamp(24px, 3vw, 48px); /* 그리드 간격 유지 */
+    width: min(1800px, 96vw); /* 이 부분을 조정하여 중앙 정렬 개선 */
+    /* 중앙 정렬을 위해 margin-left/right를 auto로 설정 */
+    margin: calc(clamp(12px, 2.4vw, 24px) + 14vh) auto 12px;
   }
   .scene-card .hover-cta {
     gap: 14px; /* CTA 아이콘과의 간격도 늘림 */
