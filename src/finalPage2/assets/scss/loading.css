@@ -70,3 +70,18 @@
     animation: none;
   }
 }
+/* === 추가할 코드: 1728px보다 큰 화면에서 크기 조정 === */
+@media (width > 1728px) {
+  #page-loading .box {
+    padding: 30px 36px;
+    border-width: 2px;
+  }
+  #page-loading .spinner {
+    width: 60px;
+    height: 60px;
+    border-width: 4px;
+  }
+  #page-loading .label {
+    font-size: 20px;
+  }
+}
