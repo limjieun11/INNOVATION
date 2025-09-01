@@ -263,12 +263,12 @@ body {
     font-size: clamp(14px, 1.2vw, 22px); /* 이전 1.05vw, 20px -> 1.2vw, 22px로 증가 */
   }
   .scene-grid {
-    /* 그리드 최소 너비와 최대 너비를 키워 더 큰 화면에 맞춰 조정 */
-    --card-min: 600px;
-    gap: clamp(24px, 3vw, 48px); /* 그리드 간격 유지 */
-    width: min(1800px, 96vw); /* 이 부분을 조정하여 중앙 정렬 개선 */
-    /* 중앙 정렬을 위해 margin-left/right를 auto로 설정 */
+    gap: clamp(24px, 3vw, 48px);
+    /* 그리드 최소, 중간(vw), 최대 너비를 설정하여 중앙 정렬 안정화 */
+    width: clamp(1400px, 85vw, 1800px); /* 픽셀과 vw를 같이 사용해 조정 */
+    /* 중앙 정렬을 위한 margin-left/right는 auto로 설정 */
     margin: calc(clamp(12px, 2.4vw, 24px) + 14vh) auto 12px;
+    --card-min: 600px;
   }
   .scene-card .hover-cta {
     gap: 14px; /* CTA 아이콘과의 간격도 늘림 */
