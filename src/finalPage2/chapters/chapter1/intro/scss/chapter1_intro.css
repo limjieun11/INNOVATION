@@ -265,7 +265,7 @@ body {
   .scene-grid {
     gap: clamp(24px, 3vw, 48px);
     /* 그리드 최소, 중간(vw), 최대 너비를 설정하여 중앙 정렬 안정화 */
-    width: clamp(1400px, 85vw, 1800px); /* 픽셀과 vw를 같이 사용해 조정 */
+    width: clamp(1400px, 80vw, 1800px); /* 픽셀과 vw를 같이 사용해 조정 */
     /* 중앙 정렬을 위한 margin-left/right는 auto로 설정 */
     margin: calc(clamp(12px, 2.4vw, 24px) + 14vh) auto 12px;
     --card-min: 600px;
