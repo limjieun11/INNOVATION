@@ -251,7 +251,7 @@ body {
 @media (width > 1728px) {
   .chapter1-intro {
     /* 큰 화면에서 더 내려오도록 패딩 조정 */
-    --push-down: 20vh; /* 이전 18vh -> 20vh로 증가 */
+    --push-down: 18vh; /* 이전 18vh -> 20vh로 증가 */
   }
   .title {
     /* 폰트 크기 최댓값 늘리기 */
@@ -259,7 +259,7 @@ body {
   }
   .description {
     /* 설명 텍스트의 크기 최댓값 늘리기 */
-    max-width: min(1300px, 94vw); /* 이전 1100px, 92vw -> 1300px, 94vw로 증가 */
+    max-width: min(1200px, 93vw); /* 이전 1100px, 92vw -> 1300px, 94vw로 증가 */
     font-size: clamp(14px, 1.2vw, 22px); /* 이전 1.05vw, 20px -> 1.2vw, 22px로 증가 */
   }
   .scene-grid {
