@@ -112,42 +112,54 @@ const fullDataset = {
         altitude: 0.85,
         imageUrl: './img/chapter3/rule/rule_cheonantrain.webp',
       },
-      { lat: 35.211, lng: 128.56, name: '모산 수학여행 참사', altitude: 0.85 },
+      {
+        lat: 35.211,
+        lng: 128.56,
+        name: '모산 수학여행 참사',
+        altitude: 0.85,
+        imageUrl: './img/chapter3/rule/rule_mosan.webp',
+      },
       {
         lat: 37.342,
         lng: 127.99,
         name: '원주 삼광터널 열차 충돌 사고',
         altitude: 0.8,
+        imageUrl: './img/chapter3/rule/rule_samgwangTrain.webp',
       },
       {
         lat: 35.9707,
         lng: 127.0093,
         name: '이리역 폭발 사고',
         altitude: 1.2,
+        imageUrl: './img/chapter3/rule/rule_iriStation.webp',
       },
       {
         lat: 35.8251,
         lng: 128.7415,
         name: '경산 열차 추돌 사고',
         altitude: 1.5,
+        imageUrl: './img/chapter3/rule/rule_gyeongsanTrain.webp',
       },
       {
         lat: 37.5459,
         lng: 127.1279,
         name: '천호대교 버스 추락',
         altitude: 1.45,
+        imageUrl: './img/chapter3/rule/rule_cheonhoBus.webp',
       },
       {
         lat: 35.3509,
         lng: 127.7303,
         name: '지리산 폭우 참사',
         altitude: 1.1,
+        imageUrl: './img/chapter3/rule/rule_jiriMountain.webp',
       },
       {
         lat: 35.8667,
         lng: 128.5933,
         name: '대구 지하철 참사',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_daeguSubway.webp',
       },
 
       {
@@ -155,18 +167,21 @@ const fullDataset = {
         lng: 127.112,
         name: '평택 안중 타워 크레인 붕괴 사고',
         altitude: 0.85,
+        imageUrl: './img/chapter3/rule/rule_towerkrain.webp',
       },
       {
         lat: 35.693,
         lng: 129.051,
         name: '경부 고속도로 언양 분기점 관광 버스 화재',
         altitude: 0.85,
+        imageUrl: './img/chapter3/rule/rule_gyeongbuBus.webp',
       },
       {
         lat: 36.81,
         lng: 127.113,
         name: '안철수 유세버스 사망사고',
         altitude: 0.85,
+        imageUrl: './img/chapter3/rule/rule_AhncheolsuBus.webp',
       },
 
       // 미국
@@ -175,38 +190,64 @@ const fullDataset = {
         lng: -87.7515,
         name: '페시티고 화재',
         altitude: 1.0,
-        imageUrl: './img/chapter3/rule/rule_peshtigo.webp',
+        imageUrl: './img/chapter3/rule/rule_peshtigoFire.webp',
       },
       {
         lat: 40.7309,
         lng: -73.9959,
         name: '트라이앵글 의류공장 화재 사고',
         altitude: 1.0,
-        imageUrl: './img/chapter3/rule/rule_triangle.webp',
+        imageUrl: './img/chapter3/rule/rule_triangleFire.webp',
       },
       {
         lat: 41.7325,
         lng: -49.9469,
         name: '타이타닉호 침몰',
         altitude: 1.0,
-        imageUrl: './img/chapter3/rule/rule_tytanic.webp',
+        imageUrl: './img/chapter3/rule/rule_titanic.webp',
       },
-      { lat: 35.4437, lng: 139.638, name: '사쿠라기초 사고', altitude: 1.3 },
-      { lat: 35.7335, lng: 139.7825, name: '미카와시마 사고', altitude: 0.95 },
+      {
+        lat: 35.4437,
+        lng: 139.638,
+        name: '사쿠라기초 사고',
+        altitude: 1.3,
+        imageUrl: './img/chapter3/rule/rule_sakuragi.webp',
+      },
+      {
+        lat: 35.7335,
+        lng: 139.7825,
+        name: '미카와시마 사고',
+        altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_mikawasima.webp',
+      },
       {
         lat: 25.0343,
         lng: -77.3963,
         name: '야머스 캐슬호 화재 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_yamusCastleFire.webp',
       },
-      { lat: 17.0, lng: 108.0, name: 'USS 포레스탈 화재 사건', altitude: 0.95 },
-      { lat: 28.4827, lng: -16.3415, name: '테네리페 참사', altitude: 1.0 },
+      {
+        lat: 17.0,
+        lng: 108.0,
+        name: 'USS 포레스탈 화재 사건',
+        altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_USSFire.webp',
+      },
+      {
+        lat: 28.4827,
+        lng: -16.3415,
+        name: '테네리페 참사',
+        altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_teneripe.webp',
+      },
 
       {
         lat: 32.7157,
         lng: -117.1611,
         name: '샌디에고 상공 공중 추돌 사고',
         altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_sandiego.webp',
       },
 
       {
@@ -214,54 +255,63 @@ const fullDataset = {
         lng: 139.7671, // 도쿄 치요다구 호텔 뉴 재팬
         name: '호텔 뉴 재팬 화재 사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/rule/rule_hotelNewJapanFire.webp',
       },
       {
         lat: 51.389,
         lng: 30.099, // 우크라이나 체르노빌 원전
         name: '체르노빌 원자력 발전소 폭발',
         altitude: 0.9,
+        imageUrl: './img/chapter3/rule/rule_chernobilExplore.webp',
       },
       {
         lat: 53.75,
         lng: 87.75, // 러시아 바르나울(코로무쉬 공항 인근 추정)
         name: '아에로플로트 6502편 추락사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/rule/rule_6502Airplane.webp',
       },
       {
         lat: 39.2904,
         lng: -76.6122, // 미국 메릴랜드 주 볼티모어 인근
         name: '메릴랜드 열차 충돌 사고',
         altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_merilandTrain.webp',
       },
       {
         lat: 51.1242,
         lng: 1.3131, // 영국 도버 해협 인근
         name: '해럴드 오브 프리 엔터프리즈호 참사',
         altitude: 0.9,
+        imageUrl: './img/chapter3/rule/rule_HeraldofFree.webp',
       },
       {
         lat: 49.4361,
         lng: 7.6003, // 독일 람슈타인 공군기지
         name: '람슈타인 에어쇼 참사',
         altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_ramsyutainAirShow.webp',
       },
       {
         lat: 32.7511,
         lng: 130.2994, // 일본 운젠 후겐다케
         name: '운젠 분화',
         altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_unjenbunhwa.webp',
       },
       {
         lat: 13.8213,
         lng: 100.0644, // 태국 나콘파톰주
         name: '케이더 인형 공장 화재',
         altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_kaderDollFire.webp',
       },
       {
         lat: 55.5953,
         lng: 37.3496, // 러시아 모스크바 남쪽 항로 상공 (추락 지점 중심)
         name: '아에로플로트 593편 추락 사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/rule/rule_593Airplane.webp',
       },
 
       {
@@ -269,126 +319,147 @@ const fullDataset = {
         lng: 11.9668, // 스웨덴 예테보리
         name: '예테보리 디스코텍 화재',
         altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_yeteboriFire.webp',
       },
       {
         lat: 36.4713,
         lng: 140.5634, // 일본 이바라키현 도카이촌
         name: '도카이촌 방사능 누출 사고',
         altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_dokaichon.webp',
       },
       {
         lat: 49.8125,
         lng: 23.9561, // 우크라이나 르비우 국제공항
         name: '우크라이나 르비우 국제공항 공군 에어쇼 참사',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_lebiuAirShow.webp',
       },
       {
         lat: -29.6881,
         lng: -53.8069, // 브라질 산타마리아 (Kiss 클럽)
         name: '스테이션 나이트클럽 화재 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_stationClubFire.webp',
       },
       {
         lat: -34.6765,
         lng: -58.4527, // 아르헨티나 부에노스아이레스, 슈퍼마켓 화재 실제 발생 위치 근접
         name: '이쿠아 볼라노스 슈퍼마켓 화재',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_equaSupermarketFire.webp',
       },
       {
         lat: 35.0108,
         lng: 135.758, // 일본 교토 부 후쿠치야마시~아마가사키 구간 (대표 위치)
         name: '후쿠치야마선 탈선 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_JRhukuchiyama.webp',
       },
       {
         lat: -5.1357,
         lng: 119.4121, // 인도네시아 마카사르 인근 (사고 해역)
         name: '아담항공 574편 추락 사고',
         altitude: 1.0,
+        imageUrl: './img/chapter3/rule/rule_574Airplane.webp',
       },
       {
         lat: 32.7765,
         lng: -79.9311, // 미국 사우스캐롤라이나주 찰스턴
         name: '찰스턴 소파 슈퍼 스토어 화재',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_chalstenStoreFire.webp',
       },
       {
         lat: 56.8373,
         lng: 60.5975, // 러시아 예카테린부르크 인근 (사고 추정 지점)
         name: '아에로플로트 821편 추락 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_821Airplane.webp',
       },
       {
         lat: -3.4168,
         lng: 102.8984, // 인도네시아 벵쿨루 인근 (실제 화재 도시)
         name: '프로마야 로사지 나이트 클럽 화재',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_rosajiClubFire.webp',
       },
       {
         lat: 54.7833,
         lng: 20.5167, // 러시아 스몰렌스크 북부 군 비행장 인근
         name: '폴란드 공군 Tu-154 추락 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_Tu154.webp',
       },
       {
         lat: 42.3643,
         lng: 10.922, // 이탈리아 지질섬 인근 (좌초 해역)
         name: '코스타 콩코르디아 호 좌초 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_kostaKonkordia.webp',
       },
       {
         lat: 24.9426,
         lng: 67.1184, // 파키스탄 카라치
         name: '알리 엔터프라이즈 의류공장 화재',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_enterprizeFire.webp',
       },
       {
         lat: 42.8782,
         lng: -8.5448, // 스페인 갈리시아, 산티아고 데 콤포스텔라
         name: '스페인 갈리시아 고속열차 탈선 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_galisiaTrain.webp',
       },
       {
         lat: -29.6868,
         lng: -53.8071, // 브라질 산타마리아
         name: '키스 나이트 클럽 화재',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_kissnightClubFire.webp',
       },
       {
         lat: 37.7764,
         lng: -122.2236, // 미국 캘리포니아주 오클랜드
         name: '고스트 쉽 창고 화재',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_ghostShipFire.webp',
       },
       {
         lat: 38.7767,
         lng: -90.4148, // 미국 미주리주 덕헤드
         name: '미주리 오리보트 전복 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_Duckboat.webp',
       },
       {
         lat: 45.9319,
         lng: 8.5084, // 이탈리아 피에몬테, 모타로네산 인근
         name: '이탈리아 모타론산 케이블카 추락 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_motaronCablecar.webp',
       },
       {
         lat: 34.7025,
         lng: 135.4959, // 일본 오사카시 기타구
         name: '오사카 빌딩 화재',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_osakaBuildingFire.webp',
       },
       {
         lat: 41.4264,
         lng: -49.9489, // 대서양 해저, RMS Titanic 잔해지점 인근
         name: '타이타닉호 관광 잠수정 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_titanjamsujeong.webp',
       },
       {
         lat: 36.2697,
         lng: 43.3781, // 이라크 카라코쉬
         name: '카라코쉬 결혼식장 화재',
         altitude: 0.95,
+        imageUrl: './img/chapter3/rule/rule_karakoshFire.webp',
       },
     ],
   },
@@ -424,73 +495,91 @@ const fullDataset = {
         lng: 126.9393,
         name: '와우 시민 아파트 붕괴 사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/build/build_wowApartment.webp',
       },
       {
         lat: 37.5702,
         lng: 126.9918,
         name: '서울 시민회관 화재 사고',
         altitude: 0.85,
+        imageUrl: './img/chapter3/build/build_wowApartment.webp',
       },
       {
         lat: 36.4945,
         lng: 127.0274,
         name: '번데기 집단 식중독 사건',
         altitude: 0.73,
+        imageUrl: './img/chapter3/build/build_beondegiJungdok.webp',
       },
       {
         lat: 35.1796,
         lng: 129.0756,
         name: '부산 대화호텔 화재 사건',
         altitude: 0.85,
+        imageUrl: './img/chapter3/build/build_busanDaeaHotelFire.webp',
       },
-      { lat: 37.541, lng: 127.056, name: '성수대교 붕괴 사고', altitude: 0.9 },
+      {
+        lat: 37.541,
+        lng: 127.056,
+        name: '성수대교 붕괴 사고',
+        altitude: 0.9,
+        imageUrl: './img/chapter3/build/build_seongsudaegyo.webp',
+      },
       {
         lat: 37.5053,
         lng: 127.0246,
         name: '삼풍백화점 붕괴 사고',
         altitude: 1.2,
+        imageUrl: './img/chapter3/build/build_sampungDepartment.webp',
       },
       {
         lat: 37.1967,
         lng: 126.8315,
         name: '씨랜드 청소년 수련원 화재',
         altitude: 1.11,
+        imageUrl: './img/chapter3/build/build_CLandFire.webp',
       },
       {
         lat: 37.4718,
         lng: 126.6458,
         name: '인천 인현동 호프집 화재',
         altitude: 0.98,
+        imageUrl: './img/chapter3/build/build_InhyeonHopeFire.webp',
       },
       {
         lat: 37.3955,
         lng: 127.1104,
         name: '판교 테크노밸리 축제 환풍구 붕괴 사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/build/build_pangyoTecFestival.webp',
       },
       {
         lat: 37.1376,
         lng: 128.2126,
         name: '제천 스포츠센터 화재 사고',
         altitude: 0.86,
+        imageUrl: './img/chapter3/build/build_jecheonSportCenter.webp',
       },
       {
         lat: 35.1532,
         lng: 126.9198,
         name: '광주 광역시 동구 학동 철거 건물 붕괴 사고',
         altitude: 0.91,
+        imageUrl: './img/chapter3/build/build_gwangjuHakdong.webp',
       },
       {
         lat: 37.275,
         lng: 127.4228,
         name: '이천 쿠팡 물류센터 화재 사고',
         altitude: 1.0,
+        imageUrl: './img/chapter3/build/build_coopangCenterFire.webp',
       },
       {
         lat: 35.1321,
         lng: 126.7937,
         name: '광주 화정 아이파크 붕괴 사고',
         altitude: 0.93,
+        imageUrl: './img/chapter3/build/build_hwajungIPark.webp',
       },
 
       //해외
@@ -499,96 +588,112 @@ const fullDataset = {
         lng: -71.7201,
         name: '펨버트 공장 붕괴 사고',
         altitude: 0.85,
+        imageUrl: './img/chapter3/build/build_pembut.webp',
       },
       {
         lat: 25.7617,
         lng: -80.1918,
         name: '니커보커 극장 붕괴 사고',
         altitude: 0.92,
+        imageUrl: './img/chapter3/build/build_nikuboku.webp',
       },
       {
         lat: 46.2681,
         lng: 12.3408,
         name: '바이온트댐 붕괴 사고',
         altitude: 0.84,
+        imageUrl: './img/chapter3/build/build_biontdaem.webp',
       },
       {
         lat: 51.5085,
         lng: 0.0269,
         name: '로넌 포인트 붕괴 사고',
         altitude: 0.85,
+        imageUrl: './img/chapter3/build/build_roneonPoint.webp',
       },
       {
         lat: 34.6937,
         lng: 135.5023,
         name: '센니치 백화점 화재 사건',
         altitude: 0.85,
+        imageUrl: './img/chapter3/build/build_senichiFire.webp',
       },
       {
         lat: 41.8781,
         lng: -87.6298,
         name: '스카이라인 타워 붕괴 사고',
         altitude: 0.86,
+        imageUrl: './img/chapter3/build/build_skytower.webp',
       },
       {
         lat: -23.5515,
         lng: -46.6333,
         name: '조엘마 빌딩 화재',
         altitude: 0.9,
+        imageUrl: './img/chapter3/build/build_joelmaBuilding.webp',
       },
       {
         lat: 25.7617,
         lng: -80.1918,
         name: '하버 케이 콘도미니엄 붕괴 사고',
         altitude: 0.92,
+        imageUrl: './img/chapter3/build/build_haberKcondominium.webp',
       },
       {
         lat: 39.0997,
         lng: -94.5786,
         name: '하얏트 리젠시 호텔 고가 통로 붕괴',
         altitude: 0.9,
+        imageUrl: './img/chapter3/build/build_hayatrejensihotel.webp',
       },
       {
         lat: 63.1106,
         lng: 11.7202,
         name: '스타바 댐 붕괴 사고', // 실제 위치: 노르웨이 스태이렌 인근
         altitude: 0.85,
+        imageUrl: './img/chapter3/build/build_stabadaem.webp',
       },
       {
         lat: 51.5308,
         lng: -0.1238,
         name: '런던 킹스 크로스 역 화재 사건', // 실제 위치: 영국 런던 킹스크로스역
         altitude: 0.85,
+        imageUrl: './img/chapter3/build/build_kingscrossFire.webp',
       },
       {
         lat: 54.7667,
         lng: 56.0333,
         name: '우파 철도 참사', // 실제 위치: 러시아 우파 인근
         altitude: 0.88,
+        imageUrl: './img/chapter3/build/build_upacheoldo.webp',
       },
       {
         lat: 42.4072,
         lng: 9.1556,
         name: '아르망드-세사리 스타디움 참사', // 실제 위치: 프랑스 코르시카 바스티아
         altitude: 0.9,
+        imageUrl: './img/chapter3/build/build_armangdeStadium.webp',
       },
       {
         lat: 14.5823,
         lng: 121.0154,
         name: '로얄 플라자 호텔 붕괴 사고', // 실제 위치: 필리핀 마닐라 시내
         altitude: 0.86,
+        imageUrl: './img/chapter3/build/build_royalplazahotel.webp',
       },
       {
         lat: 29.9511,
         lng: -90.0715,
         name: '빅 바유 캐넛 탈선 사고', // 실제 위치: 미국 루이지애나 뉴올리언스 인근
         altitude: 0.84,
+        imageUrl: './img/chapter3/build/build_bigbayuCanut.webp',
       },
       {
         lat: 51.3467,
         lng: 6.6078,
         name: '에세데 사고', // 실제 위치: 독일 노르트라인베스트팔렌주
         altitude: 0.86,
+        imageUrl: './img/chapter3/build/build_esede.webp',
       },
 
       {
@@ -596,102 +701,119 @@ const fullDataset = {
         lng: 12.7609,
         name: '오스트리아 카프룬 터널 화재', // 실제 위치: Kaprun, Austria
         altitude: 0.85,
+        imageUrl: './img/chapter3/build/build_cafrunFire.webp',
       },
       {
         lat: 41.0962,
         lng: -8.4951,
         name: '포르투갈 도루강 교량 붕괴 사고', // 실제 위치: Castelo de Paiva, Portugal
         altitude: 0.85,
+        imageUrl: './img/chapter3/build/build_dorugangGyoryang.webp',
       },
       {
         lat: 31.7683,
         lng: 35.2137,
         name: '예루살렘 결혼식장 붕괴 사고', // 실제 위치: Jerusalem, Israel
         altitude: 0.87,
+        imageUrl: './img/chapter3/build/build_yerusalaem.webp',
       },
       {
         lat: 41.8864,
         lng: -87.6258,
         name: '시카고 발코니 붕괴사고', // 실제 위치: Chicago, Illinois, USA
         altitude: 0.84,
+        imageUrl: './img/chapter3/build/build_sicagobalcony.webp',
       },
       {
         lat: 47.7267,
         lng: 12.8769,
         name: '바트 라이헨할 아이스링크 붕괴 사고', // 실제 위치: Bad Reichenhall, Germany
         altitude: 0.83,
+        imageUrl: './img/chapter3/build/build_battIcelink.webp',
       },
       {
         lat: 50.2584,
         lng: 19.0275,
         name: '카토비체 국제 전시장 지붕 붕괴 사고', // 실제 위치: Katowice, Poland
         altitude: 0.86,
+        imageUrl: './img/chapter3/build/build_catobiche.webp',
       },
       {
         lat: 44.9391,
         lng: -93.0977,
         name: '미시시피 강 교량 붕괴 사고', // 실제 위치: Minneapolis, Minnesota, USA
         altitude: 0.88,
+        imageUrl: './img/chapter3/build/build_misisipyRiver.webp',
       },
       {
         lat: 23.9037,
         lng: 90.132,
         name: '방글라데시 라나 플라자 붕괴 사고', // 실제 위치: Savar, Dhaka, Bangladesh
         altitude: 0.87,
+        imageUrl: './img/chapter3/build/build_ranaplaza.webp',
       },
       {
         lat: 30.8222,
         lng: 112.8917,
         name: '둥팡즈싱 호 침몰 사고', // 실제 위치: Jianli County, Hubei Province, China
         altitude: 0.91,
+        imageUrl: './img/chapter3/build/build_dungpazsingShip.webp',
       },
       {
         lat: 39.0339,
         lng: 117.7353,
         name: '텐진 항구 폭발 사고',
         altitude: 0.87,
+        imageUrl: './img/chapter3/build/build_tenzinhanguExplore.webp',
       },
       {
         lat: 21.3891,
         lng: 39.8579,
         name: '메가 크레인 붕괴 사고',
         altitude: 0.88,
+        imageUrl: './img/chapter3/build/build_megacrain.webp',
       },
       {
         lat: 51.5206,
         lng: -0.21,
         name: '런던 그렌펠 타워 화재 사고',
         altitude: 0.88,
+        imageUrl: './img/chapter3/build/build_granpellTowerFire.webp',
       },
       {
         lat: 44.4134,
         lng: 8.9339,
         name: '제노바 모란디 교량 붕괴 사고',
         altitude: 0.88,
+        imageUrl: './img/chapter3/build/build_jenobamorandigyoryang.webp',
       },
       {
         lat: 33.9016,
         lng: 35.5196,
         name: '베이루트 항구 폭발 사고',
         altitude: 0.88,
+        imageUrl: './img/chapter3/build/build_beyrutExplore.webp',
       },
       {
         lat: 19.3578,
         lng: -99.123,
         name: '멕시코시티 도시 철도 12호선 교량 붕괴 사고',
         altitude: 0.88,
+        imageUrl: './img/chapter3/build/build_12SubwayMexico.webp',
       },
       {
         lat: 25.8783,
         lng: -80.1211,
         name: '플로리다 챔플레인 타워 붕괴 사고',
         altitude: 0.88,
+        imageUrl: './img/chapter3/build/build_floridachamplainTower.webp',
       },
       {
         lat: 22.1914,
         lng: 69.7036,
         name: '인도 구자라트 다리 붕괴 사고',
         altitude: 0.88,
+        imageUrl: './img/chapter3/build/build_guzaratBridge.webp',
       },
     ],
   },
@@ -706,18 +828,21 @@ const fullDataset = {
         lng: 127.0563,
         name: '성수대교 붕괴 사고',
         altitude: 0.8,
+        imageUrl: './img/chapter3/perception/perception_seongsuBridge.webp',
       },
       {
         lat: 37.503,
         lng: 127.0256,
         name: '삼풍 백화점 붕괴 사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/perception/perception_sampungDepartment.webp',
       },
       {
         lat: 34.2543,
         lng: 126.5708,
         name: '청해진해운 세월호 침몰 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/perception/perception_sewolShip.webp',
       },
 
       // 해외 사고
@@ -726,30 +851,36 @@ const fullDataset = {
         lng: -82.9423,
         name: '아메리칸 항공 96편 도어 탈락 사고',
         altitude: 0.8,
+        imageUrl: './img/chapter3/perception/perception_96AirplaneDoor.webp',
       }, // Windsor, Ontario
       {
         lat: 49.0071,
         lng: 2.4574,
         name: '터키 항공 981편 추락 사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/perception/perception_981Airplane.webp',
       }, // Orly/Ermenonville
       {
         lat: 28.6084,
         lng: -80.6043,
         name: '챌린저 우주 왕복선 폭발 사고',
         altitude: 1.0,
+        imageUrl:
+          './img/chapter3/perception/perception_challengerSpaceExplore.webp',
       }, // Kennedy Space Center
       {
         lat: 31.05,
         lng: -95.3198,
         name: '컬럼비아 우주 왕복선 공중 분해 사고',
         altitude: 1.0,
+        imageUrl: './img/chapter3/perception/perception_calumbiaSpaceship.webp',
       }, // East Texas debris zone
       {
         lat: 21.3069,
         lng: -157.8583,
         name: '보잉 737 MAX 결함 사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/perception/perception_737Max.webp',
       }, // Representing Boeing HQ Maui-Waikiki area,
     ],
   },
@@ -772,24 +903,30 @@ const fullDataset = {
         lng: 127.39,
         name: '남원역 열차 추돌사고',
         altitude: 0.85,
+        imageUrl:
+          './img/chapter3/responsibility/responsibility_namwonTrain.webp',
       },
       {
         lat: 37.2806,
         lng: 127.4417,
         name: '이천 냉동창고 화재사고',
         altitude: 0.85,
+        imageUrl:
+          './img/chapter3/responsibility/responsibility_echeonFire.webp',
       },
       {
         lat: 37.5346,
         lng: 126.9949,
         name: '이태원 압사 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/responsibility/responsibility_etaewon.webp',
       },
       {
         lat: 35.6858,
         lng: 126.5981,
         name: '제 25회 세계 스카우트 잼버리 부실 운영',
         altitude: 0.8,
+        imageUrl: './img/chapter3/responsibility/responsibility_25jambery.webp',
       },
 
       {
@@ -797,30 +934,37 @@ const fullDataset = {
         lng: -87.9073,
         name: '아메리칸 항공 191편 추락 사고',
         altitude: 1.0,
+        imageUrl:
+          './img/chapter3/responsibility/responsibility_american191Airplane.webp',
       },
       {
         lat: 35.5523,
         lng: 139.7798,
         name: '일본항공 350편 추락 사고',
         altitude: 0.95,
+        imageUrl:
+          './img/chapter3/responsibility/responsibility_350Airplane.webp',
       },
       {
         lat: 36.2397,
         lng: 138.7158,
         name: '일본 항공 123편 추락 사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/responsibility/responsibility_japan123.webp',
       },
       {
         lat: 23.2599,
         lng: 77.4126,
         name: '보팔 가스 누출 사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/responsibility/responsibility_bopalgas.webp',
       },
       {
         lat: 53.402,
         lng: -1.5006,
         name: '힐스버러 참사',
         altitude: 0.95,
+        imageUrl: './img/chapter3/responsibility/responsibility_hilzbureo.webp',
       },
 
       {
@@ -828,30 +972,39 @@ const fullDataset = {
         lng: 33.4167,
         name: '쿠르스크 함 침몰 사건',
         altitude: 0.85,
+        imageUrl:
+          './img/chapter3/responsibility/responsibility_kuruskShip.webp',
       },
       {
         lat: 47.5667,
         lng: 9.3667,
         name: '위버링겐 상공 공중 추돌 사고',
         altitude: 0.85,
+        imageUrl:
+          './img/chapter3/responsibility/responsibility_weburingen.webp',
       },
       {
         lat: 25.7907,
         lng: -80.13,
         name: '초크 오션 항공 101편 추락 사고',
         altitude: 0.85,
+        imageUrl:
+          './img/chapter3/responsibility/responsibility_chockoceanairport101.webp',
       },
       {
         lat: 51.4344,
         lng: 6.7623,
         name: '러브 퍼레이드 압사 참사',
         altitude: 0.85,
+        imageUrl:
+          './img/chapter3/responsibility/responsibility_lovePerade.webp',
       },
       {
         lat: 15.3694,
         lng: 44.191,
         name: '예멘 압사 사고',
         altitude: 0.85,
+        imageUrl: './img/chapter3/responsibility/responsibility_yemen.webp',
       },
     ],
   },
@@ -873,72 +1026,84 @@ const fullDataset = {
         lng: 127.75,
         name: '남영호 침몰 사고',
         altitude: 1.0,
+        imageUrl: './img/chapter3/profit/profit_namyonghoShip.webp',
       },
       {
         lat: 34.45,
         lng: 126.32,
         name: '한성호 침몰 사고',
         altitude: 1.5,
+        imageUrl: './img/chapter3/profit/profit_hansunghoShip.webp',
       },
       {
         lat: 34.85,
         lng: 128.43,
         name: '통영 YTL 30호 침몰 사건',
         altitude: 0.85,
+        imageUrl: './img/chapter3/profit/profit_YTL30.webp',
       },
       {
         lat: 35.72,
         lng: 126.32,
         name: '서해훼리호 침몰 사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/profit/profit_seohaeShip.webp',
       },
       {
         lat: 34.24,
         lng: 125.96,
         name: '청해진해운 세월호 침몰 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/profit/profit_sewolShip.webp',
       },
       {
         lat: 41.8781,
         lng: -87.6298,
         name: '이스트랜드호 참사',
         altitude: 0.8,
+        imageUrl: './img/chapter3/profit/profit_estlandShip.webp',
       },
       {
         lat: -12.0821,
         lng: -77.0338,
         name: 'LANSA 508편 추락 사고',
         altitude: 0.95,
+        imageUrl: './img/chapter3/profit/profit_LANSA508.webp',
       },
       {
         lat: 40.6132,
         lng: 0.6226,
         name: '로스 알파케스 참사',
         altitude: 0.9,
+        imageUrl: './img/chapter3/profit/profit_lossalphakess.webp',
       },
       {
         lat: 38.9656,
         lng: -0.1794,
         name: '도냐 파츠호 침몰 사고',
         altitude: 0.9,
+        imageUrl: './img/chapter3/profit/profit_donyapazho.webp',
       },
       {
         lat: 25.995,
         lng: -80.2406,
         name: '벨류젯 592편 추락 사고',
         altitude: 0.85,
+        imageUrl: './img/chapter3/profit/profit_592Airplane.webp',
       },
       {
         lat: 15.0,
         lng: -17.0,
         name: '르 줄라호 침몰 사고',
         altitude: 0.85,
+        imageUrl: './img/chapter3/profit/profit_lezulaho.webp',
       },
       {
         lat: 27.2579,
         lng: 33.8116,
         name: '알 살람 보카치오 98호 침몰 사고',
         altitude: 0.8,
+        imageUrl: './img/chapter3/profit/profit_alsalambokachio98.webp',
       },
     ],
   },
