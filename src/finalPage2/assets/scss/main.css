@@ -1,7 +1,7 @@
 @charset "UTF-8";
 /* =========================
    main.scss — 배포 안정 버전
-   핵심: 루트경로 고정, 리셋, dvh 폴백, 폰트 안정화, 크기 튐 방지
+   핵심: 루트경로 고정, 리셋, dvh 폴백, 폰트 안정화, 크기 튀는 현상 방지
    ========================= */
 /* 0) 자원 루트(깃허브 페이지 배포 경로 기준) */
 /* 1) 기본 리셋 & 유틸 */
@@ -22,6 +22,12 @@ body {
   display: none !important;
 }
 
+@font-face {
+  font-family: JSongmyeong; /* ✅ 폰트 패밀리 이름 수정 */
+  font-weight: normal;
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2") format("woff2");
+  font-display: swap;
+}
 /* 2) 폰트(절대경로) */
 @font-face {
   font-family: ProjectLabel;
@@ -29,6 +35,12 @@ body {
   font-weight: 700;
   src: url("/INNOVATION/src/finalPage2/fonts/ProjectLabel-Bold.woff2") format("woff2");
   font-display: swap; /* FOUT 최소화 */
+}
+@font-face {
+  font-family: HaneulnaerinInje;
+  font-weight: normal;
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/2507-1@1.0/SkyblessingInjeFontTTF.woff") format("woff");
+  font-display: swap;
 }
 /* 3) 기본 글꼴 */
 body {
@@ -411,8 +423,8 @@ body {
   grid-template-rows: auto 1fr;
   width: min(38vw, 680px);
   height: 100dvh;
-  color: #111;
-  background: #d9d9d9 url("/INNOVATION/src/finalPage2/images/BG/noise.webp") center/320px repeat;
+  color: #fff; /* ✅ 팝업 패널 기본 텍스트 색상을 흰색으로 */
+  background: #000 url("/INNOVATION/src/finalPage2/images/BG/noise.webp") center/320px repeat; /* ✅ 배경색 검은색 유지 */
   border-left: 3px solid #111;
   box-shadow: -20px 0 40px rgba(0, 0, 0, 0.35);
   transform: translateX(100%);
@@ -433,18 +445,19 @@ body {
   grid-template-columns: auto 1fr auto;
   gap: 8px;
   align-items: center;
-  padding: 14px 14px 10px;
-  background: rgba(255, 255, 255, 0.7);
-  border-bottom: 3px solid #111;
+  padding: 32px 32px 10px;
+  background: rgba(0, 0, 0, 0.7); /* ✅ 헤더 배경 검은색 반투명 유지 */
+  border-bottom: 3px solid #111; /* ✅ 헤더 하단 테두리 검은색 유지 */
   -webkit-backdrop-filter: blur(2px);
           backdrop-filter: blur(2px);
 }
 
 .info-header h2 {
   margin: 0;
-  font-family: ProjectLabel, Pretendard, system-ui, sans-serif;
-  font-size: clamp(20px, 3vw, 36px);
+  font-family: HaneulnaerinInje, "Times New Roman", Times, serif; /* ✅ 폰트를 '하늘내린인제'로 변경 */
+  font-size: clamp(20px, 3vw, 52px);
   font-weight: 900;
+  color: #fff; /* ✅ 헤더 제목 텍스트 색상 흰색으로 */
   text-align: center;
 }
 
@@ -452,18 +465,16 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 32px;
+  width: 48px;
+  height: 48px;
   padding: 0;
-  color: #111;
+  color: #fff; /* ✅ 뒤로가기 버튼 아이콘 색상 흰색으로 */
   cursor: pointer;
-  background: #fff;
-  border: 2px solid #111;
-  border-radius: 6px;
+  background: #000; /* ✅ 뒤로가기 버튼 배경색 검은색으로 */
 }
 
 .info-back:hover {
-  background: #f2f2f2;
+  background: #333; /* ✅ 뒤로가기 버튼 호버 시 배경색 변경 */
 }
 
 .header-gap {
@@ -475,18 +486,50 @@ body {
 .info-body {
   padding: 18px;
   overflow: auto;
-  font-family: Pretendard, "Noto Sans KR", system-ui, sans-serif;
+  font-family: JSongmyeong, Pretendard, "Noto Sans KR", system-ui, sans-serif; /* ✅ 폰트 패밀리 적용 */
   font-size: clamp(14px, 1.05vw, 18px);
   line-height: 1.55;
+  color: #fff; /* ✅ 본문 텍스트 색상을 흰색으로 */
+  text-align: center;
+  /* p 태그 폰트 크기 설정 */
+  /* figcaption 폰트 크기 설정 */
+}
+.info-body p {
+  margin: 16px auto;
+  font-size: clamp(14px, 1.05vw, 16px); /* ✅ p 태그 폰트 크기 */
+}
+.info-body figcaption {
+  margin: 16px auto;
+  font-size: clamp(12px, 0.9vw, 12px); /* ✅ figcaption 폰트 크기 */
+}
+
+/* 팝업 본문 내 이미지 스타일 */
+.info-body img {
+  display: block; /* ✅ 블록 레벨 요소로 만들어 왼쪽 정렬 및 마진 조정 용이 */
+  max-width: 100%; /* ✅ 이미지가 부모 요소(info-body)의 너비를 넘지 않도록 제한 */
+  height: auto; /* ✅ 가로세로 비율 유지 */
+  margin: 16px 0; /* ✅ 위아래 마진 16px, 왼쪽 마진 0 (왼쪽 정렬) */
+  border-radius: 4px; /* 이미지를 둥글게 처리하려면 추가 (옵션) */
 }
 
 .info-body .lead {
   padding: 10px 12px;
   margin: 10px 0 16px;
-  font-style: italic;
-  font-weight: 700;
-  background: rgba(0, 0, 0, 0.06);
-  border-left: 4px solid #111;
+  font-family: JSongmyeong, "Noto Sans KR", system-ui, sans-serif; /* ✅ 폰트 패밀리 적용 */
+  color: #000; /* ✅ 리드 텍스트 색상 흰색으로 */
+  background: #fff; /* ✅ 리드 텍스트 배경 흰색 반투명 */
+}
+
+.info-image2 {
+  width: 80%; /* ✅ 이미지 컨테이너의 너비 설정 */
+  height: auto;
+  margin: 24px auto; /* ✅ 위아래 마진 24px, 좌우 마진 auto로 가운데 정렬 */
+}
+
+.info-image2 img {
+  display: block; /* ✅ 블록 요소로 변경하여 정렬 문제 해결 */
+  width: 100%; /* ✅ 컨테이너에 맞게 이미지 크기 조정 */
+  height: auto;
 }
 
 @media (prefers-reduced-motion: reduce) {

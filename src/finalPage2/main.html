@@ -12,6 +12,13 @@
   </head>
 
   <body>
+    <audio
+      id="bg-music"
+      src="./assets/music/BG_music.mp3"
+      preload="auto"
+      loop
+    ></audio>
+
     <main class="main-page">
       <!-- 한자 그래픽 레이어 -->
       <div class="hanja-layer" aria-hidden="true">
@@ -117,14 +124,25 @@
         <blockquote class="lead">
           “사고는 갑자기 일어나지 않는다. 무시된 전조증상이 쌓여 재난이 된다.”
         </blockquote>
-        <p>
-          이 프로젝트는 우리 사회에 만연한 안전 불감증을 기록하고, 반복되는
-          사고의 근원에 놓인 전조증상을 시각적으로 드러냅니다. 사소해 보였던
-          징후, 익숙해서 무심히 지나친 경고들이 어떻게 참사로 이어졌는지를
-          사용자에게 직접 체험시키며, 위험을 인지하고 대응하는 문화의 필요성을
-          환기합니다. 기억만으로는 변화를 만들 수 없습니다. 작은 위험에도 귀
-          기울이는 태도가 반복을 멈추는 시작입니다.
-        </p>
+        <figure class="info-image2">
+          <img src="./assets/images/BG/popupIMG2.png" alt="이미지 설명" />
+        </figure>
+        <!-- <p>
+          이 프로젝트는 우리 사회에 만연한 안전 불감증을 기록하고,<br />
+          반복되는 사고의 근원에 놓인 전조증상을 시각적으로 드러냅니다.
+        </p> -->
+
+        <figure class="info-image">
+          <img src="./assets/images/BG/popupIMG.png" alt="설명" />
+          <figcaption>
+            사소해 보였던 징후, 익숙해서 무심히 지나친 경고들이 어떻게 참사로
+            이어졌는지를<br />
+            직접 경험해보며, 위험을 인지하고 대응하는 문화의 필요성을
+            환기합니다. <br />
+            기억만으로는 변화를 만들 수 없습니다. 작은 위험에도 귀 기울이는
+            태도가 반복을 멈추는 시작입니다.
+          </figcaption>
+        </figure>
       </section>
     </aside>
     <!-- ▲ 프로젝트 소개 끝 -->
@@ -141,5 +159,27 @@
     <script src="./js/main.js" defer></script>
     <!-- <script src="./js/hanja.js" defer></script>  // 현재 파티클 비활성 -->
     <script src="./js/loading.js" defer></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const bgMusic = document.getElementById('bg-music');
+
+        // 사용자의 첫 클릭을 감지하여 음악 재생
+        document.body.addEventListener(
+          'click',
+          function () {
+            bgMusic.play().catch((error) => {
+              console.log('Autoplay was prevented.');
+            });
+          },
+          { once: true }
+        );
+
+        // ✅ 추가된 부분: 음악이 끝났을 때 다시 재생
+        bgMusic.addEventListener('ended', function () {
+          bgMusic.currentTime = 0; // 음악 재생 위치를 처음으로 돌림
+          bgMusic.play(); // 다시 재생
+        });
+      });
+    </script>
   </body>
 </html>
