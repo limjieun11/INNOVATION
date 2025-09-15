@@ -9,6 +9,13 @@
     <link rel="stylesheet" href="./scss/scene_common.css" />
   </head>
   <body>
+    <audio id="bgm1" src="./BGM/sewol_accident.mp3" loop preload="auto"></audio>
+    <audio
+      id="bgm2"
+      src="./BGM/sewol_accident02.mp3"
+      loop
+      preload="auto"
+    ></audio>
     <main class="scene-page">
       <div id="viewer"></div>
       <button id="next-button">다음</button>
@@ -21,6 +28,27 @@
         'scene5_before.html', // ✅ 다음 페이지로 이동
         false // ✅ 이스터에그 없음
       );
+      document.addEventListener('DOMContentLoaded', () => {
+        const bgm1 = document.getElementById('bgm1');
+        const bgm2 = document.getElementById('bgm2');
+
+        // ✅ 음량 조절 코드 추가
+        bgm1.volume = 0.7;
+        bgm2.volume = 0.7;
+
+        document.body.addEventListener(
+          'click',
+          () => {
+            bgm1
+              .play()
+              .catch((e) => console.log('BGM 1 autoplay was prevented.'));
+            bgm2
+              .play()
+              .catch((e) => console.log('BGM 2 autoplay was prevented.'));
+          },
+          { once: true }
+        );
+      });
     </script>
   </body>
 </html>

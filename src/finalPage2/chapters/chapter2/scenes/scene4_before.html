@@ -27,6 +27,7 @@
     </style>
   </head>
   <body>
+    <audio id="bgm" src="./BGM/sewol.mp3" loop preload="auto"></audio>
     <main class="scene-page">
       <div id="viewer">
         <button
@@ -50,6 +51,16 @@
         'scene4_after.html',
         true // ✅ 이스터에그 포함 여부
       );
+      document.addEventListener('DOMContentLoaded', () => {
+        const bgm = document.getElementById('bgm');
+        document.body.addEventListener(
+          'click',
+          () => {
+            bgm.play().catch((e) => console.log('Autoplay was prevented.'));
+          },
+          { once: true }
+        );
+      });
     </script>
   </body>
 </html>

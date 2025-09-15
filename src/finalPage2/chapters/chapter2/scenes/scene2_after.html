@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="./scss/scene_common.css" />
   </head>
   <body>
+    <audio
+      id="bgm"
+      src="./BGM/hospital_accident.mp3"
+      loop
+      preload="auto"
+    ></audio>
     <main class="scene-page">
       <div id="viewer"></div>
       <button id="next-button">다음</button>
@@ -21,6 +27,17 @@
         'scene3_before.html', // ✅ 다음 페이지로 이동
         false // ✅ 이스터에그 없음
       );
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const bgm = document.getElementById('bgm');
+        document.body.addEventListener(
+          'click',
+          () => {
+            bgm.play().catch((e) => console.log('Autoplay was prevented.'));
+          },
+          { once: true }
+        );
+      });
     </script>
   </body>
 </html>
