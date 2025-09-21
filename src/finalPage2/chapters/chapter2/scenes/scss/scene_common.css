@@ -5,7 +5,7 @@ body {
   padding: 0;
   margin: 0;
   overflow: hidden;
-  font-family: "Noto Sans KR", sans-serif;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .scene-page {
@@ -24,22 +24,43 @@ body {
 }
 
 #next-button {
+  /* 버튼의 위치와 기본 크기 */
   position: absolute;
   right: 24px;
-  bottom: 24px;
+  top: 50%;
+  transform: translateY(-50%);
   z-index: 10;
-  padding: 10px 20px;
-  font-size: 16px;
-  color: white;
-  cursor: pointer;
-  background: rgba(0, 0, 0, 0.6);
+  width: 56px;
+  height: 56px;
+  padding: 0;
+
+  /* ✅ 동그라미 배경을 없애고 테두리 제거 */
+  background-color: transparent;
   border: none;
-  border-radius: 8px;
-  transition: background 0.2s ease;
+  border-radius: 0; /* 둥근 모서리 제거 */
+  cursor: pointer;
 }
 
-#next-button:hover {
-  background: rgba(0, 0, 0, 0.8);
+#next-button::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  content: '';
+  transform: translate(-50%, -50%);
+
+  width: 0;
+  height: 0;
+  border-style: solid;
+
+  /* ✅ 삼각형의 위아래 길이를 늘립니다. */
+
+  border-width: 48px 0 48px 24px;
+  border-color: transparent transparent transparent white;
+}
+
+#next-button:hover::after {
+  /* 호버 시 색상 변경 */
+  border-color: transparent transparent transparent #ccc;
 }
 
 .invisible-infospot {

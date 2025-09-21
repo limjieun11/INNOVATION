@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>튜토리얼 영상</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: black;
+        overflow: hidden;
+      }
+      #tutorial-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    </style>
+  </head>
+  <body>
+    <video
+      id="tutorial-video"
+      src="./MP4/chapter2_intro.mp4"
+      autoplay
+      playsinline
+      muted
+    ></video>
+
+    <script>
+      const video = document.getElementById('tutorial-video');
+
+      // 영상이 끝나는 시점을 감지하여 myroom.html로 이동
+      video.addEventListener('ended', () => {
+        window.location.href = '../scenes/myroom.html';
+      });
+    </script>
+  </body>
+</html>

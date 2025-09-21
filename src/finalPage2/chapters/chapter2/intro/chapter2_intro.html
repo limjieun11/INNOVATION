@@ -8,17 +8,20 @@
   </head>
   <body>
     <main class="chapter2-intro">
-      <!-- 🔙 뒤로가기 버튼 -->
       <a href="../../../main.html" class="back-button">
         <img src="../../../assets/images/ui/back.png" alt="뒤로가기" />
       </a>
-      <!-- 설명 텍스트 -->
       <div class="intro-text"></div>
 
-      <!-- 시작하기 버튼 -->
       <button id="start-button">시작하기</button>
     </main>
 
     <script src="./js/chapter2_intro.js" defer></script>
+    <script>
+      // ✅ 추가된 코드: 시작하기 버튼을 누르면 tutorial.html로 이동
+      document.getElementById('start-button').addEventListener('click', () => {
+        window.location.href = './tutorial.html';
+      });
+    </script>
   </body>
 </html>
