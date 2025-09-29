@@ -139,7 +139,7 @@ body {
   position: relative;
   display: block;
   aspect-ratio: 16 / 9;
-  overflow: visible;
+  overflow: hidden;
   border: 0;
   border-radius: 0;
 
@@ -147,7 +147,7 @@ body {
   box-shadow: 0 22px 56px rgb(0 0 0 / 60%),
     0 0 20px rgba(var(--glow-base) / 100%),
     0 0 28px rgba(var(--glow-base) / 90%);
-  transform: translateY(-4px) scale(1.01);
+  transform: translateY(-4px);
 }
 
 /* 어둡게 오버레이 */
