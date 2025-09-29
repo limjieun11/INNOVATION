@@ -117,7 +117,7 @@ body {
   display: grid;
   grid-template-columns: repeat(3, minmax(var(--card-min), 1fr));
   gap: clamp(16px, 2.4vw, 36px);
-  width: min(1300px, 94vw);
+  width: clamp(800px, 90vw, 1300px); /* ✅ 너비 설정 안정화 */
   margin: calc(clamp(12px, 2.4vw, 24px) + 14vh) auto 12px; /* ← 추가 내려쓰기 */
   /* 기존 margin을 풀고, 위쪽 여백을 더 크게 줌 */
 }
