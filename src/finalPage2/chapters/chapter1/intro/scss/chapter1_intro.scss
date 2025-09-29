@@ -11,9 +11,15 @@ body {
   position: relative;
   display: grid;
   gap: clamp(12px, 2vw, 18px);
-  place-items: start center;
+  align-items: start; /* 수직 정렬 유지 */
+
+  // place-items: start center;
+  justify-content: center; /* ✅ 수평 중앙 정렬을 명시 */
   height: 100dvh;
   min-height: 100dvh;
+  padding: clamp(24px, 4vw, 40px) clamp(16px, 3vw, 32px);
+  padding-top: calc(clamp(24px, 4vw, 40px) + var(--push-down));
+  text-align: center;
 
   /* 글로우 색상 */
   --glow-base: 255 255 255; /* 기본(비호버) */
@@ -21,10 +27,6 @@ body {
 
   /* 상단 내림값(기존 7vh → 16vh로 증가) */
   --push-down: 16vh;
-
-  padding: clamp(24px, 4vw, 40px) clamp(16px, 3vw, 32px);
-  padding-top: calc(clamp(24px, 4vw, 40px) + var(--push-down));
-  text-align: center;
 }
 
 .chapter1-intro > *:not(.bg-png) {
