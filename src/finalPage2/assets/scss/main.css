@@ -421,7 +421,7 @@ body {
   z-index: 90;
   display: grid;
   grid-template-rows: auto 1fr;
-  width: min(38vw, 680px);
+  width: min(100%, 680px);
   height: 100dvh;
   color: #fff; /* ✅ 팝업 패널 기본 텍스트 색상을 흰색으로 */
   background: #000 url("/INNOVATION/src/finalPage2/images/BG/noise.webp") center/320px repeat; /* ✅ 배경색 검은색 유지 */
