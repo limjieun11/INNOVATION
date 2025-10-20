@@ -533,6 +533,41 @@ body {
     transition: none;
   }
 }
+.intro-link-btn {
+  position: fixed;
+  top: 50px;
+  left: 55px;
+  z-index: 30; /* info-trigger와 동일하거나 높게 설정 */
+  display: block;
+  width: clamp(30px, 2.5vw, 50px); /* 크기 조정 가능 */
+  height: auto;
+  cursor: pointer;
+  /* 기본 애니메이션 및 효과 */
+  opacity: 0.85;
+  transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.intro-link-btn img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.intro-link-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+.intro-link-btn:active {
+  transform: scale(0.95);
+}
+
+.intro-link-btn:focus-visible {
+  outline: 2px solid #db1919;
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
 /* =========================
    9) 파티클/먼지 효과 (기존 별 효과 기반 커스터마이징)
    ========================= */
