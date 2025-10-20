@@ -435,11 +435,6 @@ body {
   transform: translateX(0);
 }
 
-@media (width > 1728px) {
-  .info-panel {
-    width: 100vw;
-  }
-}
 .info-header {
   display: grid;
   grid-template-columns: auto 1fr auto;

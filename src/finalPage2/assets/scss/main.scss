@@ -478,11 +478,12 @@ body {
 .info-panel.open {
   transform: translateX(0);
 }
-@media (width > 1728px) {
-  .info-panel {
-    width: 100vw;
-  }
-}
+
+// @media (width > 1728px) {
+//   .info-panel {
+//     width: 100vw;
+//   }
+// }
 
 .info-header {
   display: grid;
