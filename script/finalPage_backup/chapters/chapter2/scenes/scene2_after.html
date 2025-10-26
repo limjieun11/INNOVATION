@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>scene2_after</title>
+    <!-- ✅ 반드시 먼저 Three.js → Panolens -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.105.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/panolens@0.12.0/build/panolens.min.js"></script>
+    <link rel="stylesheet" href="./scss/scene_common.css" />
+  </head>
+  <body>
+    <audio
+      id="bgm"
+      src="./BGM/hospital_accident.mp3"
+      loop
+      preload="auto"
+    ></audio>
+    <main class="scene-page">
+      <div id="viewer"></div>
+      <button id="next-button"></button>
+    </main>
+
+    <script src="js/scene_common.js"></script>
+    <script>
+      initPanorama(
+        './images/panorama/scene2_after.webp', // ✅ 상대경로 주의
+        'scene3_before.html', // ✅ 다음 페이지로 이동
+        false // ✅ 이스터에그 없음
+      );
+
+      document.addEventListener('DOMContentLoaded', () => {
+        const bgm = document.getElementById('bgm');
+        document.body.addEventListener(
+          'click',
+          () => {
+            bgm.play().catch((e) => console.log('Autoplay was prevented.'));
+          },
+          { once: true }
+        );
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHAPTER 3 - 망양지탄</title>
+
+    <!-- 메인 스타일 -->
+    <link rel="stylesheet" href="./style/chapter3Main.css" />
+
+    <!-- Globe.js (UMD 전역: window.Globe) -->
+    <script src="https://unpkg.com/globe.gl"></script>
+    <!-- 임시 강제 테스트: head 맨 아래에 추가 -->
+    <style>
+      @font-face {
+        font-family: JSongMyung-Regular-KO;
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+            format('woff2'),
+          url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+            format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* 왼쪽 메뉴/설명 강제 적용 */
+      #case-menu.menu-plain button,
+      #type-description-box,
+      #type-description-box #desc-title,
+      #type-description-box #type-description {
+        font-family: JSongMyung-Regular-KO, serif !important;
+        font-weight: 400;
+        font-synthesis: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 🌍 지구 컨테이너 -->
+    <div id="globe-container" aria-label="지구 시각화 영역"></div>
+
+    <!-- 🧭 유형 버튼 (왼쪽 중앙, 텍스트만) -->
+    <nav id="case-menu" class="menu-plain" aria-label="사고 유형 선택">
+      <button data-type="rule" class="active">안전 규정 위반</button>
+      <button data-type="build">부실공사 및 관리</button>
+      <button data-type="perception">위험 인지 실패</button>
+      <button data-type="responsibility">관리 책임 부재</button>
+      <button data-type="profit">과도한 이익 추구</button>
+    </nav>
+
+    <!-- 📄 설명 박스 (좌하단) -->
+    <section id="type-description-box" aria-live="polite" aria-atomic="true">
+      <h3 id="desc-title">
+        <span class="caret" aria-hidden="true">▶</span>
+        <span id="desc-title-text">안전 규정 위반</span>
+      </h3>
+
+      <p id="type-description">
+        안전 규정을 무시하고 반복적인 경고에도 불구하고 조치를 취하지 않아
+        발생한 사례들을 모았습니다.
+      </p>
+    </section>
+
+    <!-- 🔙 back.png 아이콘 버튼 -->
+    <a href="javascript:history.back()" class="back-btn" aria-label="뒤로 가기">
+      <img src="../../assets/images/ui/back.png" alt="뒤로가기" />
+    </a>
+
+    <!-- 🖼 이미지 모달 -->
+    <div id="img-modal" aria-hidden="true">
+      <div class="backdrop"></div>
+      <div class="dialog" role="dialog" aria-label="이미지 보기">
+        <img src="" alt="" />
+        <p class="caption"></p>
+      </div>
+    </div>
+
+    <!-- 페이지 스크립트 -->
+    <script type="module" src="./countryHexGlobe.js"></script>
+  </body>
+</html>

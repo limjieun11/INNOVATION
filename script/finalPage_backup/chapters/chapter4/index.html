@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>CH4 시작</title>
+    <link rel="stylesheet" href="./style/chapter4Main.css" />
+    <style>
+      /* 1) 폰트 로드 */
+      @font-face {
+        font-family: JSongMyung-Regular-KO;
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+            format('woff2'),
+          url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+            format('woff2');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      /* 2) 챕터4 인트로: 큰 제목/설명 + 시작하기 버튼 */
+      #ch4-index.container h1,
+      #ch4-index.container p,
+      #start-btn {
+        font-family: JSongMyung-Regular-KO, serif !important;
+        font-weight: 400; /* 명조 굵기 보정 */
+        font-synthesis: none;
+      }
+      #ch4-index.container p {
+        font-weight: 400 !important;
+      }
+
+      /* 3) 결과 페이지: HOME 버튼 텍스트 */
+      .home-btn span {
+        font-family: JSongMyung-Regular-KO, serif !important;
+        font-weight: 600 !important;
+        font-synthesis: none;
+      }
+
+      /* 4) EP 페이지(Questions): 상단 타이틀/부제, 중앙 문구 */
+      .q-top .ep-title,
+      .q-top .ep-sub,
+      .q-stats .stats-title {
+        font-family: JSongMyung-Regular-KO, serif !important;
+        font-weight: 600 !important;
+        font-synthesis: none;
+      }
+      .q-top .ep-sub {
+        font-weight: 400 !important;
+      }
+
+      /* (선택) 좌/우 퍼센트 숫자도 송명체로 하고 싶으면 주석 해제
+  .q-stats .stat { font-family: JSongMyung-Regular-KO, serif !important; font-weight: 600 !important; }
+  */
+    </style>
+  </head>
+  <!-- ✅ 인트로 전용 클래스로 배경 스코프 적용 -->
+  <body class="ch4-intro">
+    <!-- 🔙 좌상단: 돌아가기 -->
+    <a href="../../main.html" class="back-btn" aria-label="뒤로 가기">
+      <img src="../../assets/images/ui/back.png" alt="" />
+    </a>
+
+    <!-- 🎨 배경만 표시 (문구 없음) -->
+    <main id="ch4-index" class="container" aria-hidden="true"></main>
+
+    <!-- ⏩ 가운데 하단 CTA (텍스트만 보이는 스타일) -->
+    <button id="start-btn" aria-label="시작하기">시작하기</button>
+
+    <script src="./script/questionData.js"></script>
+    <script src="./script/navigation.js"></script>
+    <script>
+      document.getElementById('start-btn')?.addEventListener('click', () => {
+        CH4Nav.start();
+      });
+    </script>
+  </body>
+</html>

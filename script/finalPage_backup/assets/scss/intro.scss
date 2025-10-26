@@ -1,0 +1,62 @@
+/* 스크롤 제거 + 검은 배경 */
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  overflow: hidden;
+  background: #000;
+}
+
+/* 풀뷰 래퍼 */
+.intro-wrapper {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+  @supports (height: 100dvh) {
+    height: 100dvh;
+  }
+}
+
+/* ✅ 크롭 없이 전체 보이도록 */
+#intro-video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* 핵심 */
+  object-position: center center;
+  background: #000;
+}
+
+/* 전역 규칙이 덮어쓸 때 강제 오버라이드 */
+video#intro-video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+}
+
+/* 건너뛰기 버튼 */
+#skip-button {
+  position: fixed;
+  top: calc(env(safe-area-inset-top, 0px) + 16px);
+  right: calc(env(safe-area-inset-right, 0px) + 16px);
+  z-index: 2147483647;
+  padding: 10px 14px;
+  font-weight: 700;
+  color: #00131a;
+  cursor: pointer;
+  background: #3c4445;
+  border: 0;
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgb(0 0 0 / 35%);
+}
+
+#skip-button:active {
+  transform: translateY(1px);
+}

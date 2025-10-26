@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHAPTER 1 - 연작처당</title>
+    <link rel="stylesheet" href="./scss/chapter1_intro.css?after" />
+  </head>
+  <body>
+    <main class="chapter1-intro">
+      <div
+        class="bg-png no-vignette"
+        style="
+          --bg-url: url('../images/BG/chapter1IntroBg.webp');
+          --bg-size: cover;
+          --bg-pos: 50% 50%;
+          --bg-opacity: 1;
+          --bg-darken: 0;
+          --bg-blur: 0px;
+        "
+        aria-hidden="true"
+      ></div>
+
+      <button
+        class="back-btn"
+        type="button"
+        aria-label="메인으로"
+        data-fallback="../../../main.html"
+      >
+        <img src="../../../assets/images/ui/back.png" alt="" />
+      </button>
+
+      <section class="scene-grid">
+        <a class="scene-card" href="../types/type1.html">
+          <img src="./images/thumbs/type1.webp" alt="북한 도발" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
+        <a class="scene-card" href="../types/type2.html">
+          <img src="./images/thumbs/type2.webp" alt="자연재해" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
+        <a class="scene-card" href="../types/type3.html">
+          <img src="./images/thumbs/type3.webp" alt="재난 문자 무시" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
+        <a class="scene-card" href="../types/type4.html">
+          <img src="./images/thumbs/type4.webp" alt="사고예방 무시" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
+        <a class="scene-card" href="../types/type5.html">
+          <img src="./images/thumbs/type5.webp" alt="화재 경보기 무시" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
+        <a class="scene-card" href="../types/type6.html">
+          <img src="./images/thumbs/type6.webp" alt="위험한 놀이" />
+          <span class="hover-cta">살펴보기</span>
+          <span class="label"></span>
+        </a>
+      </section>
+    </main>
+
+    <script src="./js/chapter1_intro.js" defer></script>
+  </body>
+</html>

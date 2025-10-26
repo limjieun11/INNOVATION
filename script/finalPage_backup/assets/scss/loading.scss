@@ -1,0 +1,90 @@
+/* === 로딩 오버레이 === */
+#page-loading {
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647; /* top-most */
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  background: rgb(0 0 0 / 78%);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+/* hidden 속성 대응 (표시 차단 강제) */
+#page-loading[hidden] {
+  display: none !important;
+}
+
+#page-loading.show {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+#page-loading .box {
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  padding: 20px 24px;
+  background: rgb(18 25 35 / 72%);
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+}
+
+#page-loading .spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgb(255 255 255 / 25%);
+  border-top-color: #da1d1d;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+#page-loading .label {
+  font-size: 14px;
+  color: #eaf6ff;
+  opacity: 0.95;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 스크롤/터치 잠금 */
+.body-lock {
+  overflow: hidden;
+  touch-action: none;
+}
+
+/* 접근성: 모션 최소화 환경 */
+@media (prefers-reduced-motion: reduce) {
+  #page-loading {
+    transition: none;
+  }
+
+  #page-loading .spinner {
+    border-top-color: rgb(255 255 255 / 65%);
+    animation: none;
+  }
+}
+
+/* === 추가할 코드: 1728px보다 큰 화면에서 크기 조정 === */
+@media (width > 1728px) {
+  #page-loading .box {
+    padding: 30px 36px;
+    border-width: 2px;
+  }
+
+  #page-loading .spinner {
+    width: 60px;
+    height: 60px;
+    border-width: 4px;
+  }
+
+  #page-loading .label {
+    font-size: 20px;
+  }
+}

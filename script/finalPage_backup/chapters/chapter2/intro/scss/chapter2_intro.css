@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+/* 전체 레이아웃 */
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overscroll-behavior: none;
+  font-family: 'Noto Sans KR', sans-serif;
+  background: #000; /* 상단 흰줄 보이는 것 방지 */
+}
+
+.chapter2-intro {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100dvh; /* 모바일/데스크탑 모두 안정적 */
+  min-height: 100dvh;
+  overflow: hidden; /* 미세한 오버플로우 차단 */
+  color: #fff;
+  text-align: center;
+  background: url('../images/introBg.webp') no-repeat center/cover;
+}
+
+/* 뒤로가기 버튼 (배경 이미지 위에 고정) */
+.back-button {
+  /* ← .back-btn → .back-button 로 통일 */
+  position: absolute; /* 부모(.chapter2-intro) 기준 */
+  top: 20px;
+  left: 38px;
+  z-index: 2000;
+  width: 60px;
+  height: 60px;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.back-button img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.4));
+}
+
+.back-button:focus-visible {
+  outline: 2px solid #00d4ff;
+  outline-offset: 3px;
+}
+
+/* 텍스트 (기본 마진 제거로 상단 여백 문제 방지) */
+.intro-text h1,
+.intro-text p {
+  margin: 0;
+}
+
+.intro-text h1 {
+  margin-bottom: 1rem;
+  font-size: 2.2rem;
+}
+
+.intro-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.highlight {
+  padding: 2px 6px;
+  font-weight: bold;
+  background: #e60000;
+}
+
+/* 시작하기 버튼 */
+#start-button {
+  position: absolute;
+  bottom: 60px;
+  left: 50%;
+  padding: 12px 28px;
+  font-size: 48px;
+  font-weight: bold;
+  color: #fff;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  transform: translateX(-50%);
+  transition: all 0.3s;
+}
+
+#start-button:hover {
+  color: #f03;
+}

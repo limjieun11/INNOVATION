@@ -1,0 +1,48 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.scene-page {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#viewer {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+#next-button {
+  position: absolute;
+  right: 24px;
+  bottom: 24px;
+  z-index: 10;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  cursor: pointer;
+  background: rgb(0 0 0 / 60%);
+  border: none;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+#next-button:hover {
+  background: rgb(0 0 0 / 80%);
+}
+
+.invisible-infospot {
+  pointer-events: auto !important;
+  opacity: 0 !important;
+}

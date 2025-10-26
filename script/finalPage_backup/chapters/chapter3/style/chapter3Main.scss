@@ -1,0 +1,315 @@
+/*******************************************************
+ * CHAPTER 3 — Main Screen (SCSS / stylelint 호환)
+ * - @use "sass:color" 모듈 함수 사용
+ * - lighten()  → color.adjust($c, $lightness: ...)
+ * - rgba($c,a) → color.change($c, $alpha: ...)
+ ********************************************************/
+
+/* 웹폰트 선언: 최상단 유지 */
+@font-face {
+  font-family: JSongMyung-Regular-KO;
+  font-style: normal;
+  font-weight: normal;
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+      format('woff2'),
+    url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2')
+      format('woff2');
+  font-display: swap;
+}
+
+@use 'sass:color';
+
+/* ===================== 변수 ===================== */
+$accent: #19e6ff; // 포인트 컬러
+$text: #e8f0f6; // 본문 색
+$panel: rgb(0 0 0 / 35%); // 패널 배경(반투명)
+$shadow-ui: 0 8px 30px rgb(0 0 0 / 35%);
+$z-globe: 1;
+$z-ui: 5; // 메뉴/설명 등 UI
+$z-back: 6; // BACK 버튼
+$z-modal: 9999; // 이미지 모달
+$mobile-break: 820px;
+
+/* ===================== 리셋/베이스 ===================== */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  font-family: 'Noto Sans KR', system-ui, -apple-system, 'Segoe UI', Roboto,
+    Arial, sans-serif;
+  color: $text;
+  background: #000 url('../img/BG/introBg.webp') center/cover no-repeat fixed;
+}
+
+/* ===================== 지구 컨테이너 ===================== */
+#globe-container {
+  position: fixed;
+  inset: 0;
+  z-index: $z-globe;
+
+  canvas {
+    background: transparent !important;
+  }
+}
+
+/* ===================== 메뉴 ===================== */
+#case-menu {
+  position: fixed;
+  z-index: $z-ui;
+  display: flex;
+  flex-direction: column;
+}
+
+#case-menu.menu-plain {
+  top: 50%;
+  left: 36px;
+  gap: 28px;
+  align-items: flex-start;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  transform: translateY(-50%);
+
+  button {
+    all: unset;
+    display: block;
+    font-family: JSongMyung-Regular-KO, serif;
+    font-size: clamp(12px, 1.7vw, 16px);
+    font-weight: 400; /* ✅ 이 폰트는 400만 확실 */
+    line-height: 1.2;
+    color: #eaf6ff;
+    letter-spacing: 0.2px;
+    cursor: pointer;
+    opacity: 0.9;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+    font-synthesis: none; /* ✅ 굵기 합성 방지 */
+
+    &:hover {
+      opacity: 1;
+      transform: translateX(2px);
+    }
+
+    &.active {
+      color: $accent;
+      text-shadow: 0 0 10px color.change($accent, $alpha: 0.45);
+      opacity: 1;
+    }
+  }
+}
+
+/* 모바일 */
+@media (max-width: $mobile-break) {
+  #globe-container {
+    display: none;
+  }
+
+  #case-menu.menu-plain {
+    top: 48px;
+    left: 50%;
+    gap: clamp(24px, 7vh, 64px);
+    transform: translateX(-50%);
+
+    button {
+      font-family: JSongMyung-Regular-KO, serif; /* ✅ 모바일도 동일 폰트 */
+      font-size: clamp(22px, 7.2vw, 40px);
+      font-weight: 400;
+      text-align: center;
+      font-synthesis: none;
+
+      &:hover {
+        transform: none;
+      }
+
+      &.active {
+        color: color.adjust($accent, $lightness: 25%);
+        text-shadow: 0 0 14px rgb(144 255 255 / 55%);
+      }
+    }
+  }
+}
+
+/* ===================== 좌하단 설명 박스 ===================== */
+#type-description-box {
+  position: fixed;
+  bottom: 32px;
+  left: 24px;
+  z-index: $z-ui;
+  max-width: min(40vw, 540px);
+  padding: 16px 18px;
+  background: $panel;
+  border-radius: 8px;
+  box-shadow: $shadow-ui;
+  backdrop-filter: blur(4px);
+
+  #desc-title {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin: 0 0 10px;
+    font-family: JSongMyung-Regular-KO, serif; /* ✅ 적용 */
+    font-size: 20px;
+    font-weight: 600; /* ✅ 800→600으로 낮춤 */
+    color: #fff;
+    letter-spacing: 0.2px;
+
+    .caret {
+      font-size: 0.6em;
+      line-height: 1;
+      color: #fff;
+      text-shadow: 0 0 12px color.change(#ff7a00, $alpha: 0.55);
+      transform: translateY(-0.04em);
+    }
+  }
+
+  #type-description {
+    margin: 0;
+    font-family: JSongMyung-Regular-KO, serif; /* ✅ 적용 */
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.8; /* ✅ 명조체 여백 확보 */
+    color: color.adjust($text, $lightness: 4%);
+    text-shadow: 0 1px 0 rgb(0 0 0 / 35%);
+  }
+}
+
+@media (max-width: $mobile-break) {
+  #type-description-box {
+    right: 24px;
+    bottom: 28px;
+    left: 24px;
+    max-width: none;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    backdrop-filter: none;
+
+    #desc-title {
+      font-family: JSongMyung-Regular-KO, serif; /* ✅ 모바일도 동일 폰트 */
+      font-size: clamp(18px, 5vw, 26px);
+      font-weight: 600;
+
+      .caret {
+        color: color.adjust($accent, $lightness: 10%);
+      }
+    }
+
+    #type-description {
+      font-family: JSongMyung-Regular-KO, serif;
+      font-size: clamp(13px, 3.7vw, 17px);
+      font-weight: 400;
+      line-height: 1.9;
+      color: #e9eef2;
+    }
+  }
+}
+
+/* ===================== BACK 버튼 ===================== */
+.back-btn {
+  position: fixed;
+  top: max(16px, env(safe-area-inset-top));
+  left: max(16px, env(safe-area-inset-left));
+  z-index: $z-back;
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+
+  &:hover {
+    opacity: 0.95;
+    transform: translateX(-1px);
+  }
+
+  &:focus-visible {
+    outline: 2px solid $accent;
+    outline-offset: 3px;
+  }
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 6px 18px rgb(0 0 0 / 35%));
+  }
+}
+
+/* ===================== 이미지 모달 (수정) ===================== */
+#img-modal {
+  position: fixed;
+  inset: 0;
+  z-index: $z-modal;
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
+
+  .backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgb(40 109 120 / 60%);
+  }
+
+  .dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 8px;
+    width: min(96vw, 900px); /* 필요 시 1200px로 확대 */
+    max-height: 90vh;
+    padding: 12px;
+    background: rgb(18 25 35 / 96%);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgb(0 0 0 / 45%);
+    transform: translate(-50%, -50%);
+
+    .close {
+      justify-self: end;
+      padding: 6px 10px;
+      color: #fff;
+      cursor: pointer;
+      background: rgb(0 0 0 / 30%);
+      border: 0;
+      border-radius: 10px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      max-height: calc(90vh - 64px);
+      margin: 0 auto;
+      object-fit: contain;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgb(0 0 0 / 35%);
+    }
+
+    .caption {
+      display: none;
+    }
+  }
+}
+
+/* ===================== 접근성 ===================== */
+@media (prefers-reduced-motion: reduce) {
+  #case-menu.menu-plain button,
+  .back-btn {
+    transition: none;
+  }
+}

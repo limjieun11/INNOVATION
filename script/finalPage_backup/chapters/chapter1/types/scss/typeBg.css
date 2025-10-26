@@ -1,0 +1,33 @@
+/* types/scss/typeBg.css */
+body {
+  margin: 0;
+  background-color: #000;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+body.type1 {
+  background-image: url('../img/Bg/type1.webp');
+}
+
+body.type2 {
+  background-image: url('../img/Bg/type2.webp');
+}
+
+body.type3 {
+  background-image: url('../img/Bg/type3.webp');
+}
+
+body.type4 {
+  background-image: url('../img/Bg/type4.webp');
+}
+
+body.type5 {
+  background-image: url('../img/Bg/type5.webp');
+}
+
+body.type6 {
+  background-image: url('../img/Bg/type6.webp');
+}
