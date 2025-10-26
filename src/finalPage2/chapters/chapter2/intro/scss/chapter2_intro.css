@@ -1,5 +1,13 @@
 @charset "UTF-8";
 /* 전체 레이아웃 */
+/* JSongmyeong 폰트 정의가 이 페이지의 CSS 파일에 있는지 확인하세요. */
+@font-face {
+  font-family: JSongmyeong;
+  font-weight: normal;
+  /* 폰트 파일 경로가 정확한지 확인 */
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/JSongMyung-Regular-KO.woff2") format("woff2");
+  font-display: swap;
+}
 html,
 body {
   height: 100%;

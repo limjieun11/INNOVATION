@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MAIN</title>
 
-    <!-- 메인 스타일 -->
     <link rel="stylesheet" href="./assets/scss/main.css?v=1.1" />
-    <!-- 기존 로딩 스타일 -->
     <link rel="stylesheet" href="./assets/scss/loading.css?v=1.1" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
   </head>
 
   <body>
@@ -39,9 +40,7 @@
         <div id="stars4"></div>
       </div>
 
-      <!-- 한자 그래픽 레이어 -->
       <div class="hanja-layer" aria-hidden="true">
-        <!-- 1) 한자-1: 래퍼 + 광택 스윕(hover) + 입장 inkfade -->
         <div class="hanja hanja-1">
           <img
             id="hanja1"
@@ -52,7 +51,6 @@
           />
         </div>
 
-        <!-- 2) 깜빡임: 기본 깜빡, 호버 시 더 빠르게 -->
         <img
           class="hanja hanja-2 flicker"
           src="./assets/images/hanja/hanja-qianchezhijian.webp"
@@ -60,7 +58,6 @@
           draggable="false"
         />
 
-        <!-- 3) 블러 리빌: 흐림 → 호버 시 선명 -->
         <img
           class="hanja hanja-3 blur-reveal"
           src="./assets/images/hanja/hanja-wangyangzhitan.webp"
@@ -68,7 +65,6 @@
           draggable="false"
         />
 
-        <!-- 4) 팝업: 호버 시 급확대 -->
         <img
           class="hanja hanja-4 pop"
           src="./assets/images/hanja/hanja-youbeiwuhuan.webp"
@@ -77,18 +73,16 @@
         />
       </div>
 
-      <!-- 챕터 버튼(세로쓰기) -->
       <section class="chapter-buttons">
         <button
-          class="chapter-btn btn-mu"
+          class="chapter-btn btn-mu btn-glitch"
           data-link="./chapters/chapter1/intro/chapter1_intro.html"
         >
           무시
         </button>
 
-        <!-- ✅ CH2만 로딩 오버레이 사용 -->
         <button
-          class="chapter-btn btn-gyeong"
+          class="chapter-btn btn-gyeong btn-glitch"
           data-link="./chapters/chapter2/intro/chapter2_intro.html"
           data-loading="true"
         >
@@ -96,14 +90,14 @@
         </button>
 
         <button
-          class="chapter-btn btn-hoo"
+          class="chapter-btn btn-hoo btn-glitch"
           data-link="./chapters/chapter3/chapter3_main.html"
         >
           후회
         </button>
 
         <button
-          class="chapter-btn btn-seong"
+          class="chapter-btn btn-seong btn-glitch"
           data-link="./chapters/chapter4/index.html"
         >
           성찰
@@ -111,7 +105,6 @@
       </section>
     </main>
 
-    <!-- ▶ 프로젝트 소개 트리거 + 패널 + 오버레이 -->
     <button
       id="infoBtn"
       class="info-trigger info-pos-tr"
@@ -150,11 +143,6 @@
         <figure class="info-image2">
           <img src="./assets/images/BG/popupIMG2.png" alt="이미지 설명" />
         </figure>
-        <!-- <p>
-          이 프로젝트는 우리 사회에 만연한 안전 불감증을 기록하고,<br />
-          반복되는 사고의 근원에 놓인 전조증상을 시각적으로 드러냅니다.
-        </p> -->
-
         <figure class="info-image">
           <img src="./assets/images/BG/popupIMG.png" alt="설명" />
           <figcaption>
@@ -168,9 +156,6 @@
         </figure>
       </section>
     </aside>
-    <!-- ▲ 프로젝트 소개 끝 -->
-
-    <!-- 기존 로딩 JS가 기대하는 오버레이 마크업 -->
     <div id="page-loading" aria-hidden="true" hidden>
       <div class="box" role="dialog" aria-label="로딩 안내">
         <div class="spinner" aria-hidden="true"></div>
@@ -178,9 +163,7 @@
       </div>
     </div>
 
-    <!-- 페이지 스크립트 -->
     <script src="./js/main.js" defer></script>
-    <!-- <script src="./js/hanja.js" defer></script>  // 현재 파티클 비활성 -->
     <script src="./js/loading.js" defer></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {

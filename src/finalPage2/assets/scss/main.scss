@@ -206,6 +206,7 @@ body {
 .flicker:hover {
   --spd: 0.35s;
 }
+
 @keyframes hanja-flicker {
   0%,
   100% {
@@ -270,6 +271,7 @@ body {
   width: var(--btn-w);
   height: var(--btn-h);
   padding: 10px 6px;
+  overflow: hidden;
   font-family: ProjectLabel, Pretendard, Inter, 'Noto Sans KR', system-ui,
     -apple-system, 'Segoe UI', Roboto, sans-serif;
   font-size: var(--btn-fs);
@@ -285,9 +287,44 @@ body {
   border-radius: 0;
   box-shadow: 0 10px 26px rgb(0 0 0 / 28%);
   writing-mode: vertical-rl;
+  transform: translateZ(0);
   transition: transform 0.08s ease, background 0.15s ease, box-shadow 0.2s ease,
     color 0.15s ease;
   text-orientation: upright;
+}
+
+.chapter-btn.btn-glitch-active {
+  /* SVG 필터 적용 */
+  filter: url('#filter');
+
+  /* 글리치 바(Bar) 생성 및 색상 설정 */
+  &::after,
+  &::before {
+    position: absolute;
+    top: -1px;
+    bottom: -1px;
+    width: 1px;
+    content: '';
+
+    /* 세로쓰기 버튼이므로 left/right 대신 top/bottom을 제어할 수도 있지만,
+           원본 코드가 가로쓰기 기준으로 되어 있어 일단 수직 바 형태로 적용합니다. */
+  }
+
+  &::after {
+    /* 빨간색 글리치 바 */
+    left: -2px;
+    background-color: #ff536b; /* $glitch-red */
+    animation: colorshift-red 2.6s infinite;
+    animation-timing-function: step-end;
+  }
+
+  &::before {
+    /* 파란색 글리치 바 */
+    right: -2px;
+    background-color: #3ffeff; /* $glitch-blue */
+    animation: colorshift-blue 2.6s infinite;
+    animation-timing-function: step-end;
+  }
 }
 
 .chapter-btn:hover {
@@ -340,6 +377,50 @@ body {
     opacity: 1 !important;
     filter: none !important;
     animation: none !important;
+  }
+}
+
+@keyframes colorshift-red {
+  0%,
+  7% {
+    background-color: #ff536b;
+  }
+
+  8%,
+  18% {
+    background-color: transparent;
+  }
+
+  19% {
+    width: 2px;
+    background-color: #ff536b;
+  }
+
+  23%,
+  100% {
+    background-color: transparent;
+  }
+}
+
+@keyframes colorshift-blue {
+  0%,
+  7% {
+    background-color: #3ffeff;
+  }
+
+  8%,
+  18% {
+    background-color: transparent;
+  }
+
+  19% {
+    width: 2px;
+    background-color: #3ffeff;
+  }
+
+  23%,
+  100% {
+    background-color: transparent;
   }
 }
 
