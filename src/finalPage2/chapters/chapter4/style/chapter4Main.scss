@@ -189,3 +189,16 @@ body.ch4-result {
     transition: none;
   }
 }
+
+.noise {
+  position: fixed;
+  inset: 0;
+  z-index: 1001; /* 다른 모든 콘텐츠 (z-index: 2000인 뒤로가기 버튼 제외) 위에 오도록 충분히 높게 설정 */
+  visibility: visible;
+  pointer-events: none; /* 클릭 이벤트를 통과시킴 */
+  background-image: url('https://i.ibb.co/x3TCktM/645cbb8ec449398255b76326-noise.gif');
+  background-position: 0 0;
+  background-size: auto;
+  opacity: 0.15; /* 은은한 효과를 위해 투명도 설정 */
+  transition: opacity 0.2s cubic-bezier(0.445, 0.05, 0.55, 0.95);
+}
