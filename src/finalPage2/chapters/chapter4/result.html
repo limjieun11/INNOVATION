@@ -30,5 +30,23 @@
 
     <!-- import 사용하므로 module로 로드 -->
     <script type="module" src="./script/resultLogic.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const delayTime = 120000; // 5분 = 300,000 밀리초 3분 = 180,000 밀리초 1분 = 60,000 밀리초
+
+        // main.html로 이동할 상대 경로 설정
+        const targetPageURL = '../../main.html';
+
+        function redirectToMain() {
+          console.log(`페이지가 2분 후 ${targetPageURL}로 이동합니다.`);
+
+          setTimeout(function () {
+            window.location.href = targetPageURL;
+          }, delayTime);
+        }
+
+        redirectToMain();
+      });
+    </script>
   </body>
 </html>

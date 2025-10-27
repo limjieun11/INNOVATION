@@ -65,5 +65,27 @@
     </main>
 
     <script src="./js/chapter1_intro.js" defer></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const delayTime = 60000; // 10초 (10000ms)
+
+        // main.html로 이동할 상대 경로 설정
+        // (현재 파일이 chapter/chapter1/intro/에 있다고 가정)
+        const targetPageURL = '../../../main.html';
+
+        function redirectToMain() {
+          console.log(
+            `페이지가 ${delayTime / 1000}초 후 ${targetPageURL}로 이동합니다.`
+          );
+
+          setTimeout(function () {
+            window.location.href = targetPageURL;
+          }, delayTime);
+        }
+
+        redirectToMain();
+      });
+    </script>
   </body>
 </html>

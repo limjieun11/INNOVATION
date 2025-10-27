@@ -36,5 +36,23 @@
   <body class="type1">
     <div id="balloon-container"></div>
     <script src="./js/type1.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const delayTime = 300000; // 1분 = 60,000 밀리초
+
+        // 경로: 현재 위치 (예: chapters/chapter1/types/)에서 루트의 main.html로 이동
+        const targetPageURL = '../../../main.html';
+
+        function redirectToMain() {
+          console.log(`페이지가 1분 후 ${targetPageURL}로 이동합니다.`);
+
+          setTimeout(function () {
+            window.location.href = targetPageURL;
+          }, delayTime);
+        }
+
+        redirectToMain();
+      });
+    </script>
   </body>
 </html>

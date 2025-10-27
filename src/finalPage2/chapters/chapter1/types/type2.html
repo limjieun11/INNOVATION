@@ -33,5 +33,24 @@
   <body class="type2">
     <div id="balloon-container"></div>
     <script src="./js/type2.js"></script>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const delayTime = 300000; // 5분 = 300,000 밀리초
+
+        // main.html로 이동할 상대 경로 설정
+        const targetPageURL = '../../../main.html';
+
+        function redirectToMain() {
+          console.log(`페이지가 5분 후 ${targetPageURL}로 이동합니다.`);
+
+          setTimeout(function () {
+            window.location.href = targetPageURL;
+          }, delayTime);
+        }
+
+        redirectToMain();
+      });
+    </script>
   </body>
 </html>
