@@ -78,13 +78,13 @@
     <script type="module" src="./countryHexGlobe.js"></script>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const delayTime = 180000; // 5분 = 300,000 밀리초 3분 = 180,000 밀리초 1분 = 60,000 밀리초
+        const delayTime = 600000; // 5분 = 300,000 밀리초 3분 = 180,000 밀리초 1분 = 60,000 밀리초
 
         // main.html로 이동할 상대 경로 설정
         const targetPageURL = '../../main.html';
 
         function redirectToMain() {
-          console.log(`페이지가 3분 후 ${targetPageURL}로 이동합니다.`);
+          console.log(`페이지가 10분 후 ${targetPageURL}로 이동합니다.`);
 
           setTimeout(function () {
             window.location.href = targetPageURL;
