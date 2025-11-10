@@ -43,9 +43,12 @@ body {
   font-display: swap;
 }
 /* 3) 기본 글꼴 */
+/* 3) 기본 글꼴 */
 body {
   overflow: hidden;
   font-family: ProjectLabel, Pretendard, Inter, "Noto Sans KR", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  /* ❌ 제거: body 전체의 검은색 배경 설정 제거 */
+  /* background-color: #000; */
 }
 
 /* 4) 메인 풀블리드 레이아웃 + dvh 폴백 */
@@ -56,9 +59,12 @@ body {
   place-items: center;
   min-height: 100vh; /* 폴백 */
   padding: 0;
+  /* ❌ 제거: main-page의 검은색 배경 설정 제거 */
+  /* background-color: #000; */
   background-image: radial-gradient(900px 600px at 70% -10%, rgba(0, 212, 255, 0.12), transparent 55%), url("../images/BG/mainBg.webp");
   background-repeat: no-repeat;
   background-position: center;
+  /* ✅ (미디어쿼리로 분기된) 기본값: cover 유지 */
   background-size: cover;
 }
 

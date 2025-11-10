@@ -112,14 +112,17 @@ body {
 
 /* ===== 썸네일 그리드 ===== */
 .scene-grid {
-  --card-min: 420px;
+  /* ✅ 수정: 기본 최소 너비를 300px로 줄여 공간 확보 */
+  --card-min: 300px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(var(--card-min), 1fr));
+  /* grid-template-columns: repeat(3, minmax(var(--card-min), 1fr)); */
+  /* ✅ 수정: minmax 대신 auto-fit을 사용하여 유연하게 3열을 유지 */
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-min), 1fr));
   gap: clamp(16px, 2.4vw, 36px);
-  justify-self: center;
-  width: clamp(800px, 90vw, 1300px); /* ✅ 너비 설정 안정화 */
-  margin: calc(clamp(12px, 2.4vw, 24px) + 14vh) auto 12px; /* ← 추가 내려쓰기 */
-  /* 기존 margin을 풀고, 위쪽 여백을 더 크게 줌 */
+  justify-self: center; /* (기존 유지) */
+  /* ✅ 수정: 너비를 90vw로 고정하여 중앙 정렬 보장 */
+  width: min(1300px, 90vw); /* 너비를 90vw로 제한하여 화면에 맞춤 */
+  margin: calc(clamp(12px, 2.4vw, 24px) + 14vh) auto 12px; /* 좌우 auto로 중앙 정렬 */
 }
 
 /* ===== 썸네일 카드 ===== */
