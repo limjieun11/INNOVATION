@@ -281,6 +281,11 @@ body {
   --btn-fs: 62px;
 
   position: absolute;
+
+  /* ✅ 중앙 정렬을 위한 Flexbox 추가/수정 */
+  display: flex; /* Flexbox 활성화 */
+  align-items: center; /* 교차축(가로) 중앙 정렬 */
+  justify-content: center; /* 주축(세로) 중앙 정렬 (writing-mode에 의해 주축이 세로가 됨) */
   width: var(--btn-w);
   height: var(--btn-h);
   padding: 10px 6px;

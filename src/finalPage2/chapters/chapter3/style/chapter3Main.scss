@@ -247,6 +247,16 @@ body {
 }
 
 /* ===================== 이미지 모달 (수정) ===================== */
+
+/* ===================== 이미지 모달 (수정) ===================== */
+
+/* ===================== 이미지 모달 (수정) ===================== */
+
+/* ===================== 이미지 모달 (수정) ===================== */
+
+/* ===================== 이미지 모달 (수정) ===================== */
+
+/* ===================== 이미지 모달 (수정) ===================== */
 #img-modal {
   position: fixed;
   inset: 0;
@@ -268,32 +278,35 @@ body {
     top: 50%;
     left: 50%;
     display: grid;
-    grid-template-rows: auto 1fr;
-    gap: 8px;
-    width: min(96vw, 900px); /* 필요 시 1200px로 확대 */
-    max-height: 90vh;
+    grid-template-areas:
+      'image'
+      'caption';
+    grid-template-rows: 1fr auto;
+    gap: 16px;
+    place-items: center center;
+
+    /* ✅ 수정 1: 창의 최대 너비를 화면의 15vw로 강제 설정 (매우 작게) */
+    width: 15vw;
+
+    /* ✅ 수정 2: 창의 최대 높이를 화면의 15vh로 강제 설정 (매우 작게) */
+    max-height: 15vh;
     padding: 12px;
     background: rgb(18 25 35 / 96%);
     border-radius: 16px;
     box-shadow: 0 20px 60px rgb(0 0 0 / 45%);
     transform: translate(-50%, -50%);
 
-    .close {
-      justify-self: end;
-      padding: 6px 10px;
-      color: #fff;
-      cursor: pointer;
-      background: rgb(0 0 0 / 30%);
-      border: 0;
-      border-radius: 10px;
-    }
+    /* 기존 close 버튼은 HTML에 없으므로, 주석 처리된 부분 제거 */
 
     img {
       display: block;
+      grid-area: image;
       width: 100%;
       max-width: 100%;
       height: auto;
-      max-height: calc(90vh - 64px);
+
+      /* ✅ 수정 3: 이미지 최대 높이를 팝업 창 최대 높이 (15vh)에 맞춰 조정 */
+      max-height: calc(15vh - 40px); /* 15vh - 40px (패딩 및 간격) */
       margin: 0 auto;
       object-fit: contain;
       border-radius: 10px;
@@ -301,7 +314,12 @@ body {
     }
 
     .caption {
-      display: none;
+      display: block;
+      grid-area: caption;
+      padding: 0 10px;
+      font-size: clamp(14px, 1.1vw, 18px);
+      color: #e9e9e9;
+      text-align: center;
     }
   }
 }
