@@ -290,21 +290,29 @@ body {
     font-size: clamp(14px, 1.2vw, 22px);
   }
 
+  @media (width > 1728px) {
+  /* ... (다른 설정 유지) ... */
+
   .scene-grid {
     gap: clamp(24px, 3vw, 48px);
     
-    /* ✅ 수정: 그리드의 최대 너비를 2열에 맞게 조정 */
-    /* 현재: width: clamp(1400px, 80vw, 1600px); */
-    /* 변경: 2열 이미지와 간격을 고려하여 최대 너비를 약 1200px ~ 1300px 정도로 줄입니다. */
-    width: clamp(1000px, 70vw, 1300px); /* 최소, 중간, 최대 너비 조정 */
+    /* ❌ 이전: width: clamp(1400px, 80vw, 1600px); */
+    /* ❌ 이전 수정: width: clamp(1000px, 70vw, 1300px); */
+    
+    /* ✅ 최종 수정: 2열을 위한 최대 너비를 픽셀로 고정 */
+    /* 2열이 너무 넓어지지 않도록 최대 너비를 1100px로 제한합니다. */
+    width: 1100px; 
     
     margin: calc(clamp(12px, 2.4vw, 24px) + 14vh) auto 12px;
 
-    /* ✅ 이 부분은 이미 2열로 잘 설정되어 있습니다. */
+    /* 2열 명시적으로 고정 */
     grid-template-columns: repeat(2, 1fr); 
     
-    --card-min: 600px; /* 이 값은 1fr이 2열로 잘 분할되도록 영향을 줍니다. */
+    --card-min: 600px;
   }
+
+  /* ... (다른 설정 유지) ... */
+}
 
   .scene-card .hover-cta {
     gap: 14px;
