@@ -278,28 +278,40 @@ body {
 
 @media (width > 1728px) {
   .chapter1-intro {
-    /* 큰 화면에서 더 내려오도록 패딩 조정 */
-    --push-down: 18vh; /* 이전 18vh -> 20vh로 증가 */
+    --push-down: 18vh;
   }
 
   .title {
-    /* 폰트 크기 최댓값 늘리기 */
-    font-size: clamp(
-      42px,
-      10vw,
-      170px
-    ); /* 이전 9vw, 150px -> 10vw, 170px로 증가 */
+    font-size: clamp(42px, 10vw, 170px);
   }
 
   .description {
-    /* 설명 텍스트의 크기 최댓값 늘리기 */
-    max-width: min(1200px, 93vw); /* 이전 1100px, 92vw -> 1300px, 94vw로 증가 */
-    font-size: clamp(
-      14px,
-      1.2vw,
-      22px
-    ); /* 이전 1.05vw, 20px -> 1.2vw, 22px로 증가 */
+    max-width: min(1200px, 93vw);
+    font-size: clamp(14px, 1.2vw, 22px);
   }
+
+  .scene-grid {
+    gap: clamp(24px, 3vw, 48px);
+    
+    /* ✅ 수정: 그리드의 최대 너비를 2열에 맞게 조정 */
+    /* 현재: width: clamp(1400px, 80vw, 1600px); */
+    /* 변경: 2열 이미지와 간격을 고려하여 최대 너비를 약 1200px ~ 1300px 정도로 줄입니다. */
+    width: clamp(1000px, 70vw, 1300px); /* 최소, 중간, 최대 너비 조정 */
+    
+    margin: calc(clamp(12px, 2.4vw, 24px) + 14vh) auto 12px;
+
+    /* ✅ 이 부분은 이미 2열로 잘 설정되어 있습니다. */
+    grid-template-columns: repeat(2, 1fr); 
+    
+    --card-min: 600px; /* 이 값은 1fr이 2열로 잘 분할되도록 영향을 줍니다. */
+  }
+
+  .scene-card .hover-cta {
+    gap: 14px;
+    padding: 12px 20px;
+    font-size: clamp(16px, 1.5vw, 28px);
+  }
+}
 
   .scene-grid {
     grid-template-columns: repeat(2, 1fr);
