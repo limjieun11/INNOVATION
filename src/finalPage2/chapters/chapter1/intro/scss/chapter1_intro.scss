@@ -276,47 +276,44 @@ body {
   }
 }
 
-@media (width > 1728px) {
+@media (width > 1528px) {
   .chapter1-intro {
+    /* 큰 화면에서 더 내려오도록 패딩 조정 */
     --push-down: 18vh;
   }
 
   .title {
+    /* 폰트 크기 최댓값 늘리기 */
     font-size: clamp(42px, 10vw, 170px);
   }
 
   .description {
+    /* 설명 텍스트의 크기 최댓값 늘리기 */
     max-width: min(1200px, 93vw);
     font-size: clamp(14px, 1.2vw, 22px);
   }
 
-  @media (width > 1728px) {
-  /* ... (다른 설정 유지) ... */
-
   .scene-grid {
     gap: clamp(24px, 3vw, 48px);
     
-    /* ❌ 이전: width: clamp(1400px, 80vw, 1600px); */
-    /* ❌ 이전 수정: width: clamp(1000px, 70vw, 1300px); */
-    
-    /* ✅ 최종 수정: 2열을 위한 최대 너비를 픽셀로 고정 */
-    /* 2열이 너무 넓어지지 않도록 최대 너비를 1100px로 제한합니다. */
-    width: 1100px; 
-    
+    /* ✅ 수정: 너비를 화면 크기에 맞춰 유연하게 유지 (이미지 크기 확대 허용) */
+    /* width: 1100px; 픽셀 고정 제거 */
+    width: clamp(1400px, 80vw, 1600px); 
+
+    /* 중앙 정렬 유지 */
     margin: calc(clamp(12px, 2.4vw, 24px) + 14vh) auto 12px;
 
-    /* 2열 명시적으로 고정 */
+    /* ✅ 2열 고정: 이 속성이 3열 확장을 방지하는 핵심입니다. */
     grid-template-columns: repeat(2, 1fr); 
     
     --card-min: 600px;
   }
 
-  /* ... (다른 설정 유지) ... */
-}
-
   .scene-card .hover-cta {
-    gap: 14px;
-    padding: 12px 20px;
+    gap: 14px; /* CTA 아이콘과의 간격도 늘림 */
+    padding: 12px 20px; /* CTA 패딩도 살짝 늘림 */
+
+    /* CTA 폰트 크기 최댓값 늘리기 */
     font-size: clamp(16px, 1.5vw, 28px);
   }
 }
