@@ -121,7 +121,7 @@ body {
   gap: clamp(16px, 2.4vw, 36px);
   justify-self: center; /* (기존 유지) */
   /* ✅ 수정: 너비를 90vw로 고정하여 중앙 정렬 보장 */
-  width: min(1300px, 90vw); /* 너비를 90vw로 제한하여 화면에 맞춤 */
+  width: min(1900px, 90vw); /* 너비를 90vw로 제한하여 화면에 맞춤 */
   margin: calc(clamp(12px, 2.4vw, 24px) + 14vh) auto 12px; /* 좌우 auto로 중앙 정렬 */
 }
 
